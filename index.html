@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KN5 Shop - Loja Online</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS para garantir que o banner funcione como fundo e os produtos se sobreponham */
+        .hero {
+            position: relative;
+            background: url('images/product5.jpg') no-repeat center center;
+            background-size: cover;
+            height: 400px; /* Ajuste conforme necessário */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff; /* Cor do texto sobre o banner */
+            text-align: center;
+        }
+
+        .products {
+            position: relative;
+            z-index: 1; /* Faz os produtos aparecerem acima do banner */
+            margin-top: -200px; /* Ajusta a posição dos produtos para sobrepor o banner */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para destacar produtos */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,7 +54,7 @@
     </header>
     <main>
         <section class="hero">
-            <img src="images/product5.jpg" alt="Banner Principal">
+            <h2>Bem-vindo à KN5 Shop</h2> <!-- Opcional: Título ou texto sobre o banner -->
         </section>
         <section class="products">
             <h2>Produtos em Destaque</h2>
