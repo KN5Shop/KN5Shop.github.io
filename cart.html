@@ -3,8 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras - KN5 Shop</title>
+    <title>KN5 Shop - Loja Online</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS para garantir que o banner funcione como fundo e os produtos se sobreponham */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Fundo preto para a página */
+            color: #fff; /* Texto branco */
+        }
+
+        header {
+            background-color: #333; /* Cor de fundo do cabeçalho */
+            padding: 10px 0;
+            color: #fff; /* Texto branco no cabeçalho */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        nav a {
+            color: #fff; /* Texto branco nos links */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            position: relative;
+            background: url('images/product5.jpg') no-repeat center center;
+            background-size: cover;
+            height: 8em; /* Ajuste a altura conforme necessário */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff; /* Cor do texto sobre o banner */
+            text-align: center;
+            padding-top: 10px; /* Adiciona espaço acima do texto */
+            z-index: 1; /* Certifica-se de que o banner está abaixo dos produtos */
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2em;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semitransparente para legibilidade */
+            padding: 10px;
+            border-radius: 5px;
+            color: #d4af37; /* Cor dourada para o texto do banner */
+        }
+
+        .products {
+            position: relative;
+            z-index: 2; /* Faz os produtos aparecerem acima do banner */
+            margin-top: 20px; /* Ajusta a posição dos produtos para não cobrir o banner */
+            padding: 20px;
+            background: #000; /* Fundo preto para a seção de produtos */
+        }
+
+        .products h2 {
+            color: #d4af37; /* Cor dourada para o título "Produtos em Destaque" */
+            text-align: center; /* Alinha o título ao centro */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #333; /* Fundo escuro para os cartões de produto */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #d4af37; /* Linha dourada abaixo da imagem do produto */
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            color: #fff; /* Texto branco para o nome do produto */
+        }
+
+        .product p {
+            color: #d4af37; /* Texto dourado para a descrição do produto */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d4af37; /* Fundo dourado para o botão */
+            color: #000; /* Texto preto no botão */
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
+        }
+
+        footer {
+            z-index: 1; /* Certifica-se de que o rodapé está acima do conteúdo */
+            position: relative;
+            background-color: #333; /* Cor de fundo do rodapé */
+            padding: 10px 0;
+            color: #fff; /* Texto branco no rodapé */
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37; /* Links dourados no rodapé */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-icon {
+            display: none; /* Oculta o ícone de carrinho */
+        }
+
+        .support-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,29 +153,53 @@
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
                 <a href="contact.html">Contato</a>
-                <a href="cart.html" class="cart-icon">🛒</a>
+                <a href="support.html" class="support-icon">💬 Suporte</a> <!-- Substituído "Carrinho" por "Suporte" -->
             </nav>
         </div>
     </header>
     <main>
-        <section class="cart">
-            <h2>Carrinho de Compras</h2>
-            <div class="cart-items">
-                <!-- Exemplo de item no carrinho -->
-                <div class="cart-item">
-                    <img src="images/produto1.jpg" alt="Produto 1">
-                    <div class="item-info">
-                        <h3>Produto 1</h3>
-                        <p class="price">R$99,99</p>
-                        <input type="number" value="1" min="1">
-                        <button class="btn">Remover</button>
-                    </div>
+        <section class="hero">
+            <h2>Bem-vindo à KN5 Shop</h2>
+        </section>
+        <section class="products">
+            <h2>Produtos em Destaque</h2>
+            <div class="product-grid">
+                <!-- Produto 1 -->
+                <div class="product">
+                    <a href="product-detail.html?id=1">
+                        <img src="images/product1.jpg" alt="Produto 1">
+                    </a>
+                    <h3>Produto 1</h3>
+                    <p>Serviços para redes sociais.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
-                <!-- Adicione mais itens aqui -->
-            </div>
-            <div class="cart-summary">
-                <p>Total: R$99,99</p>
-                <a href="checkout.html" class="btn">Finalizar Compra</a>
+                <!-- Produto 2 -->
+                <div class="product">
+                    <a href="product-detail.html?id=2">
+                        <img src="images/product2.jpg" alt="Produto 2">
+                    </a>
+                    <h3>Produto 2</h3>
+                    <p>Serviços para redes sociais.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <!-- Produto 3 -->
+                <div class="product">
+                    <a href="product-detail.html?id=3">
+                        <img src="images/product3.jpg" alt="Produto 3">
+                    </a>
+                    <h3>Produto 3</h3>
+                    <p>Serviços para redes sociais.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <!-- Produto 4 -->
+                <div class="product">
+                    <a href="product-detail.html?id=4">
+                        <img src="images/product4.jpg" alt="Produto 4">
+                    </a>
+                    <h3>Produto 4</h3>
+                    <p>Serviços para redes sociais.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
             </div>
         </section>
     </main>
