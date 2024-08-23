@@ -86,14 +86,13 @@
 
         /* Estilos do chat */
         .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
+            width: 100%;
+            max-width: 800px;
             height: 400px;
             background-color: #333;
             color: #fff;
             border-radius: 10px;
+            margin: 20px auto 0 auto; /* Centralizado logo abaixo do texto */
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             overflow: hidden;
             display: flex;
@@ -167,7 +166,7 @@
                 <p><strong>Telefone:</strong> <a href="contact.html">Entre em contato conosco</a></p>
                 <p>Se precisar de ajuda com algum produto ou tiver alguma dúvida, não hesite em nos contatar.</p>
             </div>
-            <!-- Widget de Chat -->
+            <!-- Widget de Chat fixado após a frase de contato -->
             <div class="chat-widget">
                 <div class="chat-header">Chat ao Vivo</div>
                 <div class="chat-body" id="chatBody">
@@ -184,11 +183,6 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio com reprodução automática -->
-    <audio autoplay loop>
-        <source src="music/music1.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
     <script>
         function sendMessage() {
             var input = document.getElementById('chatInput');
