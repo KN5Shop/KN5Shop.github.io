@@ -134,21 +134,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Estilos para o botão de ativar som */
-        .activate-sound {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #d4af37;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            display: none; /* Inicialmente escondido */
-        }
     </style>
 </head>
 <body>
@@ -223,32 +208,10 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio -->
-    <audio id="background-music" preload="auto">
+    <!-- Adicionando o player de áudio com reprodução automática -->
+    <audio autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-    <!-- Botão para ativar som -->
-    <div class="activate-sound" id="activate-sound" onclick="unmuteAudio()">Ativar Som</div>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var audio = document.getElementById('background-music');
-            // Tenta iniciar o áudio e lidar com erros
-            audio.play().catch(function(error) {
-                console.log('Erro ao tentar reproduzir áudio:', error);
-                // Exibe o botão para ativar som se houver erro
-                document.getElementById('activate-sound').style.display = 'block';
-            });
-        });
-
-        function unmuteAudio() {
-            var audio = document.getElementById('background-music');
-            audio.muted = false;
-            audio.play().catch(function(error) {
-                console.log('Erro ao tentar reproduzir áudio:', error);
-            });
-            document.getElementById('activate-sound').style.display = 'none'; // Oculta o botão após ativar o som
-        }
-    </script>
 </body>
 </html>
