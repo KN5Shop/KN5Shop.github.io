@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KN5 Shop - Loja Online</title>
+    <title>Carrinho de Compras - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,21 +20,24 @@
         </div>
     </header>
     <main>
-        <section class="hero">
-            <img src="images/hero-banner.jpg" alt="Banner Principal">
-        </section>
-        <section class="products">
-            <h2>Produtos em Destaque</h2>
-            <div class="product-grid">
-                <!-- Exemplo de produto -->
-                <div class="product">
+        <section class="cart">
+            <h2>Carrinho de Compras</h2>
+            <div class="cart-items">
+                <!-- Exemplo de item no carrinho -->
+                <div class="cart-item">
                     <img src="images/produto1.jpg" alt="Produto 1">
-                    <h3>Produto 1</h3>
-                    <p>Descrição breve do produto.</p>
-                    <p class="price">R$99,99</p>
-                    <a href="product-detail.html" class="btn">Saiba Mais</a>
+                    <div class="item-info">
+                        <h3>Produto 1</h3>
+                        <p class="price">R$99,99</p>
+                        <input type="number" value="1" min="1">
+                        <button class="btn">Remover</button>
+                    </div>
                 </div>
-                <!-- Adicione mais produtos aqui -->
+                <!-- Adicione mais itens aqui -->
+            </div>
+            <div class="cart-summary">
+                <p>Total: R$99,99</p>
+                <a href="checkout.html" class="btn">Finalizar Compra</a>
             </div>
         </section>
     </main>
