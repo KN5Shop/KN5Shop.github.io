@@ -91,6 +91,8 @@
             text-decoration: none;
             border-radius: 5px;
             margin-top: 10px; /* Espaço acima do botão */
+            position: relative; /* Garante que o botão pode ter um z-index */
+            z-index: 1; /* Coloca o botão acima de outros elementos */
         }
 
         .btn:hover {
