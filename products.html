@@ -38,23 +38,22 @@
         }
 
         .products {
-            padding: 20px;
+            padding: 40px 20px; /* Aumenta o padding ao redor da seção de produtos */
             background-color: #000; /* Fundo preto para a seção de produtos */
-            margin: 20px auto;
+            margin: 40px auto; /* Aumenta o espaço acima e abaixo da seção de produtos */
             max-width: 1200px; /* Ajuste a largura máxima conforme necessário */
         }
 
         .products h2 {
             color: #d4af37; /* Cor dourada para o título "Todos os Produtos" */
             text-align: center; /* Alinha o título ao centro */
-            margin-bottom: 20px; /* Espaço abaixo do título */
+            margin-bottom: 30px; /* Espaço abaixo do título */
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 10px; /* Adiciona um pouco de espaço nas laterais */
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Ajusta a largura mínima das colunas */
+            gap: 30px; /* Aumenta o espaço entre os cartões de produto */
         }
 
         .product {
@@ -64,23 +63,27 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona sombra para destaque */
             position: relative; /* Para posicionar o botão de forma absoluta */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .product img {
             width: 100%;
             height: auto;
             border-bottom: 2px solid #d4af37; /* Linha dourada abaixo da imagem do produto */
-            margin-bottom: 10px; /* Espaço abaixo da imagem */
+            margin-bottom: 15px; /* Espaço abaixo da imagem */
         }
 
         .product h3 {
-            margin: 10px 0;
+            margin: 15px 0;
             color: #fff; /* Texto branco para o nome do produto */
         }
 
         .product p {
             color: #d4af37; /* Texto dourado para a descrição do produto */
             font-size: 1.1em; /* Aumenta o tamanho da fonte para melhor legibilidade */
+            margin-bottom: 20px; /* Espaço abaixo da descrição */
         }
 
         .btn {
@@ -92,7 +95,6 @@
             border-radius: 5px;
             margin-top: 10px; /* Espaço acima do botão */
             position: relative; /* Garante que o botão pode ter um z-index */
-            z-index: 1; /* Coloca o botão acima de outros elementos */
         }
 
         .btn:hover {
