@@ -208,10 +208,19 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio com controles -->
-    <audio controls autoplay loop>
+    <!-- Adicionando o player de áudio -->
+    <audio id="background-music" controls autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-music');
+            audio.muted = false; // Certifique-se de que o áudio não está mudo
+            audio.play().catch(function(error) {
+                console.log('Erro ao tentar reproduzir o áudio:', error);
+            });
+        });
+    </script>
 </body>
 </html>
