@@ -147,6 +147,7 @@
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
+            display: none; /* Inicialmente escondido */
         }
     </style>
 </head>
@@ -222,18 +223,21 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio com controles -->
-    <audio id="background-music" muted>
+    <!-- Adicionando o player de áudio -->
+    <audio id="background-music" preload="auto">
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-    <!-- Botão para ativar o som -->
-    <div class="activate-sound" onclick="unmuteAudio()">Ativar Som</div>
+    <!-- Botão para ativar som -->
+    <div class="activate-sound" id="activate-sound" onclick="unmuteAudio()">Ativar Som</div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             var audio = document.getElementById('background-music');
+            // Tenta iniciar o áudio e lidar com erros
             audio.play().catch(function(error) {
                 console.log('Erro ao tentar reproduzir áudio:', error);
+                // Exibe o botão para ativar som se houver erro
+                document.getElementById('activate-sound').style.display = 'block';
             });
         });
 
@@ -243,6 +247,7 @@
             audio.play().catch(function(error) {
                 console.log('Erro ao tentar reproduzir áudio:', error);
             });
+            document.getElementById('activate-sound').style.display = 'none'; // Oculta o botão após ativar o som
         }
     </script>
 </body>
