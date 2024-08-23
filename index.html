@@ -134,6 +134,20 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Estilos para o botão de ativar som */
+        .activate-sound {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d4af37;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -208,19 +222,28 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio -->
-    <audio id="background-music" loop>
+    <!-- Adicionando o player de áudio com controles -->
+    <audio id="background-music" muted>
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
+    <!-- Botão para ativar o som -->
+    <div class="activate-sound" onclick="unmuteAudio()">Ativar Som</div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', (event) => {
             var audio = document.getElementById('background-music');
-            audio.muted = false; // Certifique-se de que o áudio não está mudo
             audio.play().catch(function(error) {
-                console.log('Erro ao tentar reproduzir o áudio:', error);
+                console.log('Erro ao tentar reproduzir áudio:', error);
             });
         });
+
+        function unmuteAudio() {
+            var audio = document.getElementById('background-music');
+            audio.muted = false;
+            audio.play().catch(function(error) {
+                console.log('Erro ao tentar reproduzir áudio:', error);
+            });
+        }
     </script>
 </body>
 </html>
