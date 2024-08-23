@@ -98,8 +98,7 @@
             const params = getQueryParams();
             const productId = params.id; // Supondo que o ID do produto seja passado como parâmetro na URL
 
-            // Aqui você deve substituir com uma chamada real ao backend ou uma base de dados
-            // Exemplo de dados estáticos
+            // Dados fictícios dos produtos
             const products = {
                 1: {
                     name: "Produto 1",
@@ -113,7 +112,18 @@
                     price: "R$129,99",
                     image: "images/product2.jpg"
                 },
-                // Adicione mais produtos conforme necessário
+                3: {
+                    name: "Produto 3",
+                    description: "Descrição detalhada do Produto 3.",
+                    price: "R$149,99",
+                    image: "images/product3.jpg"
+                },
+                4: {
+                    name: "Produto 4",
+                    description: "Descrição detalhada do Produto 4.",
+                    price: "R$179,99",
+                    image: "images/product4.jpg"
+                }
             };
 
             if (products[productId]) {
