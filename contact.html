@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Adicionando ícone do WhatsApp -->
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" type="image/svg+xml">
 </head>
 <body>
     <header>
@@ -34,11 +36,34 @@
                 
                 <button type="submit" class="btn">Enviar</button>
             </form>
+            <!-- Link para WhatsApp -->
+            <div class="whatsapp-contact">
+                <a href="https://w.app/KN5Shop" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+                    <p>Conversar pelo WhatsApp</p>
+                </a>
+            </div>
         </section>
     </main>
     <footer>
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
+    <style>
+        /* Estilos adicionais para o ícone do WhatsApp */
+        .whatsapp-contact {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .whatsapp-icon {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+        .whatsapp-contact p {
+            display: inline;
+            margin-left: 10px;
+        }
+    </style>
 </body>
 </html>
