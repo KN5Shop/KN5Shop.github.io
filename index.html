@@ -17,12 +17,21 @@
             justify-content: center;
             color: #fff; /* Cor do texto sobre o banner */
             text-align: center;
+            z-index: 1; /* Certifica-se de que o banner está abaixo dos produtos */
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2em;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente para melhor legibilidade */
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .products {
             position: relative;
-            z-index: 1; /* Faz os produtos aparecerem acima do banner */
-            margin-top: -200px; /* Ajusta a posição dos produtos para sobrepor o banner */
+            z-index: 2; /* Faz os produtos aparecerem acima do banner */
+            margin-top: -100px; /* Ajusta a posição dos produtos para sobrepor o banner */
             padding: 20px;
             background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para destacar produtos */
         }
@@ -36,6 +45,11 @@
         .product img {
             width: 100%;
             height: auto;
+        }
+
+        footer {
+            z-index: 1; /* Certifica-se de que o rodapé está acima do conteúdo */
+            position: relative;
         }
     </style>
 </head>
@@ -54,7 +68,7 @@
     </header>
     <main>
         <section class="hero">
-            <h2>Bem-vindo à KN5 Shop</h2> <!-- Opcional: Título ou texto sobre o banner -->
+            <h2>Bem-vindo à KN5 Shop</h2>
         </section>
         <section class="products">
             <h2>Produtos em Destaque</h2>
