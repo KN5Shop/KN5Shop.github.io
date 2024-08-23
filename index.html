@@ -86,16 +86,11 @@
             padding: 10px;
             border-radius: 5px;
             text-align: center;
-            height: 300px; /* Altura fixa para todos os produtos */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Garante que o conteúdo fique distribuído */
         }
 
         .product img {
             width: 100%;
-            height: 150px; /* Altura fixa para as imagens dos produtos */
-            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+            height: auto;
             border-bottom: 2px solid #d4af37; /* Linha dourada abaixo da imagem do produto */
             cursor: pointer; /* Indica que a imagem é clicável */
         }
@@ -120,10 +115,6 @@
 
         .btn:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
-        }
-
-        .radio {
-            display: none; /* Esconde a seção da rádio */
         }
 
         footer {
@@ -201,7 +192,7 @@
                     <p>Aumente sua popularidade com seguidores reais.</p>
                     <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
-                <!-- Produto Misterioso -->
+                <!-- Produto 5 - Misterioso -->
                 <div class="product">
                     <a href="product-detail.html?id=5">
                         <img src="images/product6.jpg" alt="Produto Misterioso">
@@ -211,12 +202,6 @@
                     <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
             </div>
-        </section>
-        <section class="radio">
-            <audio autoplay loop>
-                <source src="https://noite.me/" type="audio/mpeg">
-                Seu navegador não suporta o elemento de áudio.
-            </audio>
         </section>
     </main>
     <footer>
