@@ -32,11 +32,6 @@
             color: #d4af37; /* Texto dourado para o nome do produto */
         }
 
-        .price {
-            font-size: 1.5em;
-            color: #d4af37; /* Texto dourado para o preço */
-        }
-
         .btn {
             padding: 10px 20px;
             background-color: #d4af37; /* Fundo dourado para o botão */
@@ -45,6 +40,7 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none; /* Remove o sublinhado padrão dos links */
+            display: inline-block;
         }
 
         .btn:hover {
@@ -73,8 +69,7 @@
                 <div class="info">
                     <h3 id="product-name">Nome do Produto</h3>
                     <p id="product-description">Descrição detalhada do produto.</p>
-                    <p class="price" id="product-price">R$00,00</p>
-                    <!-- Botão para entrar em contato -->
+                    <!-- Apenas o botão para entrar em contato -->
                     <a href="contact.html" class="btn">Entre em Contato</a>
                 </div>
             </div>
@@ -105,25 +100,21 @@
                 1: {
                     name: "Produto 1",
                     description: "Descrição detalhada do Produto 1.",
-                    price: "R$99,99",
                     image: "images/product1.jpg"
                 },
                 2: {
                     name: "Produto 2",
                     description: "Descrição detalhada do Produto 2.",
-                    price: "R$129,99",
                     image: "images/product2.jpg"
                 },
                 3: {
                     name: "Produto 3",
                     description: "Descrição detalhada do Produto 3.",
-                    price: "R$149,99",
                     image: "images/product3.jpg"
                 },
                 4: {
                     name: "Produto 4",
                     description: "Descrição detalhada do Produto 4.",
-                    price: "R$179,99",
                     image: "images/product4.jpg"
                 }
             };
@@ -133,7 +124,8 @@
                 document.getElementById('product-image').src = product.image;
                 document.getElementById('product-name').textContent = product.name;
                 document.getElementById('product-description').textContent = product.description;
-                document.getElementById('product-price').textContent = product.price;
+                // Remover a linha de preço
+                document.getElementById('product-price')?.remove();
             } else {
                 document.querySelector('.product-info').innerHTML = '<p>Produto não encontrado.</p>';
             }
