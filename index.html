@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venda de produtos com estilo minimalista e moderno">
+    <title>Loja Pessoal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            margin: 15px 0 10px;
+        }
+        .product p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        footer p, footer a {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Minha Loja Pessoal</h1>
+    <p>Venda de produtos com estilo minimalista e moderno</p>
+</header>
+
+<nav>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<section id="produtos">
+    <h2>Produtos</h2>
+    <div class="products">
+        <div class="product">
+            <img src="produto1.jpg" alt="Produto 1">
+            <h3>Produto 1</h3>
+            <p>Descrição curta do produto 1.</p>
+            <p><strong>R$ 100,00</strong></p>
+            <button>Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+            <img src="produto2.jpg" alt="Produto 2">
+            <h3>Produto 2</h3>
+            <p>Descrição curta do produto 2.</p>
+            <p><strong>R$ 150,00</strong></p>
+            <button>Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+            <img src="produto3.jpg" alt="Produto 3">
+            <h3>Produto 3</h3>
+            <p>Descrição curta do produto 3.</p>
+            <p><strong>R$ 200,00</strong></p>
+            <button>Adicionar ao Carrinho</button>
+        </div>
+    </div>
+</section>
+
+<section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Somos uma loja online dedicada a fornecer produtos de alta qualidade. Nosso foco é oferecer uma experiência de compra fácil, rápida e confiável.</p>
+</section>
+
+<section id="faq">
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <p><strong>Como posso comprar os produtos?</strong><br> Escolha os produtos, adicione ao carrinho e finalize a compra.</p>
+    <p><strong>Quais são as opções de pagamento?</strong><br> Aceitamos cartões de crédito, débito e pagamentos via PIX.</p>
+    <p><strong>Quanto tempo leva para a entrega?</strong><br> O tempo de entrega varia de acordo com a localização, geralmente de 5 a 10 dias úteis.</p>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <form>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" required></textarea><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Minha Loja Pessoal | <a href="#termos">Termos de Uso</a> | <a href="#privacidade">Política de Privacidade</a></p>
+</footer>
+
+</body>
+</html>
