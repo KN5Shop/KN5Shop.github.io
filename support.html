@@ -172,7 +172,6 @@
                 <div class="chat-header">Chat ao Vivo</div>
                 <div class="chat-body" id="chatBody">
                     <p><strong>Assistente:</strong> Olá! Como posso ajudar você hoje?</p>
-                    <!-- Mensagens do chat apareceriam aqui -->
                 </div>
                 <div class="chat-footer">
                     <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
@@ -185,6 +184,11 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
+    <!-- Adicionando o player de áudio com reprodução automática -->
+    <audio autoplay loop>
+        <source src="music/music1.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
     <script>
         function sendMessage() {
             var input = document.getElementById('chatInput');
