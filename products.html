@@ -5,6 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #000; /* Fundo preto para a página */
+            color: #fff; /* Texto branco */
+        }
+
+        header {
+            background-color: #333; /* Cor de fundo do cabeçalho */
+            padding: 10px 0;
+            color: #fff; /* Texto branco no cabeçalho */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        nav a {
+            color: #fff; /* Texto branco nos links */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .products {
+            padding: 20px;
+            background-color: #000; /* Fundo preto para a seção de produtos */
+            margin: 20px auto;
+            max-width: 1200px; /* Ajuste a largura máxima conforme necessário */
+        }
+
+        .products h2 {
+            color: #d4af37; /* Cor dourada para o título "Todos os Produtos" */
+            text-align: center; /* Alinha o título ao centro */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 10px; /* Adiciona um pouco de espaço nas laterais */
+        }
+
+        .product {
+            background-color: #333; /* Fundo escuro para os cartões de produto */
+            padding: 20px; /* Aumenta o padding para mais espaço interno */
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona sombra para destaque */
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #d4af37; /* Linha dourada abaixo da imagem do produto */
+            margin-bottom: 10px; /* Espaço abaixo da imagem */
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            color: #fff; /* Texto branco para o nome do produto */
+        }
+
+        .product p {
+            color: #d4af37; /* Texto dourado para a descrição do produto */
+            font-size: 1.1em; /* Aumenta o tamanho da fonte para melhor legibilidade */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d4af37; /* Fundo dourado para o botão */
+            color: #000; /* Texto preto no botão */
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px; /* Espaço acima do botão */
+        }
+
+        .btn:hover {
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
+        }
+
+        footer {
+            background-color: #333; /* Cor de fundo do rodapé */
+            padding: 10px 0;
+            color: #fff; /* Texto branco no rodapé */
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37; /* Links dourados no rodapé */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +122,7 @@
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
                 <a href="contact.html">Contato</a>
-                <a href="cart.html" class="cart-icon">🛒</a>
+                <a href="support.html">Suporte</a> <!-- Adicionando a aba Suporte -->
             </nav>
         </div>
     </header>
@@ -26,34 +133,30 @@
                 <!-- Produto 1 -->
                 <div class="product">
                     <img src="images/product1.jpg" alt="Produto 1">
-                    <h3>Produto 1</h3>
-                    <p>Descrição breve do produto 1.</p>
-                    <p class="price">R$99,99</p>
-                    <a href="product-detail.html" class="btn">Saiba Mais</a>
+                    <h3>Serviços Extras</h3>
+                    <p>Oferecemos serviços extras para melhorar sua presença nas redes sociais, incluindo análise de perfil e estratégias personalizadas para aumentar o engajamento.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Substituindo valor por botão "Entre em contato" -->
                 </div>
                 <!-- Produto 2 -->
                 <div class="product">
                     <img src="images/product2.jpg" alt="Produto 2">
-                    <h3>Produto 2</h3>
-                    <p>Descrição breve do produto 2.</p>
-                    <p class="price">R$129,99</p>
-                    <a href="product-detail.html" class="btn">Saiba Mais</a>
+                    <h3>Curtidas</h3>
+                    <p>Aumente a popularidade das suas postagens com nossas curtidas autênticas. Ideal para impulsionar o alcance e o engajamento em suas redes sociais.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Substituindo valor por botão "Entre em contato" -->
                 </div>
                 <!-- Produto 3 -->
                 <div class="product">
                     <img src="images/product3.jpg" alt="Produto 3">
-                    <h3>Produto 3</h3>
-                    <p>Descrição breve do produto 3.</p>
-                    <p class="price">R$149,99</p>
-                    <a href="product-detail.html" class="btn">Saiba Mais</a>
+                    <h3>Visualizações</h3>
+                    <p>Impulsione o número de visualizações em seus vídeos com nossos serviços de visualizações autênticas. Aumente sua visibilidade e alcance com facilidade.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Substituindo valor por botão "Entre em contato" -->
                 </div>
                 <!-- Produto 4 -->
                 <div class="product">
                     <img src="images/product4.jpg" alt="Produto 4">
-                    <h3>Produto 4</h3>
-                    <p>Descrição breve do produto 4.</p>
-                    <p class="price">R$179,99</p>
-                    <a href="product-detail.html" class="btn">Saiba Mais</a>
+                    <h3>Seguidores</h3>
+                    <p>Adquira seguidores reais para suas contas de redes sociais e aumente sua influência online. Perfeito para construir uma base sólida de seguidores e fortalecer sua marca.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Substituindo valor por botão "Entre em contato" -->
                 </div>
             </div>
         </section>
