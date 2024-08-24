@@ -12,6 +12,9 @@
             background-color: #000; /* Fundo preto para a página */
             color: #fff; /* Texto branco */
             overflow-x: hidden; /* Evita rolagem horizontal */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -62,7 +65,7 @@
 
         main {
             padding: 80px 20px 20px; /* Ajustado para acomodar o cabeçalho fixo */
-            min-height: calc(100vh - 160px); /* Garante que a área principal role se necessário */
+            flex: 1; /* Garante que o conteúdo principal ocupe o espaço restante */
         }
 
         .support {
@@ -71,6 +74,7 @@
             color: #fff; /* Texto branco */
             max-width: 1200px;
             margin: 0 auto;
+            box-sizing: border-box; /* Inclui padding e border na largura total */
         }
 
         .support h2 {
