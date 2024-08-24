@@ -12,16 +12,20 @@
             background-color: #000; /* Fundo preto para a página */
             color: #fff; /* Texto branco */
             overflow-x: hidden; /* Evita rolagem horizontal */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
-            background-color: #333; /* Cor de fundo do cabeçalho */
-            padding: 10px 0;
+            background-color: #222; /* Cor de fundo do cabeçalho */
+            padding: 15px 0;
             color: #fff; /* Texto branco no cabeçalho */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para um efeito de elevação */
         }
 
         header .container {
@@ -32,22 +36,40 @@
             margin: auto;
         }
 
-        header h1 {
-            font-size: 1.5em;
-            color: #fff;
-            text-transform: uppercase; /* Texto em maiúsculas */
+        .logo {
+            font-size: 1.8em; /* Tamanho maior do texto do logo */
+            font-weight: bold;
+            color: #fff; /* Cor branca para o logo */
+            text-transform: uppercase;
         }
 
         nav a {
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s, text-decoration 0.3s; /* Transição suave */
+            margin: 0 15px;
+            font-size: 1em; /* Tamanho de fonte dos links */
+            transition: color 0.3s, border-bottom 0.3s;
+            position: relative;
         }
 
         nav a:hover {
-            color: #d4af37;
-            text-decoration: underline;
+            color: #d4af37; /* Cor dourada no hover */
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #d4af37; /* Cor dourada */
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         footer {
@@ -66,11 +88,18 @@
             text-decoration: underline;
         }
 
+        main {
+            padding: 80px 20px 20px; /* Ajustado para acomodar o cabeçalho fixo */
+            flex: 1; /* Garante que o conteúdo principal ocupe o espaço restante */
+        }
+
         .support {
             padding: 20px;
             background-color: #000; /* Fundo preto para a seção de suporte */
             color: #fff; /* Texto branco */
-            margin-top: 60px; /* Espaço para o cabeçalho fixo */
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box; /* Inclui padding e border na largura total */
         }
 
         .support h2 {
@@ -102,11 +131,11 @@
         .chat-widget {
             width: 100%;
             max-width: 800px;
-            height: 400px;
+            height: 400px; /* Ajustado para melhor visibilidade */
             background-color: #333;
             color: #fff;
             border-radius: 10px;
-            margin: 20px auto;
+            margin: 20px auto; /* Centralizado logo abaixo do texto */
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             overflow: hidden;
             display: flex;
@@ -133,7 +162,6 @@
             padding: 10px;
             display: flex;
             align-items: center;
-            border-top: 1px solid #444; /* Linha superior */
         }
 
         .chat-footer input {
@@ -153,7 +181,7 @@
             border-radius: 5px;
             color: #000;
             cursor: pointer;
-            transition: background-color 0.3s ease; /* Transição suave */
+            transition: background-color 0.3s ease;
         }
 
         .chat-footer button:hover {
@@ -162,16 +190,14 @@
 
         .doubts {
             text-align: center;
-            color: #d4af37;
             margin-top: 20px;
-            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>KN5 SHOP</h1>
+            <div class="logo">KN5 Shop</div>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
@@ -189,6 +215,7 @@
                 <p><strong>Telefone:</strong> <a href="contact.html">Entre em contato conosco</a></p>
                 <p>Se precisar de ajuda com algum produto ou tiver alguma dúvida, não hesite em nos contatar.</p>
             </div>
+            <!-- Widget de Chat fixado após a frase de contato -->
             <div class="chat-widget">
                 <div class="chat-header">Chat ao Vivo</div>
                 <div class="chat-body" id="chatBody">
@@ -200,7 +227,7 @@
                 </div>
             </div>
             <div class="doubts">
-                <p>Dúvidas Gerais</p>
+                <p><strong>Dúvidas Gerais:</strong> Caso tenha dúvidas adicionais, consulte nossas FAQ ou entre em contato diretamente.</p>
             </div>
         </section>
     </main>
@@ -208,6 +235,7 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
+    <!-- Adicionando o player de áudio com reprodução automática -->
     <audio autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
