@@ -18,13 +18,14 @@
         }
 
         header {
-            background-color: #333; /* Cor de fundo do cabeçalho */
-            padding: 10px 0;
+            background-color: #222; /* Cor de fundo do cabeçalho */
+            padding: 15px 0;
             color: #fff; /* Texto branco no cabeçalho */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para um efeito de elevação */
         }
 
         header .container {
@@ -35,16 +36,40 @@
             margin: auto;
         }
 
+        .logo {
+            font-size: 1.8em; /* Tamanho maior do texto do logo */
+            font-weight: bold;
+            color: #d4af37; /* Cor dourada para o logo */
+            text-transform: uppercase;
+        }
+
         nav a {
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
+            margin: 0 15px;
+            font-size: 1em; /* Tamanho de fonte dos links */
+            transition: color 0.3s, border-bottom 0.3s;
+            position: relative;
         }
 
         nav a:hover {
-            color: #d4af37;
-            text-decoration: underline;
+            color: #d4af37; /* Cor dourada no hover */
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #d4af37; /* Cor dourada */
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         footer {
@@ -172,7 +197,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>KN5 Shop</h1>
+            <div class="logo">KN5 Shop</div>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
