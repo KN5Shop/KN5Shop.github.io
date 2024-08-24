@@ -11,12 +11,17 @@
             font-family: Arial, sans-serif;
             background-color: #000; /* Fundo preto para a página */
             color: #fff; /* Texto branco */
+            overflow-x: hidden; /* Evita rolagem horizontal */
         }
 
         header {
             background-color: #333; /* Cor de fundo do cabeçalho */
             padding: 10px 0;
             color: #fff; /* Texto branco no cabeçalho */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         header .container {
@@ -28,16 +33,20 @@
         }
 
         header h1 {
-            color: #fff; /* Texto branco para "KN5 Shop" */
+            font-size: 1.5em;
+            color: #fff;
+            text-transform: uppercase; /* Texto em maiúsculas */
         }
 
         nav a {
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
             margin: 0 10px;
+            transition: color 0.3s, text-decoration 0.3s; /* Transição suave */
         }
 
         nav a:hover {
+            color: #d4af37;
             text-decoration: underline;
         }
 
@@ -61,7 +70,7 @@
             padding: 20px;
             background-color: #000; /* Fundo preto para a seção de suporte */
             color: #fff; /* Texto branco */
-            min-height: 80vh; /* Altura mínima para garantir que a seção ocupe a tela */
+            margin-top: 60px; /* Espaço para o cabeçalho fixo */
         }
 
         .support h2 {
@@ -97,7 +106,7 @@
             background-color: #333;
             color: #fff;
             border-radius: 10px;
-            margin: 20px auto 0 auto; /* Centralizado logo abaixo do texto */
+            margin: 20px auto;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             overflow: hidden;
             display: flex;
@@ -124,6 +133,7 @@
             padding: 10px;
             display: flex;
             align-items: center;
+            border-top: 1px solid #444; /* Linha superior */
         }
 
         .chat-footer input {
@@ -143,17 +153,25 @@
             border-radius: 5px;
             color: #000;
             cursor: pointer;
+            transition: background-color 0.3s ease; /* Transição suave */
         }
 
         .chat-footer button:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
+        }
+
+        .doubts {
+            text-align: center;
+            color: #d4af37;
+            margin-top: 20px;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>KN5 Shop</h1>
+            <h1>KN5 SHOP</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
@@ -171,7 +189,6 @@
                 <p><strong>Telefone:</strong> <a href="contact.html">Entre em contato conosco</a></p>
                 <p>Se precisar de ajuda com algum produto ou tiver alguma dúvida, não hesite em nos contatar.</p>
             </div>
-            <!-- Widget de Chat fixado após a frase de contato -->
             <div class="chat-widget">
                 <div class="chat-header">Chat ao Vivo</div>
                 <div class="chat-body" id="chatBody">
@@ -182,7 +199,7 @@
                     <button onclick="sendMessage()">Enviar</button>
                 </div>
             </div>
-            <div class="info">
+            <div class="doubts">
                 <p>Dúvidas Gerais</p>
             </div>
         </section>
@@ -191,7 +208,6 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio com reprodução automática -->
     <audio autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
