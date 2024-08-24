@@ -79,16 +79,33 @@
             text-align: center;
         }
 
+        .whatsapp-contact a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #25d366; /* Cor de fundo do botão do WhatsApp */
+            color: #fff; /* Texto branco */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Animações suaves */
+        }
+
+        .whatsapp-contact a:hover {
+            background-color: #128C7E; /* Tom mais escuro de verde no hover */
+            transform: scale(1.05); /* Efeito de zoom no hover */
+        }
+
         .whatsapp-icon {
             width: 40px;
             height: 40px;
             vertical-align: middle;
+            margin-right: 10px;
         }
 
         .whatsapp-contact p {
-            display: inline;
-            margin-left: 10px;
+            margin: 0;
             color: #fff; /* Cor branca para o texto do WhatsApp */
+            font-size: 1.2em; /* Tamanho da fonte maior para destaque */
         }
     </style>
 </head>
@@ -101,17 +118,17 @@
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
                 <a href="contact.html">Contato</a>
-                <a href="support.html">Suporte</a> <!-- Adicionando a aba Suporte -->
+                <a href="support.html">Suporte</a>
             </nav>
         </div>
     </header>
     <main>
         <section class="contact">
             <h2>Contato</h2>
-            <h3>Clique abaixo para entrar em contato via WhatsApp</h3>
+            <h3>Estamos aqui para ajudar! Clique abaixo para entrar em contato via WhatsApp.</h3>
             <div class="whatsapp-contact">
                 <a href="https://w.app/KN5Shop" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícone do WhatsApp" class="whatsapp-icon">
                     <p>Conversar pelo WhatsApp</p>
                 </a>
             </div>
