@@ -6,6 +6,37 @@
     <title>Detalhes do Produto - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #000; /* Fundo preto para a página */
+            color: #fff; /* Texto branco */
+        }
+
+        header {
+            background-color: #333; /* Cor de fundo do cabeçalho */
+            padding: 10px 0;
+            color: #fff; /* Texto branco no cabeçalho */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        nav a {
+            color: #fff; /* Texto branco nos links */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .product-detail {
             padding: 20px;
             background-color: #000; /* Fundo preto para a seção de detalhes */
@@ -16,12 +47,19 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            margin-top: 20px; /* Adicionado espaçamento superior */
         }
 
         .product-info img {
             max-width: 300px;
             width: 100%;
             height: auto;
+            border-radius: 5px; /* Bordas arredondadas na imagem */
+            transition: transform 0.3s ease; /* Adiciona transição suave na imagem */
+        }
+
+        .product-info img:hover {
+            transform: scale(1.05); /* Aumenta a imagem suavemente ao passar o mouse */
         }
 
         .product-info .info {
@@ -30,6 +68,11 @@
 
         .product-info h3 {
             color: #d4af37; /* Texto dourado para o nome do produto */
+        }
+
+        .product-info p {
+            color: #fff; /* Texto branco para a descrição do produto */
+            font-size: 1.1em; /* Aumenta o tamanho da fonte para melhor legibilidade */
         }
 
         .btn {
@@ -41,10 +84,27 @@
             cursor: pointer;
             text-decoration: none; /* Remove o sublinhado padrão dos links */
             display: inline-block;
+            transition: background-color 0.3s ease; /* Adiciona transição suave na cor de fundo */
         }
 
         .btn:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
+        }
+
+        footer {
+            background-color: #333; /* Cor de fundo do rodapé */
+            padding: 10px 0;
+            color: #fff; /* Texto branco no rodapé */
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37; /* Links dourados no rodapé */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -68,8 +128,7 @@
                 <img id="product-image" src="" alt="Produto">
                 <div class="info">
                     <h3 id="product-name">Nome do Produto</h3>
-                    <p id="product-description">Descrição detalhada do produto.</p>
-                    <!-- Apenas o botão para entrar em contato -->
+                    <p id="product-description">Descrição detalhada do produto, incluindo benefícios e instruções de uso para tornar o produto mais atraente e informativo.</p>
                     <a href="contact.html" class="btn">Entre em Contato</a>
                 </div>
             </div>
@@ -99,22 +158,22 @@
             const products = {
                 1: {
                     name: "Produto 1",
-                    description: "Descrição detalhada do Produto 1.",
+                    description: "Descrição detalhada do Produto 1, incluindo benefícios e instruções de uso.",
                     image: "images/product1.jpg"
                 },
                 2: {
                     name: "Produto 2",
-                    description: "Descrição detalhada do Produto 2.",
+                    description: "Descrição detalhada do Produto 2, incluindo benefícios e instruções de uso.",
                     image: "images/product2.jpg"
                 },
                 3: {
                     name: "Produto 3",
-                    description: "Descrição detalhada do Produto 3.",
+                    description: "Descrição detalhada do Produto 3, incluindo benefícios e instruções de uso.",
                     image: "images/product3.jpg"
                 },
                 4: {
                     name: "Produto 4",
-                    description: "Descrição detalhada do Produto 4.",
+                    description: "Descrição detalhada do Produto 4, incluindo benefícios e instruções de uso.",
                     image: "images/product4.jpg"
                 }
             };
@@ -124,8 +183,6 @@
                 document.getElementById('product-image').src = product.image;
                 document.getElementById('product-name').textContent = product.name;
                 document.getElementById('product-description').textContent = product.description;
-                // Remover a linha de preço
-                document.getElementById('product-price')?.remove();
             } else {
                 document.querySelector('.product-info').innerHTML = '<p>Produto não encontrado.</p>';
             }
