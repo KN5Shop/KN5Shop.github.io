@@ -97,7 +97,7 @@
         .chat-widget {
             width: 100%;
             max-width: 900px;
-            height: 500px;
+            height: 400px; /* Altura reduzida do chat */
             background-color: #444;
             color: #fff;
             border-radius: 10px;
@@ -107,11 +107,6 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: box-shadow 0.3s;
-        }
-
-        .chat-widget:hover {
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
         }
 
         .chat-header {
@@ -120,6 +115,7 @@
             padding: 15px;
             text-align: center;
             font-weight: bold;
+            border-bottom: 1px solid #555;
         }
 
         .chat-body {
