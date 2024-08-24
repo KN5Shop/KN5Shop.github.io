@@ -87,32 +87,31 @@
             text-decoration: underline;
         }
 
-        /* Botão de ação (chamada para ação) */
-        .call-to-action {
-            margin-bottom: -1cm; /* Move o botão 1 cm para cima */
+        /* Estilos para assinatura */
+        .signature {
+            margin-top: 20px;
+            font-size: 14px; /* Diminui o tamanho da fonte */
         }
 
-        .call-to-action a {
+        .signature em {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Botão de ação (Explore Nossos Produtos) */
+        .call-to-action {
+            display: inline-block;
             background-color: #d4af37;
             color: #000;
-            padding: 15px 30px;
+            padding: 10px 20px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 30px;
-            text-transform: uppercase;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            margin-top: 20px;
         }
 
-        .call-to-action a:hover {
-            background-color: #b08a28;
+        .call-to-action:hover {
+            background-color: #b08c30;
         }
-
-        /* Adicionando o player de áudio com reprodução automática */
-        audio {
-            display: none;
-        }
-
     </style>
 </head>
 <body>
@@ -128,32 +127,26 @@
             </nav>
         </div>
     </header>
-
     <main>
         <section class="about">
             <h2>Sobre Nós</h2>
-            <p>Na <strong>KN5 Shop</strong>, nossa missão é transformar sua presença digital em um sucesso estrondoso. Fundada com o objetivo de oferecer soluções de crescimento social eficientes e seguras, somos líderes no mercado de <strong>seguidores, curtidas e visualizações</strong> para todas as principais redes sociais.</p>
-            <p>Compreendemos a importância de uma presença digital robusta e confiável. Por isso, trabalhamos com as mais avançadas técnicas e estratégias para fornecer <strong>resultados autênticos e de alta qualidade</strong> que ajudarão você a alcançar seus objetivos online. Nossa equipe é composta por especialistas apaixonados por mídias sociais, dedicados a oferecer produtos que não apenas aumentam números, mas também fortalecem sua marca.</p>
-            <p>Na <strong>KN5 Shop</strong>, priorizamos a satisfação do cliente e a transparência em todas as nossas transações. Oferecemos suporte dedicado e soluções personalizadas para garantir que suas campanhas sejam bem-sucedidas. Se você está pronto para elevar seu perfil digital e obter o reconhecimento que merece, você está no lugar certo!</p>
+            <p>Na <strong>KN5 Shop</strong>, nossa missão é transformar sua presença digital em um sucesso estrondoso...</p>
+            <p>Compreendemos a importância de uma presença digital robusta e confiável...</p>
+            <p>Explore nossos produtos e descubra como podemos ajudar a impulsionar sua presença nas redes sociais...</p>
 
-            <p><em>Atenciosamente,</em></p>
-            <p><strong>Keven Souza</strong></p>
-
-            <!-- Botão de chamada para ação agora está abaixo da assinatura -->
-            <div class="call-to-action">
-                <a href="products.html">Explore Nossos Produtos</a>
+            <!-- Assinatura -->
+            <div class="signature">
+                <em>Atenciosamente,</em>
+                <strong>Keven Souza</strong>
             </div>
+
+            <!-- Botão de ação -->
+            <a href="products.html" class="call-to-action">Explore Nossos Produtos</a>
         </section>
     </main>
-
     <footer>
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-
-    <audio autoplay loop>
-        <source src="music/music1.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
 </body>
 </html>
