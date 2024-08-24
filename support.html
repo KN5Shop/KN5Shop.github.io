@@ -105,7 +105,7 @@
             background-color: #333;
             color: #fff;
             border-radius: 10px;
-            margin: 20px auto 0 auto; /* Centralizado logo abaixo do texto */
+            margin: 20px auto; /* Centralizado logo abaixo do texto */
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             overflow: hidden;
             display: flex;
@@ -157,6 +157,11 @@
         .chat-footer button:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
         }
+
+        .doubts {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -190,6 +195,9 @@
                     <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
                     <button onclick="sendMessage()">Enviar</button>
                 </div>
+            </div>
+            <div class="doubts">
+                <p><strong>Dúvidas Gerais:</strong> Caso tenha dúvidas adicionais, consulte nossas FAQ ou entre em contato diretamente.</p>
             </div>
         </section>
     </main>
