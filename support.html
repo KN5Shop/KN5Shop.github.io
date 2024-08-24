@@ -11,21 +11,12 @@
             font-family: Arial, sans-serif;
             background-color: #000; /* Fundo preto para a página */
             color: #fff; /* Texto branco */
-            overflow-x: hidden; /* Evita rolagem horizontal */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
         header {
-            background-color: #222; /* Cor de fundo do cabeçalho */
-            padding: 15px 0;
+            background-color: #333; /* Cor de fundo do cabeçalho */
+            padding: 10px 0;
             color: #fff; /* Texto branco no cabeçalho */
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para um efeito de elevação */
         }
 
         header .container {
@@ -36,40 +27,18 @@
             margin: auto;
         }
 
-        .logo {
-            font-size: 1.8em; /* Tamanho maior do texto do logo */
-            font-weight: bold;
-            color: #d4af37; /* Cor dourada para o logo */
-            text-transform: uppercase;
+        header h1 {
+            color: #fff; /* Texto branco para "KN5 Shop" */
         }
 
         nav a {
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1em; /* Tamanho de fonte dos links */
-            transition: color 0.3s, border-bottom 0.3s;
-            position: relative;
+            margin: 0 10px;
         }
 
         nav a:hover {
-            color: #d4af37; /* Cor dourada no hover */
-        }
-
-        nav a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #d4af37; /* Cor dourada */
-            transition: width 0.3s;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+            text-decoration: underline;
         }
 
         footer {
@@ -88,18 +57,11 @@
             text-decoration: underline;
         }
 
-        main {
-            padding: 80px 20px 20px; /* Ajustado para acomodar o cabeçalho fixo */
-            flex: 1; /* Garante que o conteúdo principal ocupe o espaço restante */
-        }
-
         .support {
             padding: 20px;
             background-color: #000; /* Fundo preto para a seção de suporte */
             color: #fff; /* Texto branco */
-            max-width: 1200px;
-            margin: 0 auto;
-            box-sizing: border-box; /* Inclui padding e border na largura total */
+            min-height: 80vh; /* Altura mínima para garantir que a seção ocupe a tela */
         }
 
         .support h2 {
@@ -131,11 +93,11 @@
         .chat-widget {
             width: 100%;
             max-width: 800px;
-            height: 400px; /* Ajustado para melhor visibilidade */
+            height: 400px;
             background-color: #333;
             color: #fff;
             border-radius: 10px;
-            margin: 20px auto; /* Centralizado logo abaixo do texto */
+            margin: 20px auto 0 auto; /* Centralizado logo abaixo do texto */
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             overflow: hidden;
             display: flex;
@@ -181,23 +143,17 @@
             border-radius: 5px;
             color: #000;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
         .chat-footer button:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
-        }
-
-        .doubts {
-            text-align: center;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">KN5 Shop</div>
+            <h1>KN5 Shop</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
@@ -226,8 +182,8 @@
                     <button onclick="sendMessage()">Enviar</button>
                 </div>
             </div>
-            <div class="doubts">
-                <p><strong>Dúvidas Gerais:</strong> Caso tenha dúvidas adicionais, consulte nossas FAQ ou entre em contato diretamente.</p>
+            <div class="info">
+                <p>Dúvidas Gerais</p>
             </div>
         </section>
     </main>
