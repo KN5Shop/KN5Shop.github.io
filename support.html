@@ -31,10 +31,12 @@
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
             margin: 0 10px;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #d4af37;
+            text-shadow: 0 0 5px #d4af37;
         }
 
         footer {
@@ -47,10 +49,13 @@
         footer a {
             color: #d4af37; /* Links dourados no rodapé */
             text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         footer a:hover {
             text-decoration: underline;
+            color: #b59427;
+            text-shadow: 0 0 5px #b59427;
         }
 
         .support {
@@ -78,10 +83,13 @@
         .support a {
             color: #d4af37; /* Links dourados */
             text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         .support a:hover {
             text-decoration: underline;
+            color: #b59427;
+            text-shadow: 0 0 5px #b59427;
         }
 
         /* Estilos do chat */
@@ -97,6 +105,11 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: box-shadow 0.3s;
+        }
+
+        .chat-widget:hover {
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
         }
 
         .chat-header {
@@ -105,6 +118,11 @@
             padding: 10px;
             text-align: center;
             font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .chat-header:hover {
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
         }
 
         .chat-body {
@@ -129,6 +147,12 @@
             margin-right: 10px;
             background-color: #444; /* Cor de fundo do campo de entrada */
             color: #fff; /* Texto branco */
+            transition: background-color 0.3s;
+        }
+
+        .chat-footer input:focus {
+            outline: none;
+            background-color: #555; /* Tom mais claro de cinza no foco */
         }
 
         .chat-footer button {
@@ -138,10 +162,48 @@
             border-radius: 5px;
             color: #000;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .chat-footer button:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
+        }
+
+        /* Botão Voltar ao Topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: none; /* Oculto por padrão */
+            transition: background-color 0.3s;
+        }
+
+        .back-to-top:hover {
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
+        }
+
+        /* Melhoria de contraste e acessibilidade */
+        .accessible {
+            color: #000;
+            background-color: #d4af37;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        .accessible a {
+            color: #000;
+        }
+
+        .accessible a:hover {
+            color: #333;
         }
     </style>
 </head>
@@ -173,7 +235,7 @@
                     <p><strong>Assistente:</strong> Olá! Como posso ajudar você hoje?</p>
                 </div>
                 <div class="chat-footer">
-                    <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+                    <input type="text" id="chatInput" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
                     <button onclick="sendMessage()">Enviar</button>
                 </div>
             </div>
@@ -183,6 +245,8 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" onclick="scrollToTop()">Voltar ao Topo</button>
     <!-- Adicionando o player de áudio com reprodução automática -->
     <audio autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
@@ -206,6 +270,21 @@
                 input.value = '';
                 chatBody.scrollTop = chatBody.scrollHeight; // Scroll para a parte inferior
             }
+        }
+
+        // Mostrar botão "Voltar ao Topo" ao rolar a página
+        window.onscroll = function() {
+            var button = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     </script>
 </body>
