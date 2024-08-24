@@ -66,6 +66,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: transform 0.3s ease; /* Animação suave */
+        }
+
+        .product:hover {
+            transform: scale(1.05); /* Efeito de zoom no hover */
         }
 
         .product img {
@@ -95,10 +100,12 @@
             border-radius: 5px;
             margin-top: 10px; /* Espaço acima do botão */
             position: relative; /* Garante que o botão pode ter um z-index */
+            transition: background-color 0.3s ease; /* Animação suave */
         }
 
         .btn:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra adicional no hover */
         }
 
         footer {
@@ -137,31 +144,31 @@
             <div class="product-grid">
                 <!-- Produto 1 -->
                 <div class="product">
-                    <img src="images/product1.jpg" alt="Produto 1">
+                    <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
                     <h3>Serviços Extras</h3>
-                    <p>Oferecemos serviços extras para melhorar sua presença nas redes sociais, incluindo análise de perfil e estratégias personalizadas para aumentar o engajamento.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Botão "Entre em contato" -->
+                    <p>Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
                 <!-- Produto 2 -->
                 <div class="product">
-                    <img src="images/product2.jpg" alt="Produto 2">
+                    <img src="images/product2.jpg" alt="Curtidas para Postagens em Redes Sociais">
                     <h3>Curtidas</h3>
-                    <p>Aumente a popularidade das suas postagens com nossas curtidas autênticas. Ideal para impulsionar o alcance e o engajamento em suas redes sociais.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Botão "Entre em contato" -->
+                    <p>Impulsione o alcance e engajamento das suas postagens com curtidas autênticas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
                 <!-- Produto 3 -->
                 <div class="product">
-                    <img src="images/product3.jpg" alt="Produto 3">
+                    <img src="images/product3.jpg" alt="Visualizações para Vídeos">
                     <h3>Visualizações</h3>
-                    <p>Impulsione o número de visualizações em seus vídeos com nossos serviços de visualizações autênticas. Aumente sua visibilidade e alcance com facilidade.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Botão "Entre em contato" -->
+                    <p>Aumente a visibilidade dos seus vídeos com nosso serviço de visualizações autênticas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
                 <!-- Produto 4 -->
                 <div class="product">
-                    <img src="images/product4.jpg" alt="Produto 4">
+                    <img src="images/product4.jpg" alt="Seguidores Reais para Redes Sociais">
                     <h3>Seguidores</h3>
-                    <p>Adquira seguidores reais para suas contas de redes sociais e aumente sua influência online. Perfeito para construir uma base sólida de seguidores e fortalecer sua marca.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a> <!-- Botão "Entre em contato" -->
+                    <p>Construa uma base sólida de seguidores reais e fortaleça sua marca online.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
             </div>
         </section>
