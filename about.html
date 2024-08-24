@@ -32,6 +32,7 @@
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
             margin: 0 10px;
+            font-size: 16px;
         }
 
         nav a:hover {
@@ -57,6 +58,8 @@
         .about {
             padding: 20px;
             background: #000; /* Fundo preto para a seção "Sobre Nós" */
+            max-width: 800px;
+            margin: auto;
         }
 
         .about h2 {
@@ -69,6 +72,23 @@
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 10px 20px;
+            background-color: #d4af37; /* Cor dourada para o botão */
+            color: #000; /* Texto preto no botão */
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #b89a2c; /* Tom mais escuro de dourado no hover */
+        }
     </style>
 </head>
 <body>
@@ -80,7 +100,7 @@
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
                 <a href="contact.html">Contato</a>
-                <a href="support.html">Suporte</a> <!-- Adicionando a aba Suporte -->
+                <a href="support.html">Suporte</a>
             </nav>
         </div>
     </header>
@@ -93,6 +113,8 @@
             <p>Explore nossos produtos e descubra como podemos ajudar a impulsionar sua presença nas redes sociais. A sua jornada para o sucesso digital começa aqui, com a <strong>KN5 Shop</strong>.</p>
             <p><em>Atenciosamente,</em></p>
             <p><strong>Keven Souza</strong></p>
+            <!-- Botão de chamada para ação -->
+            <a href="products.html" class="cta-button">Explore Nossos Produtos</a>
         </section>
     </main>
     <footer>
