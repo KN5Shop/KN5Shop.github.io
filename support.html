@@ -11,12 +11,17 @@
             font-family: Arial, sans-serif;
             background-color: #000; /* Fundo preto para a página */
             color: #fff; /* Texto branco */
+            overflow-x: hidden; /* Evita rolagem horizontal */
         }
 
         header {
             background-color: #333; /* Cor de fundo do cabeçalho */
             padding: 10px 0;
             color: #fff; /* Texto branco no cabeçalho */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         header .container {
@@ -31,12 +36,12 @@
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
             margin: 0 10px;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: color 0.3s;
         }
 
         nav a:hover {
             color: #d4af37;
-            text-shadow: 0 0 5px #d4af37;
+            text-decoration: underline;
         }
 
         footer {
@@ -49,13 +54,14 @@
         footer a {
             color: #d4af37; /* Links dourados no rodapé */
             text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s;
         }
 
         footer a:hover {
             text-decoration: underline;
-            color: #b59427;
-            text-shadow: 0 0 5px #b59427;
+        }
+
+        main {
+            padding: 80px 20px 20px; /* Ajustado para acomodar o cabeçalho fixo */
         }
 
         .support {
@@ -63,7 +69,7 @@
             background-color: #000; /* Fundo preto para a seção de suporte */
             color: #fff; /* Texto branco */
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         .support h2 {
@@ -73,8 +79,9 @@
         }
 
         .support .info {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         .support p {
@@ -84,54 +91,47 @@
         .support a {
             color: #d4af37; /* Links dourados */
             text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s;
         }
 
         .support a:hover {
             text-decoration: underline;
-            color: #b59427;
-            text-shadow: 0 0 5px #b59427;
         }
 
         /* Estilos do chat */
         .chat-widget {
             width: 100%;
-            max-width: 900px;
-            height: 400px; /* Altura reduzida do chat */
-            background-color: #444;
+            max-width: 800px;
+            height: 500px; /* Ajustado para melhor visibilidade */
+            background-color: #333;
             color: #fff;
             border-radius: 10px;
-            margin: 20px auto;
-            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            margin: 20px auto 0 auto; /* Centralizado logo abaixo do texto */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
         .chat-header {
             background-color: #d4af37; /* Cor dourada para o cabeçalho do chat */
             color: #000;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
             font-weight: bold;
-            border-bottom: 1px solid #555;
         }
 
         .chat-body {
             flex: 1;
-            padding: 15px;
+            padding: 10px;
             overflow-y: auto;
-            background-color: #333; /* Fundo do corpo do chat */
-            border-bottom: 1px solid #555;
+            background-color: #222; /* Fundo do corpo do chat */
         }
 
         .chat-footer {
-            background-color: #444; /* Fundo do rodapé do chat */
-            padding: 15px;
+            background-color: #333; /* Fundo do rodapé do chat */
+            padding: 10px;
             display: flex;
             align-items: center;
-            border-top: 1px solid #555;
         }
 
         .chat-footer input {
@@ -140,64 +140,22 @@
             border: none;
             border-radius: 5px;
             margin-right: 10px;
-            background-color: #555; /* Cor de fundo do campo de entrada */
+            background-color: #444; /* Cor de fundo do campo de entrada */
             color: #fff; /* Texto branco */
-            outline: none; /* Remove a borda de foco padrão */
-        }
-
-        .chat-footer input:focus {
-            background-color: #666; /* Tom mais claro de cinza no foco */
         }
 
         .chat-footer button {
             background-color: #d4af37; /* Cor dourada para o botão */
             border: none;
-            padding: 10px 20px;
+            padding: 10px;
             border-radius: 5px;
             color: #000;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .chat-footer button:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
-        }
-
-        /* Botão Voltar ao Topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #d4af37;
-            color: #000;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            display: none; /* Oculto por padrão */
-            transition: background-color 0.3s;
-        }
-
-        .back-to-top:hover {
-            background-color: #b59427; /* Tom mais escuro de dourado no hover */
-        }
-
-        /* Melhoria de contraste e acessibilidade */
-        .accessible {
-            color: #000;
-            background-color: #d4af37;
-            border-radius: 5px;
-            padding: 5px;
-            margin-top: 10px;
-        }
-
-        .accessible a {
-            color: #000;
-        }
-
-        .accessible a:hover {
-            color: #333;
         }
     </style>
 </head>
@@ -229,7 +187,7 @@
                     <p><strong>Assistente:</strong> Olá! Como posso ajudar você hoje?</p>
                 </div>
                 <div class="chat-footer">
-                    <input type="text" id="chatInput" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+                    <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
                     <button onclick="sendMessage()">Enviar</button>
                 </div>
             </div>
@@ -239,8 +197,6 @@
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Botão Voltar ao Topo -->
-    <button class="back-to-top" onclick="scrollToTop()">Voltar ao Topo</button>
     <!-- Adicionando o player de áudio com reprodução automática -->
     <audio autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
@@ -264,21 +220,6 @@
                 input.value = '';
                 chatBody.scrollTop = chatBody.scrollHeight; // Scroll para a parte inferior
             }
-        }
-
-        // Mostrar botão "Voltar ao Topo" ao rolar a página
-        window.onscroll = function() {
-            var button = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                button.style.display = 'block';
-            } else {
-                button.style.display = 'none';
-            }
-        };
-
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
         }
     </script>
 </body>
