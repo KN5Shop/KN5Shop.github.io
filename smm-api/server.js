@@ -1,42 +1,38 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const path = require('path');
 
-app.use(bodyParser.json());
+// Porta em que o servidor vai rodar
+const PORT = 10000;
 
-let balance = 1000; // Exemplo de saldo
-let services = [
-  { service: 1, name: 'Serviço A', type: 'Tipo 1', category: 'Categoria 1', rate: 10, min: 1, max: 100 },
-  { service: 2, name: 'Serviço B', type: 'Tipo 2', category: 'Categoria 2', rate: 20, min: 5, max: 50 },
-  // Adicione mais serviços conforme necessário
-];
+// Middleware para servir arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Rota para obter o saldo
-app.post('/api/balance', (req, res) => {
-  res.json({ balance, currency: 'BRL' });
+// Rotas da API
+app.get('/api/notifications', (req, res) => {
+    // Simulação de resposta de notificação
+    res.json({ message: 'Notificações carregadas com sucesso!' });
 });
 
-// Rota para obter serviços
-app.post('/api/services', (req, res) => {
-  res.json(services);
+// Página de administração
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
-// Rota para adicionar um pedido
-app.post('/api/add', (req, res) => {
-  const { service, quantity, url } = req.body;
-  // Simular a adição do pedido e retornar um ID fictício
-  const orderId = Math.floor(Math.random() * 1000);
-  res.json({ order: orderId });
+// Roteador para outras páginas (Serviços, Pedidos, etc.)
+app.get('/services', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'services.html'));
 });
 
-// Rota para obter o status do pedido
-app.post('/api/status', (req, res) => {
-  const { order } = req.body;
-  // Simular o status do pedido
-  res.json({ status: 'Em andamento', remains: 10 });
+app.get('/orders', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'orders.html'));
 });
 
-app.listen(port, () => {
-  console.log(`API listening at http://localhost:${port}`);
+app.get('/notifications', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'notifications.html'));
+});
+
+// Inicia o servidor
+app.listen(PORT, () => {
+    console.log(`API listening at http://localhost:${PORT}`);
 });
