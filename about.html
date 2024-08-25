@@ -15,9 +15,15 @@
         }
 
         header {
-            background-color: #333; /* Cor de fundo do cabeçalho */
-            padding: 10px 0;
+            background-color: #222; /* Cor de fundo escura para o cabeçalho */
+            padding: 15px 0; /* Padding ajustado */
             color: #fff; /* Texto branco no cabeçalho */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+            position: fixed; /* Cabeçalho fixo no topo */
+            width: 100%; /* Largura completa */
+            top: 0; /* Fica no topo da página */
+            left: 0; /* Alinhado à esquerda */
+            z-index: 1000; /* Colocado acima do restante do conteúdo */
         }
 
         header .container {
@@ -28,19 +34,43 @@
             margin: auto;
         }
 
+        header h1 {
+            color: #fff; /* Cor branca para o logo KN5 SHOP */
+            font-size: 1.8em; /* Tamanho da fonte aumentado */
+            text-transform: uppercase; /* Deixa o texto em maiúsculas */
+            letter-spacing: 2px; /* Espaçamento entre as letras */
+            margin: 0;
+        }
+
         nav a {
             color: #fff; /* Texto branco nos links */
             text-decoration: none;
             margin: 0 10px;
             font-size: 16px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37; /* Cor dourada para o sublinhado */
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease; /* Transição suave para o sublinhado */
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #d4af37; /* Cor dourada no hover */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Efeito de sublinhado dourado no hover */
         }
 
         footer {
-            background-color: #333; /* Cor de fundo do rodapé */
+            background-color: #222; /* Cor de fundo escura para o rodapé */
             padding: 10px 0;
             color: #fff; /* Texto branco no rodapé */
             text-align: center;
@@ -56,8 +86,8 @@
         }
 
         .about {
-            padding: 20px;
-            background: #000; /* Fundo preto para a seção "Sobre Nós" */
+            padding: 80px 20px 20px; /* Adicionado padding superior para acomodar o cabeçalho fixo */
+            background-color: #000; /* Fundo preto para a seção "Sobre Nós" */
             max-width: 800px;
             margin: auto;
         }
@@ -84,6 +114,7 @@
             text-decoration: none;
             font-size: 18px;
             border-radius: 5px;
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
         }
 
         .cta-button:hover {
@@ -94,7 +125,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>KN5 Shop</h1>
+            <h1>KN5 SHOP</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
