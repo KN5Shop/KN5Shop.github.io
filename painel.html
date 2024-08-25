@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel de SMM</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     header { background: #333; color: white; padding: 10px; text-align: center; }
@@ -67,6 +66,7 @@
   <script>
     const apiKey = '3d735244d9c3476f8f28d95d93aac5e93728ae68';
     const apiUrl = 'https://www.wassmm.online/api/v2';
+    const whatsappApiUrl = 'https://api.whatsapp.com/send?phone=+5519995271979&text=';
 
     async function fetchBalance() {
       try {
@@ -153,42 +153,18 @@
       }
     }
 
-    async function addOrder(event) {
+    function addOrder(event) {
       event.preventDefault();
       const serviceId = document.getElementById('service-id').value;
       const quantity = document.getElementById('order-quantity').value;
       const url = document.getElementById('order-url').value;
 
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({
-            key: apiKey,
-            action: 'add',
-            service: serviceId,
-            url: url,
-            quantity: quantity
-          })
-        });
+      const message = encodeURIComponent(`Olá, gostaria de fazer um pedido! \n\nID do Serviço: ${serviceId}\nQuantidade: ${quantity}\nLink para a Página: ${url}`);
+      const whatsappUrl = `${whatsappApiUrl}${message}`;
+      
+      window.location.href = whatsappUrl;
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (data.error) {
-          document.getElementById('order-status').textContent = `Erro: ${data.error}`;
-        } else {
-          document.getElementById('order-status').textContent = `Pedido adicionado com sucesso. ID: ${data.order}`;
-        }
-      } catch (error) {
-        console.error('Error adding order:', error);
-        document.getElementById('order-status').textContent = 'Erro ao adicionar pedido.';
-      }
+      document.getElementById('order-status').textContent = 'Pedido enviado para o WhatsApp!';
     }
 
     document.getElementById('order-form').addEventListener('submit', addOrder);
