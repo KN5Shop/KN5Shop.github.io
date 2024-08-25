@@ -31,35 +31,49 @@
 
   <script>
     async function fetchData() {
-      // Substitua pela URL da sua API pública
-      const response = await fetch('https://api.example.com/social-data');
-      const data = await response.json();
-
-      // Processar dados para o gráfico
-      const chartData = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-        datasets: [
-          {
-            label: 'Followers',
-            data: data.followers, // Certifique-se de que esta estrutura corresponde aos dados reais
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      try {
+        // Substitua pela URL real da API e parâmetros necessários
+        const response = await fetch('https://www.wassmm.online/api/v2/your-endpoint', {
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer YOUR_ACCESS_TOKEN' // Adicione o token de autenticação, se necessário
           }
-        ]
-      };
+        });
 
-      // Criar o gráfico
-      const ctx = document.getElementById('myChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'line',
-        data: chartData,
-        options: {
-          scales: {
-            x: { beginAtZero: true },
-            y: { beginAtZero: true }
-          }
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      });
+
+        const data = await response.json();
+
+        // Processar dados para o gráfico
+        const chartData = {
+          labels: data.labels || [], // Certifique-se de que esses dados estejam no formato correto
+          datasets: [
+            {
+              label: 'Followers',
+              data: data.followers || [], // Certifique-se de que esses dados estejam no formato correto
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            }
+          ]
+        };
+
+        // Criar o gráfico
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: chartData,
+          options: {
+            scales: {
+              x: { beginAtZero: true },
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
     }
 
     fetchData();
