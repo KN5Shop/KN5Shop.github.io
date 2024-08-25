@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KN5 Shop - Painel SMM</title>
+    <title>KN5 SHOP</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,90 +12,108 @@
             <h1>KN5 SHOP</h1>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                    <li><a href="#support">Suporte</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#suporte">Suporte</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <main>
-        <section id="home" class="section home">
-            <h2>Bem-vindo ao KN5 Shop</h2>
-            <p>Seu painel de serviços de marketing de mídia social.</p>
-        </section>
-        <section id="services" class="section services">
-            <h2>Serviços Disponíveis</h2>
-            <div class="service-category">
-                <button class="category-btn" onclick="toggleCategory('worldwide')">Serviços Mundiais</button>
-                <div id="worldwide" class="service-list hidden">
-                    <p>🌍 500 seguidores mundiais - R$5.00</p>
-                    <p>🌍 1000 seguidores mundiais - R$10.00</p>
-                    <p>🌍 1500 seguidores mundiais - R$15.00</p>
-                    <p>🌍 2000 seguidores mundiais - R$20.00</p>
-                    <p>🌍 2500 seguidores mundiais - R$25.00</p>
-                    <p>🌍 500 visualizações mundiais - R$0.50</p>
-                    <p>🌍 1000 visualizações mundiais - R$1.00</p>
-                    <p>🌍 1500 visualizações mundiais - R$1.50</p>
-                    <p>🌍 2000 visualizações mundiais - R$2.00</p>
-                    <p>🌍 2500 visualizações mundiais - R$2.50</p>
-                    <p>🌍 500 curtidas mundiais - R$1.50</p>
-                    <p>🌍 1000 curtidas mundiais - R$3.00</p>
-                    <p>🌍 1500 curtidas mundiais - R$4.50</p>
-                    <p>🌍 2000 curtidas mundiais - R$6.00</p>
-                    <p>🌍 2500 curtidas mundiais - R$7.50</p>
-                </div>
-            </div>
-            <div class="service-category">
-                <button class="category-btn" onclick="toggleCategory('brazilian')">Serviços Brasileiros</button>
-                <div id="brazilian" class="service-list hidden">
-                    <p>🇧🇷 500 seguidores brasileiros - R$12.00</p>
-                    <p>🇧🇷 1000 seguidores brasileiros - R$24.00</p>
-                    <p>🇧🇷 1500 seguidores brasileiros - R$34.00</p>
-                    <p>🇧🇷 2000 seguidores brasileiros - R$46.00</p>
-                    <p>🇧🇷 500 visualizações brasileiras - R$1.00</p>
-                    <p>🇧🇷 1000 visualizações brasileiras - R$2.00</p>
-                    <p>🇧🇷 1500 visualizações brasileiras - R$3.00</p>
-                    <p>🇧🇷 2000 visualizações brasileiras - R$4.00</p>
-                    <p>🇧🇷 500 curtidas brasileiras - R$3.50</p>
-                    <p>🇧🇷 1000 curtidas brasileiras - R$7.00</p>
-                    <p>🇧🇷 1500 curtidas brasileiras - R$10.50</p>
-                    <p>🇧🇷 2000 curtidas brasileiras - R$14.00</p>
-                </div>
+        <section id="intro">
+            <div class="container">
+                <h2>Bem-vindo ao KN5 Shop</h2>
+                <p>Seu painel de serviços de marketing de mídia social.</p>
             </div>
         </section>
-        <section id="contact" class="section contact">
-            <h2>Entre em Contato</h2>
-            <form id="orderForm">
-                <label for="name">Primeiro Nome:</label>
-                <input type="text" id="name" name="name" required>
 
-                <label for="service">Escolha o Serviço:</label>
-                <select id="service" name="service" required>
-                    <option value="">Selecione uma Categoria</option>
-                    <option value="worldwide">Serviços Mundiais</option>
-                    <option value="brazilian">Serviços Brasileiros</option>
-                </select>
+        <section id="contato">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <form id="contact-form">
+                    <label for="name">Primeiro Nome:</label>
+                    <input type="text" id="name" name="name" required>
 
-                <label for="details">Detalhes do Serviço:</label>
-                <select id="details" name="details" required>
-                    <!-- Opções serão preenchidas por JavaScript -->
-                </select>
-
-                <button type="submit">Enviar Pedido</button>
-            </form>
+                    <label for="service">Escolha o Serviço:</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Selecione um serviço</option>
+                        <option value="500 seguidores mundiais">500 seguidores mundiais - R$5.00</option>
+                        <option value="1000 seguidores mundiais">1000 seguidores mundiais - R$10.00</option>
+                        <option value="1500 seguidores mundiais">1500 seguidores mundiais - R$15.00</option>
+                        <option value="2000 seguidores mundiais">2000 seguidores mundiais - R$20.00</option>
+                        <option value="2500 seguidores mundiais">2500 seguidores mundiais - R$25.00</option>
+                        <option value="500 seguidores brasileiros">500 seguidores brasileiros - R$12.00</option>
+                        <option value="1000 seguidores brasileiros">1000 seguidores brasileiros - R$24.00</option>
+                        <option value="1500 seguidores brasileiros">1500 seguidores brasileiros - R$34.00</option>
+                        <option value="2000 seguidores brasileiros">2000 seguidores brasileiros - R$46.00</option>
+                        <option value="500 visualizações mundiais">500 visualizações mundiais - R$0.50</option>
+                        <option value="1000 visualizações mundiais">1000 visualizações mundiais - R$1.00</option>
+                        <option value="1500 visualizações mundiais">1500 visualizações mundiais - R$1.50</option>
+                        <option value="2000 visualizações mundiais">2000 visualizações mundiais - R$2.00</option>
+                        <option value="2500 visualizações mundiais">2500 visualizações mundiais - R$2.50</option>
+                        <option value="500 visualizações brasileiras">500 visualizações brasileiras - R$1.00</option>
+                        <option value="1000 visualizações brasileiras">1000 visualizações brasileiras - R$2.00</option>
+                        <option value="1500 visualizações brasileiras">1500 visualizações brasileiras - R$3.00</option>
+                        <option value="2000 visualizações brasileiras">2000 visualizações brasileiras - R$4.00</option>
+                        <option value="500 curtidas mundiais">500 curtidas mundiais - R$1.50</option>
+                        <option value="1000 curtidas mundiais">1000 curtidas mundiais - R$3.00</option>
+                        <option value="1500 curtidas mundiais">1500 curtidas mundiais - R$4.50</option>
+                        <option value="2000 curtidas mundiais">2000 curtidas mundiais - R$6.00</option>
+                        <option value="2500 curtidas mundiais">2500 curtidas mundiais - R$7.50</option>
+                        <option value="500 curtidas brasileiras">500 curtidas brasileiras - R$3.50</option>
+                        <option value="1000 curtidas brasileiras">1000 curtidas brasileiras - R$7.00</option>
+                        <option value="1500 curtidas brasileiras">1500 curtidas brasileiras - R$10.50</option>
+                        <option value="2000 curtidas brasileiras">2000 curtidas brasileiras - R$14.00</option>
+                    </select>
+                    
+                    <button type="submit">Enviar Pedido</button>
+                </form>
+            </div>
         </section>
-        <section id="support" class="section support">
-            <h2>Suporte</h2>
-            <p>Para suporte, entre em contato pelo nosso WhatsApp: <a href="https://api.whatsapp.com/send?phone=+5519995271979&text=Olá, preciso de ajuda com o KN5 Shop!" target="_blank">Clique aqui para enviar uma mensagem</a></p>
+
+        <section id="servicos">
+            <div class="container">
+                <h2>Serviços Disponíveis</h2>
+                <h3>Serviços Mundiais</h3>
+                <div class="servicos-lista">
+                    <div class="servico-item">🌍 500 seguidores mundiais - R$5.00</div>
+                    <div class="servico-item">🌍 1000 seguidores mundiais - R$10.00</div>
+                    <div class="servico-item">🌍 1500 seguidores mundiais - R$15.00</div>
+                    <div class="servico-item">🌍 2000 seguidores mundiais - R$20.00</div>
+                    <div class="servico-item">🌍 2500 seguidores mundiais - R$25.00</div>
+                    <div class="servico-item">🌍 500 visualizações mundiais - R$0.50</div>
+                    <div class="servico-item">🌍 1000 visualizações mundiais - R$1.00</div>
+                    <div class="servico-item">🌍 1500 visualizações mundiais - R$1.50</div>
+                    <div class="servico-item">🌍 2000 visualizações mundiais - R$2.00</div>
+                    <div class="servico-item">🌍 2500 visualizações mundiais - R$2.50</div>
+                    <div class="servico-item">🌍 500 curtidas mundiais - R$1.50</div>
+                    <div class="servico-item">🌍 1000 curtidas mundiais - R$3.00</div>
+                    <div class="servico-item">🌍 1500 curtidas mundiais - R$4.50</div>
+                    <div class="servico-item">🌍 2000 curtidas mundiais - R$6.00</div>
+                    <div class="servico-item">🌍 2500 curtidas mundiais - R$7.50</div>
+                </div>
+                
+                <h3>Serviços Brasileiros</h3>
+                <div class="servicos-lista">
+                    <div class="servico-item">🇧🇷 500 seguidores brasileiros - R$12.00</div>
+                    <div class="servico-item">🇧🇷 1000 seguidores brasileiros - R$24.00</div>
+                    <div class="servico-item">🇧🇷 1500 seguidores brasileiros - R$34.00</div>
+                    <div class="servico-item">🇧🇷 2000 seguidores brasileiros - R$46.00</div>
+                    <div class="servico-item">🇧🇷 500 visualizações brasileiras - R$1.00</div>
+                    <div class="servico-item">🇧🇷 1000 visualizações brasileiras - R$2.00</div>
+                    <div class="servico-item">🇧🇷 1500 visualizações brasileiras - R$3.00</div>
+                    <div class="servico-item">🇧🇷 2000 visualizações brasileiras - R$4.00</div>
+                    <div class="servico-item">🇧🇷 500 curtidas brasileiras - R$3.50</div>
+                    <div class="servico-item">🇧🇷 1000 curtidas brasileiras - R$7.00</div>
+                    <div class="servico-item">🇧🇷 1500 curtidas brasileiras - R$10.50</div>
+                    <div class="servico-item">🇧🇷 2000 curtidas brasileiras - R$14.00</div>
+                </div>
+            </div>
         </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 KN5 SHOP. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    <script src="scripts.js"></script>
-</body>
-</html>
+
+        <section id="suporte">
+            <div class="container">
+                <h2>Suporte</h2>
+                <p>Para suporte, entre em contato pelo nosso WhatsApp: <a href="https://api.whatsapp.com/send?phone=+5519995271979&text=Ol%C3%A1+vim+pelo+seu+site+KN5+Shop%2C+tudo+bem%3F+%F0%9F%98%83" target="_blank">
