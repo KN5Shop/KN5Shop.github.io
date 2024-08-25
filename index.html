@@ -17,9 +17,14 @@
         }
 
         header {
-            background-color: #333;
-            padding: 10px 0;
+            background-color: #222;
+            padding: 15px 0;
             color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         header .container {
@@ -30,11 +35,33 @@
             margin: auto;
         }
 
+        h1 {
+            font-size: 1.8em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
         nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
-            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
@@ -42,6 +69,7 @@
         }
 
         .hero {
+            margin-top: 100px;
             position: relative;
             background: url('images/banner.jpg') no-repeat center center;
             background-size: cover;
