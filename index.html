@@ -14,6 +14,10 @@
             font-family: Arial, sans-serif;
             background-color: #000;
             color: #fff;
+            overflow-x: hidden; /* Evita rolagem horizontal */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -47,6 +51,11 @@
             margin: 0 10px;
             position: relative;
             padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
         }
 
         nav a::after {
@@ -62,10 +71,6 @@
 
         nav a:hover::after {
             width: 100%;
-        }
-
-        nav a:hover {
-            color: #d4af37;
         }
 
         .hero {
@@ -188,7 +193,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>KN5 Shop</h1>
+            <h1>KN5 SHOP</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
