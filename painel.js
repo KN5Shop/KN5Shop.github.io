@@ -1,9 +1,8 @@
+// painel.js
 document.addEventListener('DOMContentLoaded', () => {
-    // Carregar serviços e pedidos
     fetchServices();
     fetchOrders();
 
-    // Envio do formulário de suporte
     document.getElementById('support-form').addEventListener('submit', async (event) => {
         event.preventDefault();
         const message = document.getElementById('support-message').value;
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Sua mensagem foi enviada!');
     });
 
-    // Envio do formulário de configurações
     document.getElementById('settings-form').addEventListener('submit', async (event) => {
         event.preventDefault();
         const email = document.getElementById('email').value;
@@ -32,6 +30,7 @@ async function fetchServices() {
             serviceItem.className = 'service-item';
             serviceItem.innerHTML = `
                 <h3>${service.name}</h3>
+                <p>${service.description}</p>
                 <p>Preço: R$${service.price}</p>
                 <button onclick="buyService(${service.id})">Comprar</button>
             `;
@@ -94,9 +93,4 @@ async function updateSettings(email, password) {
         await fetch('/api/settings', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } catch (error) {
-        console.error('Erro ao atualizar configurações:', error);
-    }
-}
+           
