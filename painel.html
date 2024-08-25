@@ -1,55 +1,68 @@
-!DOCTYPE html
-html lang=en
-head
-  meta charset=UTF-8
-  meta name=viewport content=width=device-width, initial-scale=1.0
-  titlePainel de SMMtitle
-  script src=httpscdn.jsdelivr.netnpmchart.jsscript
-  style
-    body { font-family Arial, sans-serif; }
-    #chart-container { width 80%; margin auto; }
-  style
-head
-body
-  h1Painel de SMMh1
-  div id=chart-container
-    canvas id=myChartcanvas
-  div
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de SMM</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #333; color: white; padding: 10px; text-align: center; }
+    nav { text-align: center; margin: 20px 0; }
+    nav a { margin: 0 15px; text-decoration: none; color: #333; }
+    .container { width: 80%; margin: auto; }
+    #chart-container { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Painel de SMM</h1>
+    <nav>
+      <a href="index.html">Página Principal</a>
+      <a href="painel.html">Painel de SMM</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div id="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
 
-  script
+  <script>
     async function fetchData() {
-       Substitua pela URL da sua API pública
-      const response = await fetch('httpsapi.example.comsocial-data');
+      // Substitua pela URL da sua API pública
+      const response = await fetch('https://api.example.com/social-data');
       const data = await response.json();
 
-       Processar dados para o gráfico
+      // Processar dados para o gráfico
       const chartData = {
-        labels ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-        datasets [
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [
           {
-            label 'Followers',
-            data data.followers,  Certifique-se de que esta estrutura corresponde aos dados reais
-            borderColor 'rgba(75, 192, 192, 1)',
-            backgroundColor 'rgba(75, 192, 192, 0.2)',
+            label: 'Followers',
+            data: data.followers, // Certifique-se de que esta estrutura corresponde aos dados reais
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
           }
         ]
       };
 
-       Criar o gráfico
+      // Criar o gráfico
       const ctx = document.getElementById('myChart').getContext('2d');
       new Chart(ctx, {
-        type 'line',
-        data chartData,
-        options {
-          scales {
-            x { beginAtZero true },
-            y { beginAtZero true }
+        type: 'line',
+        data: chartData,
+        options: {
+          scales: {
+            x: { beginAtZero: true },
+            y: { beginAtZero: true }
           }
         }
       });
     }
 
     fetchData();
-  script
-body
-html
+  </script>
+</body>
+</html>
