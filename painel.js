@@ -1,5 +1,10 @@
 // painel.js
 document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.add('visible');
+    });
+
     fetchServices();
     fetchOrders();
 
@@ -7,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const message = document.getElementById('support-message').value;
         await sendSupportMessage(message);
-        alert('Sua mensagem foi enviada!');
+        showFeedback('Sua mensagem foi enviada com sucesso!');
     });
 
     document.getElementById('settings-form').addEventListener('submit', async (event) => {
@@ -15,7 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         await updateSettings(email, password);
-        alert('Configurações salvas!');
+        showFeedback('Configurações salvas!');
+    });
+
+    document.querySelector('.close-btn').addEventListener('click', () => {
+        document.getElementById('feedback-modal').style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            document.getElementById('feedback-modal').style.display = 'none';
+        }
     });
 });
 
@@ -24,18 +39,14 @@ async function fetchServices() {
         const response = await fetch('/api/services');
         const services = await response.json();
         const serviceList = document.getElementById('service-list');
-        serviceList.innerHTML = '';
-        services.forEach(service => {
-            const serviceItem = document.createElement('div');
-            serviceItem.className = 'service-item';
-            serviceItem.innerHTML = `
+        serviceList.innerHTML = services.map(service => `
+            <div class="service-item">
                 <h3>${service.name}</h3>
                 <p>${service.description}</p>
                 <p>Preço: R$${service.price}</p>
                 <button onclick="buyService(${service.id})">Comprar</button>
-            `;
-            serviceList.appendChild(serviceItem);
-        });
+            </div>
+        `).join('');
     } catch (error) {
         console.error('Erro ao carregar serviços:', error);
     }
@@ -46,17 +57,13 @@ async function fetchOrders() {
         const response = await fetch('/api/orders');
         const orders = await response.json();
         const orderHistory = document.getElementById('order-history');
-        orderHistory.innerHTML = '';
-        orders.forEach(order => {
-            const orderItem = document.createElement('div');
-            orderItem.className = 'order-item';
-            orderItem.innerHTML = `
+        orderHistory.innerHTML = orders.map(order => `
+            <div class="order-item">
                 <h3>Pedido #${order.id}</h3>
                 <p>Serviço: ${order.serviceName}</p>
                 <p>Status: ${order.status}</p>
-            `;
-            orderHistory.appendChild(orderItem);
-        });
+            </div>
+        `).join('');
     } catch (error) {
         console.error('Erro ao carregar pedidos:', error);
     }
@@ -70,9 +77,10 @@ async function buyService(serviceId) {
             headers: { 'Content-Type': 'application/json' },
         });
         const result = await response.json();
-        alert(result.message);
+        showFeedback(result.message);
     } catch (error) {
         console.error('Erro ao comprar serviço:', error);
+        showFeedback('Erro ao processar a compra.');
     }
 }
 
@@ -85,6 +93,7 @@ async function sendSupportMessage(message) {
         });
     } catch (error) {
         console.error('Erro ao enviar mensagem de suporte:', error);
+        showFeedback('Erro ao enviar mensagem de suporte.');
     }
 }
 
@@ -93,4 +102,16 @@ async function updateSettings(email, password) {
         await fetch('/api/settings', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
-           
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('Erro ao atualizar configurações:', error);
+    }
+}
+
+function showFeedback(message) {
+    const modal = document.getElementById('feedback-modal');
+    const feedbackMessage = document.getElementById('feedback-message');
+    feedbackMessage.textContent = message;
+    modal.style.display = 'block';
+}
