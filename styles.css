@@ -93,12 +93,17 @@ form button:hover {
 
 .servicos-container {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
-.servicos-mundiais,
-.servicos-brasileiros {
-    flex: 1;
+.servico-categoria {
+    margin-bottom: 2rem;
+}
+
+.servico-categoria h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .servicos-lista {
