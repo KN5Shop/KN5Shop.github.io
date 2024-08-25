@@ -14,6 +14,9 @@
     nav a:hover { text-decoration: underline; }
     .container { width: 80%; margin: auto; }
     #chart-container { margin-top: 20px; }
+    #services-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    #services-table th, #services-table td { border: 1px solid #ddd; padding: 8px; }
+    #services-table th { background-color: #f4f4f4; }
   </style>
 </head>
 <body>
@@ -25,20 +28,55 @@
     </nav>
   </header>
   <div class="container">
-    <div id="chart-container">
-      <canvas id="myChart"></canvas>
-    </div>
+    <h2>Saldo Atual</h2>
+    <div id="balance">Carregando saldo...</div>
+
+    <h2>Serviços Disponíveis</h2>
+    <table id="services-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Categoria</th>
+          <th>Taxa</th>
+          <th>Min</th>
+          <th>Max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Os serviços serão inseridos aqui -->
+      </tbody>
+    </table>
+
+    <h2>Status do Pedido</h2>
+    <div id="order-status">Carregando status do pedido...</div>
+
+    <h2>Adicionar Pedido</h2>
+    <form id="order-form">
+      <label for="service-id">ID do Serviço:</label>
+      <input type="number" id="service-id" name="service-id" required><br><br>
+      <label for="order-quantity">Quantidade:</label>
+      <input type="number" id="order-quantity" name="order-quantity" required><br><br>
+      <label for="order-url">Link para a Página:</label>
+      <input type="text" id="order-url" name="order-url" required><br><br>
+      <button type="submit">Adicionar Pedido</button>
+    </form>
   </div>
 
   <script>
-    async function fetchData() {
+    const apiKey = '3d735244d9c3476f8f28d95d93aac5e93728ae68';
+    const apiUrl = 'https://www.wassmm.online/api/v2';
+
+    async function fetchBalance() {
       try {
-        // Substitua pelo URL real da API e parâmetros necessários
-        const response = await fetch('https://www.wassmm.online/api/v2/your-endpoint', {
-          method: 'GET',
+        const response = await fetch(apiUrl, {
+          method: 'POST',
           headers: {
-            'Authorization': 'Bearer YOUR_ACCESS_TOKEN' // Adicione o token de autenticação, se necessário
-          }
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({ key: apiKey, action: 'balance' })
         });
 
         if (!response.ok) {
@@ -46,44 +84,118 @@
         }
 
         const data = await response.json();
-
-        console.log('API Data:', data); // Adicione este log para depuração
-
-        // Verifique o formato dos dados retornados pela API
-        const labels = data.labels || []; // Ajuste conforme o formato real dos dados
-        const followers = data.followers || []; // Ajuste conforme o formato real dos dados
-
-        // Processar dados para o gráfico
-        const chartData = {
-          labels: labels,
-          datasets: [
-            {
-              label: 'Followers',
-              data: followers,
-              borderColor: 'rgba(75, 192, 192, 1)',
-              backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            }
-          ]
-        };
-
-        // Criar o gráfico
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: chartData,
-          options: {
-            scales: {
-              x: { beginAtZero: true },
-              y: { beginAtZero: true }
-            }
-          }
-        });
+        document.getElementById('balance').textContent = `Saldo: ${data.balance} ${data.currency}`;
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching balance:', error);
+        document.getElementById('balance').textContent = 'Erro ao carregar saldo.';
       }
     }
 
-    fetchData();
+    async function fetchServices() {
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({ key: apiKey, action: 'services' })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const services = await response.json();
+
+        const tableBody = document.querySelector('#services-table tbody');
+        tableBody.innerHTML = ''; // Limpar tabela antes de adicionar novos dados
+
+        services.forEach(service => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${service.service}</td>
+            <td>${service.name}</td>
+            <td>${service.type}</td>
+            <td>${service.category}</td>
+            <td>${service.rate}</td>
+            <td>${service.min}</td>
+            <td>${service.max}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      } catch (error) {
+        console.error('Error fetching services:', error);
+        document.querySelector('#services-table tbody').innerHTML = '<tr><td colspan="7">Erro ao carregar serviços.</td></tr>';
+      }
+    }
+
+    async function fetchOrderStatus(orderId) {
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({ key: apiKey, action: 'status', order: orderId })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        document.getElementById('order-status').textContent = `Status do Pedido ${orderId}: ${data.status}, Remanescentes: ${data.remains}`;
+      } catch (error) {
+        console.error('Error fetching order status:', error);
+        document.getElementById('order-status').textContent = 'Erro ao carregar status do pedido.';
+      }
+    }
+
+    async function addOrder(event) {
+      event.preventDefault();
+      const serviceId = document.getElementById('service-id').value;
+      const quantity = document.getElementById('order-quantity').value;
+      const url = document.getElementById('order-url').value;
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            key: apiKey,
+            action: 'add',
+            service: serviceId,
+            url: url,
+            quantity: quantity
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (data.error) {
+          document.getElementById('order-status').textContent = `Erro: ${data.error}`;
+        } else {
+          document.getElementById('order-status').textContent = `Pedido adicionado com sucesso. ID: ${data.order}`;
+        }
+      } catch (error) {
+        console.error('Error adding order:', error);
+        document.getElementById('order-status').textContent = 'Erro ao adicionar pedido.';
+      }
+    }
+
+    document.getElementById('order-form').addEventListener('submit', addOrder);
+
+    // Carregar dados iniciais
+    fetchBalance();
+    fetchServices();
   </script>
 </body>
 </html>
