@@ -64,24 +64,17 @@
   </div>
 
   <script>
-    const apiKey = '3d735244d9c3476f8f28d95d93aac5e93728ae68';
-    const apiUrl = 'https://www.wassmm.online/api/v2';
+    const apiUrl = 'http://localhost:3000/api';
     const whatsappApiUrl = 'https://api.whatsapp.com/send?phone=+5519995271979&text=';
 
     async function fetchBalance() {
       try {
-        const response = await fetch(apiUrl, {
+        const response = await fetch(`${apiUrl}/balance`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({ key: apiKey, action: 'balance' })
+          headers: { 'Content-Type': 'application/json' }
         });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const data = await response.json();
         document.getElementById('balance').textContent = `Saldo: ${data.balance} ${data.currency}`;
@@ -93,23 +86,17 @@
 
     async function fetchServices() {
       try {
-        const response = await fetch(apiUrl, {
+        const response = await fetch(`${apiUrl}/services`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({ key: apiKey, action: 'services' })
+          headers: { 'Content-Type': 'application/json' }
         });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const services = await response.json();
 
         const tableBody = document.querySelector('#services-table tbody');
-        tableBody.innerHTML = ''; // Limpar tabela antes de adicionar novos dados
+        tableBody.innerHTML = '';
 
         services.forEach(service => {
           const row = document.createElement('tr');
@@ -132,18 +119,13 @@
 
     async function fetchOrderStatus(orderId) {
       try {
-        const response = await fetch(apiUrl, {
+        const response = await fetch(`${apiUrl}/status`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({ key: apiKey, action: 'status', order: orderId })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ order: orderId })
         });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const data = await response.json();
         document.getElementById('order-status').textContent = `Status do Pedido ${orderId}: ${data.status}, Remanescentes: ${data.remains}`;
