@@ -3,158 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KN5 SHOP</title>
+    <meta name="description" content="KN5 Shop - Loja online de serviços para otimizar seu perfil digital. Produtos que aumentam seguidores, curtidas e visualizações.">
+    <meta name="keywords" content="seguidores, curtidas, visualizações, mídia social, KN5 Shop">
+    <title>KN5 Shop - Aumente seu Alcance Online</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS para animações sutis e otimizações */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden; /* Evita rolagem horizontal */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #222;
+            padding: 15px 0;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            margin-top: 100px;
+            position: relative;
+            background: url('images/banner.jpg') no-repeat center center;
+            background-size: cover;
+            height: 8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding-top: 10px;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2em;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: #d4af37;
+        }
+
+        .products {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+            padding: 20px;
+            background: #000;
+        }
+
+        .products h2 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #d4af37;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .product img:hover {
+            opacity: 0.8;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .product p {
+            color: #d4af37;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d4af37;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b59427;
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        footer {
+            z-index: 1;
+            position: relative;
+            background-color: #333;
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>KN5 SHOP</h1>
             <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="#suporte">Suporte</a></li>
-                </ul>
+                <a href="index.html">Home</a>
+                <a href="about.html">Sobre Nós</a>
+                <a href="products.html">Produtos</a>
+                <a href="contact.html">Contato</a>
+                <a href="support.html">Suporte</a>
             </nav>
         </div>
     </header>
-
     <main>
-        <section id="intro">
-            <div class="container">
-                <h2>Bem-vindo ao KN5 Shop</h2>
-                <p>Seu painel de serviços de marketing de mídia social.</p>
-            </div>
+        <section class="hero">
+            <h2>Bem-vindo à KN5 Shop</h2>
         </section>
-
-        <section id="contato">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <form id="contact-form">
-                    <label for="name">Primeiro Nome:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="service">Escolha o Serviço:</label>
-                    <select id="service" name="service" required>
-                        <option value="" disabled selected>Selecione um serviço</option>
-                        <option value="500 seguidores mundiais">🌍 500 seguidores mundiais - R$5.00</option>
-                        <option value="1000 seguidores mundiais">🌍 1000 seguidores mundiais - R$10.00</option>
-                        <option value="1500 seguidores mundiais">🌍 1500 seguidores mundiais - R$15.00</option>
-                        <option value="2000 seguidores mundiais">🌍 2000 seguidores mundiais - R$20.00</option>
-                        <option value="2500 seguidores mundiais">🌍 2500 seguidores mundiais - R$25.00</option>
-                        <option value="500 seguidores brasileiros">🇧🇷 500 seguidores brasileiros - R$12.00</option>
-                        <option value="1000 seguidores brasileiros">🇧🇷 1000 seguidores brasileiros - R$24.00</option>
-                        <option value="1500 seguidores brasileiros">🇧🇷 1500 seguidores brasileiros - R$34.00</option>
-                        <option value="2000 seguidores brasileiros">🇧🇷 2000 seguidores brasileiros - R$46.00</option>
-                        <option value="500 visualizações mundiais">🌍 500 visualizações mundiais - R$0.50</option>
-                        <option value="1000 visualizações mundiais">🌍 1000 visualizações mundiais - R$1.00</option>
-                        <option value="1500 visualizações mundiais">🌍 1500 visualizações mundiais - R$1.50</option>
-                        <option value="2000 visualizações mundiais">🌍 2000 visualizações mundiais - R$2.00</option>
-                        <option value="2500 visualizações mundiais">🌍 2500 visualizações mundiais - R$2.50</option>
-                        <option value="500 visualizações brasileiras">🇧🇷 500 visualizações brasileiras - R$1.00</option>
-                        <option value="1000 visualizações brasileiras">🇧🇷 1000 visualizações brasileiras - R$2.00</option>
-                        <option value="1500 visualizações brasileiras">🇧🇷 1500 visualizações brasileiras - R$3.00</option>
-                        <option value="2000 visualizações brasileiras">🇧🇷 2000 visualizações brasileiras - R$4.00</option>
-                        <option value="500 curtidas mundiais">🌍 500 curtidas mundiais - R$1.50</option>
-                        <option value="1000 curtidas mundiais">🌍 1000 curtidas mundiais - R$3.00</option>
-                        <option value="1500 curtidas mundiais">🌍 1500 curtidas mundiais - R$4.50</option>
-                        <option value="2000 curtidas mundiais">🌍 2000 curtidas mundiais - R$6.00</option>
-                        <option value="2500 curtidas mundiais">🌍 2500 curtidas mundiais - R$7.50</option>
-                        <option value="500 curtidas brasileiras">🇧🇷 500 curtidas brasileiras - R$3.50</option>
-                        <option value="1000 curtidas brasileiras">🇧🇷 1000 curtidas brasileiras - R$7.00</option>
-                        <option value="1500 curtidas brasileiras">🇧🇷 1500 curtidas brasileiras - R$10.50</option>
-                        <option value="2000 curtidas brasileiras">🇧🇷 2000 curtidas brasileiras - R$14.00</option>
-                    </select>
-                    
-                    <button type="submit">Enviar Pedido</button>
-                </form>
-            </div>
-        </section>
-
-        <section id="servicos">
-            <div class="container">
-                <h2>Serviços Disponíveis</h2>
-                <div class="servicos-container">
-                    <div class="servico-categoria">
-                        <h3>Seguidores Mundiais</h3>
-                        <div class="servicos-lista">
-                            <div class="servico-item">🌍 500 seguidores mundiais - R$5.00</div>
-                            <div class="servico-item">🌍 1000 seguidores mundiais - R$10.00</div>
-                            <div class="servico-item">🌍 1500 seguidores mundiais - R$15.00</div>
-                            <div class="servico-item">🌍 2000 seguidores mundiais - R$20.00</div>
-                            <div class="servico-item">🌍 2500 seguidores mundiais - R$25.00</div>
-                        </div>
-                    </div>
-
-                    <div class="servico-categoria">
-                        <h3>Seguidores Brasileiros</h3>
-                        <div class="servicos-lista">
-                            <div class="servico-item">🇧🇷 500 seguidores brasileiros - R$12.00</div>
-                            <div class="servico-item">🇧🇷 1000 seguidores brasileiros - R$24.00</div>
-                            <div class="servico-item">🇧🇷 1500 seguidores brasileiros - R$34.00</div>
-                            <div class="servico-item">🇧🇷 2000 seguidores brasileiros - R$46.00</div>
-                        </div>
-                    </div>
-
-                    <div class="servico-categoria">
-                        <h3>Visualizações Mundiais</h3>
-                        <div class="servicos-lista">
-                            <div class="servico-item">🌍 500 visualizações mundiais - R$0.50</div>
-                            <div class="servico-item">🌍 1000 visualizações mundiais - R$1.00</div>
-                            <div class="servico-item">🌍 1500 visualizações mundiais - R$1.50</div>
-                            <div class="servico-item">🌍 2000 visualizações mundiais - R$2.00</div>
-                            <div class="servico-item">🌍 2500 visualizações mundiais - R$2.50</div>
-                        </div>
-                    </div>
-
-                    <div class="servico-categoria">
-                        <h3>Visualizações Brasileiras</h3>
-                        <div class="servicos-lista">
-                            <div class="servico-item">🇧🇷 500 visualizações brasileiras - R$1.00</div>
-                            <div class="servico-item">🇧🇷 1000 visualizações brasileiras - R$2.00</div>
-                            <div class="servico-item">🇧🇷 1500 visualizações brasileiras - R$3.00</div>
-                            <div class="servico-item">🇧🇷 2000 visualizações brasileiras - R$4.00</div>
-                        </div>
-                    </div>
-
-                    <div class="servico-categoria">
-                        <h3>Curtidas Mundiais</h3>
-                        <div class="servicos-lista">
-                            <div class="servico-item">🌍 500 curtidas mundiais - R$1.50</div>
-                            <div class="servico-item">🌍 1000 curtidas mundiais - R$3.00</div>
-                            <div class="servico-item">🌍 1500 curtidas mundiais - R$4.50</div>
-                            <div class="servico-item">🌍 2000 curtidas mundiais - R$6.00</div>
-                            <div class="servico-item">🌍 2500 curtidas mundiais - R$7.50</div>
-                        </div>
-                    </div>
-
-                    <div class="servico-categoria">
-                        <h3>Curtidas Brasileiras</h3>
-                        <div class="servicos-lista">
-                            <div class="servico-item">🇧🇷 500 curtidas brasileiras - R$3.50</div>
-                            <div class="servico-item">🇧🇷 1000 curtidas brasileiras - R$7.00</div>
-                            <div class="servico-item">🇧🇷 1500 curtidas brasileiras - R$10.50</div>
-                            <div class="servico-item">🇧🇷 2000 curtidas brasileiras - R$14.00</div>
-                        </div>
-                    </div>
+        <section class="products">
+            <h2>Produtos em Destaque</h2>
+            <p class="product-info">Clique nas imagens abaixo para obter uma descrição detalhada de cada produto.</p>
+            <div class="product-grid">
+                <div class="product">
+                    <a href="product-detail.html?id=1">
+                        <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
+                    </a>
+                    <h3>Serviços Extras</h3>
+                    <p>Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <div class="product">
+                    <a href="product-detail.html?id=2">
+                        <img src="images/product2.jpg" alt="Curtidas para Postagens em Redes Sociais">
+                    </a>
+                    <h3>Curtidas</h3>
+                    <p>Impulsione o alcance e engajamento das suas postagens com curtidas autênticas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <div class="product">
+                    <a href="product-detail.html?id=3">
+                        <img src="images/product3.jpg" alt="Visualizações para Vídeos">
+                    </a>
+                    <h3>Visualizações</h3>
+                    <p>Aumente a visibilidade dos seus vídeos com nosso serviço de visualizações autênticas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <div class="product">
+                    <a href="product-detail.html?id=4">
+                        <img src="images/product4.jpg" alt="Seguidores Reais para Redes Sociais">
+                    </a>
+                    <h3>Seguidores</h3>
+                    <p>Construa uma base sólida de seguidores reais e fortaleça sua marca online.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <div class="product">
+                    <a href="product-detail.html?id=5">
+                        <img src="images/product6.jpg" alt="Produto Misterioso">
+                    </a>
+                    <h3>Produto Misterioso</h3>
+                    <p>Descubra o que há de especial neste produto! Surpresas incríveis aguardam.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
                 </div>
             </div>
         </section>
-
-        <section id="suporte">
-            <div class="container">
-                <h2>Suporte</h2>
-                <p>Para suporte, entre em contato pelo nosso WhatsApp: <a href="https://api.whatsapp.com/send?phone=+5519995271979&text=Ol%C3%A1+vim+pelo+seu+site+KN5+Shop%2C+tudo+bem%3F+%F0%9F%98%83">Clique aqui para enviar uma mensagem</a></p>
-            </div>
-        </section>
     </main>
-
     <footer>
-        <div class="container">
-            <p>© 2024 KN5 SHOP. Todos os direitos reservados.</p>
-        </div>
+        <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
+        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
+    <!-- Adicionando o player de áudio com reprodução automática -->
+    <audio autoplay loop>
+        <source src="music/music1.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
 </body>
 </html>
