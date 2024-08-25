@@ -14,9 +14,15 @@
         }
 
         header {
-            background-color: #333; /* Cor de fundo do cabeçalho */
-            padding: 10px 0;
+            background-color: #222; /* Cor de fundo escura para o cabeçalho */
+            padding: 15px 0; /* Padding ajustado */
             color: #fff; /* Texto branco no cabeçalho */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+            position: fixed; /* Cabeçalho fixo no topo */
+            width: 100%; /* Largura completa */
+            top: 0; /* Fica no topo da página */
+            left: 0; /* Alinhado à esquerda */
+            z-index: 1000; /* Colocado acima do restante do conteúdo */
         }
 
         header .container {
@@ -28,7 +34,7 @@
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 1.8em; /* Tamanho da fonte aumentado */
             color: #fff; /* Texto branco para o logo */
             text-transform: uppercase; /* Letras maiúsculas */
             letter-spacing: 2px; /* Espaçamento entre as letras */
@@ -50,7 +56,11 @@
             background-color: #d4af37; /* Sublinhado dourado */
             left: 0;
             bottom: -5px;
-            transition: width 0.3s ease;
+            transition: width 0.3s ease; /* Transição suave para o sublinhado */
+        }
+
+        nav a:hover {
+            color: #d4af37; /* Cor dourada no hover */
         }
 
         nav a:hover::after {
@@ -61,6 +71,7 @@
             padding: 20px;
             background-color: #000; /* Fundo preto para a seção de detalhes */
             color: #fff; /* Texto branco */
+            margin-top: 60px; /* Espaço para o cabeçalho fixo */
         }
 
         .product-info {
