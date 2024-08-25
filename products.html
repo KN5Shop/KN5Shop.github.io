@@ -14,9 +14,15 @@
         }
 
         header {
-            background-color: #333; /* Cor de fundo do cabeçalho */
-            padding: 10px 0;
+            background-color: #222; /* Cor de fundo escura para o cabeçalho */
+            padding: 15px 0; /* Padding ajustado */
             color: #fff; /* Texto branco no cabeçalho */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+            position: fixed; /* Cabeçalho fixo no topo */
+            width: 100%; /* Largura completa */
+            top: 0; /* Fica no topo da página */
+            left: 0; /* Alinhado à esquerda */
+            z-index: 1000; /* Colocado acima do restante do conteúdo */
         }
 
         header .container {
@@ -29,9 +35,10 @@
 
         header h1 {
             color: #fff; /* Cor branca para o logo KN5 SHOP */
-            font-size: 2em;
+            font-size: 1.8em; /* Tamanho da fonte aumentado */
             text-transform: uppercase; /* Deixa o texto em maiúsculas */
             letter-spacing: 2px; /* Espaçamento entre as letras */
+            margin: 0;
         }
 
         nav a {
@@ -41,22 +48,32 @@
             position: relative;
         }
 
-        nav a:hover::after {
+        nav a::after {
             content: "";
             position: absolute;
-            width: 100%;
+            width: 0;
             height: 2px;
-            background-color: #d4af37; /* Cor dourada para o sublinhado ao passar o mouse */
+            background-color: #d4af37; /* Cor dourada para o sublinhado */
             left: 0;
             bottom: -5px;
-            transition: width 0.3s;
+            transition: width 0.3s ease; /* Transição suave para o sublinhado */
+        }
+
+        nav a:hover {
+            color: #d4af37; /* Cor dourada no hover */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Efeito de sublinhado dourado no hover */
         }
 
         .products {
             padding: 40px 20px;
             background-color: #000; /* Fundo preto */
-            margin: 40px auto;
+            margin-top: 80px; /* Espaço para o cabeçalho fixo */
             max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .products h2 {
@@ -81,22 +98,22 @@
         }
 
         .product:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Aumenta o produto suavemente ao passar o mouse */
         }
 
         .product img {
             width: 100%;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 2px solid #d4af37; /* Borda dourada na imagem */
             margin-bottom: 15px;
         }
 
         .product h3 {
             margin: 15px 0;
-            color: #fff;
+            color: #fff; /* Cor branca para o nome do produto */
         }
 
         .product p {
-            color: #d4af37;
+            color: #d4af37; /* Cor dourada para a descrição do produto */
             font-size: 1.1em;
             margin-bottom: 20px;
         }
@@ -104,17 +121,17 @@
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #d4af37;
-            color: #000;
+            background-color: #d4af37; /* Fundo dourado para o botão */
+            color: #000; /* Texto preto no botão */
             text-decoration: none;
             border-radius: 5px;
             margin-top: 10px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #b59427;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
         }
 
         footer {
@@ -125,7 +142,7 @@
         }
 
         footer a {
-            color: #d4af37;
+            color: #d4af37; /* Links dourados no rodapé */
             text-decoration: none;
         }
 
@@ -137,7 +154,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>KN5 Shop</h1>
+            <h1>KN5 SHOP</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
