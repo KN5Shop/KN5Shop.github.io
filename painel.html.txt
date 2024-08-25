@@ -1,0 +1,55 @@
+!DOCTYPE html
+html lang=en
+head
+  meta charset=UTF-8
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  titlePainel de SMMtitle
+  script src=httpscdn.jsdelivr.netnpmchart.jsscript
+  style
+    body { font-family Arial, sans-serif; }
+    #chart-container { width 80%; margin auto; }
+  style
+head
+body
+  h1Painel de SMMh1
+  div id=chart-container
+    canvas id=myChartcanvas
+  div
+
+  script
+    async function fetchData() {
+       Substitua pela URL da sua API pública
+      const response = await fetch('httpsapi.example.comsocial-data');
+      const data = await response.json();
+
+       Processar dados para o gráfico
+      const chartData = {
+        labels ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets [
+          {
+            label 'Followers',
+            data data.followers,  Certifique-se de que esta estrutura corresponde aos dados reais
+            borderColor 'rgba(75, 192, 192, 1)',
+            backgroundColor 'rgba(75, 192, 192, 0.2)',
+          }
+        ]
+      };
+
+       Criar o gráfico
+      const ctx = document.getElementById('myChart').getContext('2d');
+      new Chart(ctx, {
+        type 'line',
+        data chartData,
+        options {
+          scales {
+            x { beginAtZero true },
+            y { beginAtZero true }
+          }
+        }
+      });
+    }
+
+    fetchData();
+  script
+body
+html
