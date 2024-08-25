@@ -1,159 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel de SMM</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #333; color: white; padding: 10px; text-align: center; }
-    nav { text-align: center; margin: 20px 0; }
-    nav a { margin: 0 15px; text-decoration: none; color: #f2f2f2; }
-    nav a:hover { text-decoration: underline; }
-    .container { width: 80%; margin: auto; }
-    #chart-container { margin-top: 20px; }
-    #services-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    #services-table th, #services-table td { border: 1px solid #ddd; padding: 8px; }
-    #services-table th { background-color: #f4f4f4; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel SMM</title>
+    <link rel="stylesheet" href="painel.css">
 </head>
 <body>
-  <header>
-    <h1>Painel de SMM</h1>
-    <nav>
-      <a href="index.html">Página Principal</a>
-      <a href="painel.html">Painel de SMM</a>
-    </nav>
-  </header>
-  <div class="container">
-    <h2>Saldo Atual</h2>
-    <div id="balance">Carregando saldo...</div>
-
-    <h2>Serviços Disponíveis</h2>
-    <table id="services-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Tipo</th>
-          <th>Categoria</th>
-          <th>Taxa</th>
-          <th>Min</th>
-          <th>Max</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Os serviços serão inseridos aqui -->
-      </tbody>
-    </table>
-
-    <h2>Status do Pedido</h2>
-    <div id="order-status">Carregando status do pedido...</div>
-
-    <h2>Adicionar Pedido</h2>
-    <form id="order-form">
-      <label for="service-id">ID do Serviço:</label>
-      <input type="number" id="service-id" name="service-id" required><br><br>
-      <label for="order-quantity">Quantidade:</label>
-      <input type="number" id="order-quantity" name="order-quantity" required><br><br>
-      <label for="order-url">Link para a Página:</label>
-      <input type="text" id="order-url" name="order-url" required><br><br>
-      <button type="submit">Adicionar Pedido</button>
-    </form>
-  </div>
-
-  <script>
-    const apiUrl = 'http://localhost:3000/api';
-    const whatsappApiUrl = 'https://api.whatsapp.com/send?phone=+5519995271979&text=';
-
-    async function fetchBalance() {
-      try {
-        const response = await fetch(`${apiUrl}/balance`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        const data = await response.json();
-        document.getElementById('balance').textContent = `Saldo: ${data.balance} ${data.currency}`;
-      } catch (error) {
-        console.error('Error fetching balance:', error);
-        document.getElementById('balance').textContent = 'Erro ao carregar saldo.';
-      }
-    }
-
-    async function fetchServices() {
-      try {
-        const response = await fetch(`${apiUrl}/services`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        const services = await response.json();
-
-        const tableBody = document.querySelector('#services-table tbody');
-        tableBody.innerHTML = '';
-
-        services.forEach(service => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${service.service}</td>
-            <td>${service.name}</td>
-            <td>${service.type}</td>
-            <td>${service.category}</td>
-            <td>${service.rate}</td>
-            <td>${service.min}</td>
-            <td>${service.max}</td>
-          `;
-          tableBody.appendChild(row);
-        });
-      } catch (error) {
-        console.error('Error fetching services:', error);
-        document.querySelector('#services-table tbody').innerHTML = '<tr><td colspan="7">Erro ao carregar serviços.</td></tr>';
-      }
-    }
-
-    async function fetchOrderStatus(orderId) {
-      try {
-        const response = await fetch(`${apiUrl}/status`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ order: orderId })
-        });
-
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        const data = await response.json();
-        document.getElementById('order-status').textContent = `Status do Pedido ${orderId}: ${data.status}, Remanescentes: ${data.remains}`;
-      } catch (error) {
-        console.error('Error fetching order status:', error);
-        document.getElementById('order-status').textContent = 'Erro ao carregar status do pedido.';
-      }
-    }
-
-    function addOrder(event) {
-      event.preventDefault();
-      const serviceId = document.getElementById('service-id').value;
-      const quantity = document.getElementById('order-quantity').value;
-      const url = document.getElementById('order-url').value;
-
-      const message = encodeURIComponent(`Olá, gostaria de fazer um pedido! \n\nID do Serviço: ${serviceId}\nQuantidade: ${quantity}\nLink para a Página: ${url}`);
-      const whatsappUrl = `${whatsappApiUrl}${message}`;
-      
-      window.location.href = whatsappUrl;
-
-      document.getElementById('order-status').textContent = 'Pedido enviado para o WhatsApp!';
-    }
-
-    document.getElementById('order-form').addEventListener('submit', addOrder);
-
-    // Carregar dados iniciais
-    fetchBalance();
-    fetchServices();
-  </script>
+    <header>
+        <h1>KN5 SMM Dashboard</h1>
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#services">Serviços</a>
+            <a href="#orders">Pedidos</a>
+            <a href="#support">Suporte</a>
+            <a href="#settings">Configurações</a>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div id="metrics">
+                <!-- Widgets e gráficos do dashboard -->
+            </div>
+        </section>
+        <section id="services">
+            <h2>Serviços</h2>
+            <div id="service-list">
+                <!-- Listagem de serviços com preços e opções de compra -->
+            </div>
+        </section>
+        <section id="orders">
+            <h2>Pedidos</h2>
+            <div id="order-history">
+                <!-- Histórico de pedidos -->
+            </div>
+        </section>
+        <section id="support">
+            <h2>Suporte</h2>
+            <form id="support-form">
+                <label for="support-message">Sua mensagem:</label>
+                <textarea id="support-message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section id="settings">
+            <h2>Configurações</h2>
+            <form id="settings-form">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Salvar Configurações</button>
+            </form>
+        </section>
+    </main>
+    <script src="painel.js"></script>
 </body>
 </html>
