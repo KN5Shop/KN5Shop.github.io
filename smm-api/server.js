@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const db = require('./database'); // Importa o banco de dados
 const app = express();
 const port = 10000;
 
@@ -25,22 +26,46 @@ app.get('/admin/notifications', (req, res) => {
 
 // API endpoints
 app.get('/api/users', (req, res) => {
-    // Aqui você deve retornar uma lista de usuários
-    res.json([]);
-});
-app.get('/api/services', (req, res) => {
-    // Aqui você deve retornar uma lista de serviços
-    res.json([]);
-});
-app.get('/api/orders', (req, res) => {
-    // Aqui você deve retornar uma lista de pedidos
-    res.json([]);
-});
-app.get('/api/notifications', (req, res) => {
-    // Aqui você deve retornar uma lista de notificações
-    res.json([]);
+    db.all('SELECT * FROM users', [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
 });
 
+app.get('/api/services', (req, res) => {
+    db.all('SELECT * FROM services', [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+app.get('/api/orders', (req, res) => {
+    db.all('SELECT * FROM orders', [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+app.get('/api/notifications', (req, res) => {
+    db.all('SELECT * FROM notifications', [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// Inicia o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
