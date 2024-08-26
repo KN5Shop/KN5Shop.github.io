@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS servicos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome TEXT NOT NULL,
+  preco REAL NOT NULL,
+  descricao TEXT
+);

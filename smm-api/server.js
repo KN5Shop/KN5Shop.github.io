@@ -1,71 +1,45 @@
 const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const db = require('./database'); // Importa o banco de dados
 const app = express();
 const port = 10000;
 
-// Serve arquivos estáticos (CSS, JS, etc.)
+// Conectar ao banco de dados SQLite
+const db = new sqlite3.Database(path.join(__dirname, 'database.db'), (err) => {
+  if (err) {
+    console.error('Erro ao conectar ao banco de dados:', err.message);
+  } else {
+    console.log('Conectado ao banco de dados SQLite.');
+  }
+});
+
+// Configurar o middleware para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
-// Rotas para o painel de administração
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
-});
-app.get('/admin/users', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'users.html'));
-});
-app.get('/admin/services', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'services.html'));
-});
-app.get('/admin/orders', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'orders.html'));
-});
-app.get('/admin/notifications', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'notifications.html'));
+// Rotas da API
+// Exemplo de rota para obter todos os serviços
+app.get('/api/servicos', (req, res) => {
+  db.all('SELECT * FROM servicos', [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
 });
 
-// API endpoints
-app.get('/api/users', (req, res) => {
-    db.all('SELECT * FROM users', [], (err, rows) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json(rows);
-        }
-    });
+// Exemplo de rota para adicionar um novo serviço
+app.post('/api/servicos', (req, res) => {
+  const { nome, preco, descricao } = req.body;
+  db.run('INSERT INTO servicos (nome, preco, descricao) VALUES (?, ?, ?)', [nome, preco, descricao], function(err) {
+    if (err) {
+      return console.error(err.message);
+    }
+    res.status(201).json({ id: this.lastID });
+  });
 });
 
-app.get('/api/services', (req, res) => {
-    db.all('SELECT * FROM services', [], (err, rows) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json(rows);
-        }
-    });
-});
-
-app.get('/api/orders', (req, res) => {
-    db.all('SELECT * FROM orders', [], (err, rows) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json(rows);
-        }
-    });
-});
-
-app.get('/api/notifications', (req, res) => {
-    db.all('SELECT * FROM notifications', [], (err, rows) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json(rows);
-        }
-    });
-});
-
-// Inicia o servidor
+// Iniciar o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+  console.log(`Servidor rodando na porta ${port}`);
 });
