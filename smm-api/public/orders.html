@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Pedidos - KN5 Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Pedidos</h1>
+    </header>
+    <nav>
+        <a href="/admin">Dashboard</a>
+        <a href="/admin/users">Gerenciar Usuários</a>
+        <a href="/admin/services">Gerenciar Serviços</a>
+        <a href="/admin/orders">Gerenciar Pedidos</a>
+        <a href="/admin/notifications">Gerenciar Notificações</a>
+        <a href="/logout">Sair</a>
+    </nav>
+    <div class="main-content">
+        <div class="card">
+            <h2>Pedidos Recentes</h2>
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Pedidos serão carregados aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 KN5 Shop. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Exemplo de carregamento de dados com JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/orders')
+                .then(response => response.json())
+                .then(orders => {
+                    const ordersTableBody = document.querySelector('#orders-table tbody');
+                    orders.forEach(order => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${order.id}</td>
+                            <td>${order.date}</td>
+                            <td>${order.customer}</td>
+                            <td>${order.status}</td>
+                        `;
+                        ordersTableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar pedidos:', error));
+        });
+    </script>
+</body>
+</html>

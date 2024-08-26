@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Notificações - KN5 Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Notificações</h1>
+    </header>
+    <nav>
+        <a href="/admin">Dashboard</a>
+        <a href="/admin/users">Gerenciar Usuários</a>
+        <a href="/admin/services">Gerenciar Serviços</a>
+        <a href="/admin/orders">Gerenciar Pedidos</a>
+        <a href="/admin/notifications">Gerenciar Notificações</a>
+        <a href="/logout">Sair</a>
+    </nav>
+    <div class="main-content">
+        <div class="card">
+            <h2>Notificações</h2>
+            <ul id="notification-list">
+                <!-- Notificações serão carregadas aqui -->
+            </ul>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 KN5 Shop. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Exemplo de carregamento de dados com JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/notifications')
+                .then(response => response.json())
+                .then(notifications => {
+                    const notificationList = document.getElementById('notification-list');
+                    notifications.forEach(notification => {
+                        const li = document.createElement('li');
+                        li.textContent = notification.message;
+                        notificationList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar notificações:', error));
+        });
+    </script>
+</body>
+</html>

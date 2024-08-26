@@ -1,38 +1,46 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const app = express();
+const port = 10000;
 
-// Porta em que o servidor vai rodar
-const PORT = 10000;
-
-// Middleware para servir arquivos estáticos
+// Serve arquivos estáticos (CSS, JS, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rotas da API
-app.get('/api/notifications', (req, res) => {
-    // Simulação de resposta de notificação
-    res.json({ message: 'Notificações carregadas com sucesso!' });
-});
-
-// Página de administração
+// Rotas para o painel de administração
 app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
-
-// Roteador para outras páginas (Serviços, Pedidos, etc.)
-app.get('/services', (req, res) => {
+app.get('/admin/users', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'users.html'));
+});
+app.get('/admin/services', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'services.html'));
 });
-
-app.get('/orders', (req, res) => {
+app.get('/admin/orders', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'orders.html'));
 });
-
-app.get('/notifications', (req, res) => {
+app.get('/admin/notifications', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notifications.html'));
 });
 
-// Inicia o servidor
-app.listen(PORT, () => {
-    console.log(`API listening at http://localhost:${PORT}`);
+// API endpoints
+app.get('/api/users', (req, res) => {
+    // Aqui você deve retornar uma lista de usuários
+    res.json([]);
+});
+app.get('/api/services', (req, res) => {
+    // Aqui você deve retornar uma lista de serviços
+    res.json([]);
+});
+app.get('/api/orders', (req, res) => {
+    // Aqui você deve retornar uma lista de pedidos
+    res.json([]);
+});
+app.get('/api/notifications', (req, res) => {
+    // Aqui você deve retornar uma lista de notificações
+    res.json([]);
+});
+
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
 });
