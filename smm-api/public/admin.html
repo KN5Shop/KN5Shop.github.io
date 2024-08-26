@@ -6,6 +6,7 @@
     <title>Painel de Administração - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Adicione seu CSS diretamente aqui ou em um arquivo externo */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -71,11 +72,8 @@
         <h1>Painel de Administração - KN5 Shop</h1>
     </header>
     <nav>
-        <a href="/admin">Dashboard</a>
-        <a href="/admin/users">Gerenciar Usuários</a>
-        <a href="/admin/services">Gerenciar Serviços</a>
-        <a href="/admin/orders">Gerenciar Pedidos</a>
-        <a href="/admin/notifications">Gerenciar Notificações</a>
+        <a href="/">Dashboard</a>
+        <a href="/admin.html">Pedidos</a>
         <a href="/logout">Sair</a>
     </nav>
     <div class="main-content">
@@ -84,16 +82,24 @@
             <p>Aqui você pode gerenciar todos os aspectos do seu serviço.</p>
         </div>
         <div class="card">
+            <h2>Notificações Recentes</h2>
+            <ul id="notification-list">
+                <!-- As notificações serão carregadas aqui -->
+            </ul>
+        </div>
+        <div class="card">
             <h2>Últimos Pedidos</h2>
             <table id="orders-table" border="1" width="100%">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Serviço</th>
+                        <th>ID</th>
                         <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Serviço</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
-                <tbody id="orders-table-body">
+                <tbody>
                     <!-- Os pedidos serão carregados aqui -->
                 </tbody>
             </table>
@@ -103,20 +109,27 @@
         &copy; 2024 KN5 Shop. Todos os direitos reservados.
     </footer>
 
+    <!-- Adicione seus scripts aqui -->
     <script>
+        // Exemplo de carregamento de dados com JavaScript
         document.addEventListener('DOMContentLoaded', function() {
-            const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
-            const ordersTableBody = document.getElementById('orders-table-body');
-            
-            submissions.forEach(submission => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${submission.name}</td>
-                    <td>${submission.service}</td>
-                    <td>${new Date(submission.date).toLocaleString()}</td>
-                `;
-                ordersTableBody.appendChild(row);
-            });
+            // Carregar pedidos
+            fetch('/api/orders')
+                .then(response => response.json())
+                .then(orders => {
+                    const ordersTableBody = document.querySelector('#orders-table tbody');
+                    orders.forEach(order => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${order.id}</td>
+                            <td>${order.date}</td>
+                            <td>${order.customer}</td>
+                            <td>${order.service}</td>
+                            <td>${order.status}</td>
+                        `;
+                        ordersTableBody.appendChild(row);
+                    });
+                });
         });
     </script>
 </body>

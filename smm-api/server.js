@@ -1,39 +1,52 @@
 const express = require('express');
-const http = require('http');
-const WebSocket = require('ws');
 const path = require('path');
-
+const bodyParser = require('body-parser');
 const app = express();
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
+const port = 10000;
 
-// Servir arquivos estáticos (HTML, CSS, JS)
+// Middleware para analisar dados JSON
+app.use(bodyParser.json());
+
+// Serve arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
-// WebSocket para envio de notificações em tempo real
-wss.on('connection', (ws) => {
-    console.log('Cliente conectado');
+// Armazena pedidos em memória (pode ser substituído por um banco de dados)
+const orders = [];
 
-    // Simular envio de novos pedidos com mais detalhes
-    setInterval(() => {
+// Rota para receber pedidos
+app.post('/api/orders', (req, res) => {
+    const { name, service } = req.body;
+    if (name && service) {
         const order = {
-            type: 'order',
-            id: Math.floor(Math.random() * 1000), // ID aleatório para o pedido
-            date: new Date().toISOString().split('T')[0], // Data atual
-            customer: 'João da Silva', // Nome do cliente
-            service: '1000 seguidores mundiais 🌍', // Serviço escolhido
-            status: 'Pendente' // Status do pedido
+            id: orders.length + 1,
+            date: new Date().toISOString(),
+            customer: name,
+            service: service,
+            status: 'Pendente'
         };
-        ws.send(JSON.stringify(order));
-    }, 15000);
-
-    ws.on('close', () => {
-        console.log('Cliente desconectado');
-    });
+        orders.push(order);
+        res.status(200).json({ message: 'Pedido recebido com sucesso!' });
+    } else {
+        res.status(400).json({ message: 'Dados do pedido inválidos.' });
+    }
 });
 
-// Iniciar servidor
-const PORT = process.env.PORT || 10000;
-server.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+// Rota para enviar pedidos para a página de administração
+app.get('/api/orders', (req, res) => {
+    res.json(orders);
+});
+
+// Defina a rota para a página inicial
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'painel.html'));
+});
+
+// Defina a rota para a página de administração
+app.get('/admin.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
+// Inicia o servidor
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
