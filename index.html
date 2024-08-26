@@ -6,186 +6,125 @@
     <meta name="description" content="KN5 Shop - Loja online de serviços para otimizar seu perfil digital. Produtos que aumentam seguidores, curtidas e visualizações.">
     <meta name="keywords" content="seguidores, curtidas, visualizações, mídia social, KN5 Shop">
     <title>KN5 Shop - Aumente seu Alcance Online</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* CSS para animações sutis e otimizações */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #000;
             color: #fff;
-            overflow-x: hidden; /* Evita rolagem horizontal */
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-
         header {
-            background-color: #222;
-            padding: 15px 0;
+            background: #333;
             color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 80%;
-            margin: auto;
-        }
-
-        h1 {
-            font-size: 1.8em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            position: relative;
-            padding: 5px 0;
-            transition: color 0.3s, border-bottom 0.3s;
-        }
-
-        nav a:hover {
-            color: #d4af37;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: #d4af37;
-            left: 0;
-            bottom: 0;
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            margin-top: 100px;
-            position: relative;
-            background: url('images/banner.jpg') no-repeat center center;
-            background-size: cover;
-            height: 8em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-align: center;
-            padding-top: 10px;
-            z-index: 1;
-        }
-
-        .hero h2 {
-            margin: 0;
-            font-size: 2em;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
-            color: #d4af37;
-        }
-
-        .products {
-            position: relative;
-            z-index: 2;
-            margin-top: 20px;
-            padding: 20px;
-            background: #000;
-        }
-
-        .products h2 {
-            color: #d4af37;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .product-info {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #d4af37;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product {
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .product:hover {
-            transform: scale(1.05);
-        }
-
-        .product img {
-            width: 100%;
-            height: auto;
-            border-bottom: 2px solid #d4af37;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .product img:hover {
-            opacity: 0.8;
-        }
-
-        .product h3 {
-            margin: 10px 0;
-            color: #fff;
-        }
-
-        .product p {
-            color: #d4af37;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #d4af37;
-            color: #000;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #b59427;
-            box-shadow: 0 0 10px #d4af37;
-        }
-
-        footer {
-            z-index: 1;
-            position: relative;
-            background-color: #333;
             padding: 10px 0;
-            color: #fff;
-            text-align: center;
         }
-
-        footer a {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+        }
+        .navbar-brand {
+            color: #d4af37;
+        }
+        .navbar-nav .nav-link {
+            color: #d4af37;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #bfa636;
+        }
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: #444;
+        }
+        .product-info {
+            color: #d4af37;
+        }
+        .tab-container {
+            margin-top: 20px;
+        }
+        .tab-content {
+            padding: 20px;
+            background: #1e1e1e;
+        }
+        .tab-links {
+            margin-top: 20px;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        .tab-links li {
+            flex: 1;
+        }
+        .tab-links a {
+            display: block;
+            padding: 10px;
+            background: #333;
+            color: #d4af37;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .tab-links a.active {
+            background: #d4af37;
+            color: #000;
+        }
+        .tab-links a:hover {
+            background: #bfa636;
+            color: #000;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .form-background {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #d4af37;
+            background-color: #2e2e2e;
+            color: #ffffff;
+        }
+        .form-control:focus {
+            border-color: #d4af37;
+            box-shadow: none;
+        }
+        .btn-primary {
+            background-color: #d4af37;
+            border-color: #d4af37;
+            font-size: 1.1rem;
+        }
+        .btn-primary:hover {
+            background-color: #bfa636;
+            border-color: #bfa636;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #d4af37;
+            font-size: 0.875rem;
+        }
+        .footer a {
             color: #d4af37;
             text-decoration: none;
         }
-
-        footer a:hover {
+        .footer a:hover {
             text-decoration: underline;
         }
     </style>
@@ -194,12 +133,27 @@
     <header>
         <div class="container">
             <h1>KN5 SHOP</h1>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about.html">Sobre Nós</a>
-                <a href="products.html">Produtos</a>
-                <a href="contact.html">Contato</a>
-                <a href="support.html">Suporte</a>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">KN5 Seguidores</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre Nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Suporte</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>
@@ -211,57 +165,115 @@
             <h2>Produtos em Destaque</h2>
             <p class="product-info">Clique nas imagens abaixo para obter uma descrição detalhada de cada produto.</p>
             <div class="product-grid">
-                <div class="product">
-                    <a href="product-detail.html?id=1">
-                        <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
-                    </a>
-                    <h3>Serviços Extras</h3>
-                    <p>Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <div class="product">
-                    <a href="product-detail.html?id=2">
-                        <img src="images/product2.jpg" alt="Curtidas para Postagens em Redes Sociais">
-                    </a>
-                    <h3>Curtidas</h3>
-                    <p>Impulsione o alcance e engajamento das suas postagens com curtidas autênticas.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <div class="product">
-                    <a href="product-detail.html?id=3">
-                        <img src="images/product3.jpg" alt="Visualizações para Vídeos">
-                    </a>
-                    <h3>Visualizações</h3>
-                    <p>Aumente a visibilidade dos seus vídeos com nosso serviço de visualizações autênticas.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <div class="product">
-                    <a href="product-detail.html?id=4">
-                        <img src="images/product4.jpg" alt="Seguidores Reais para Redes Sociais">
-                    </a>
-                    <h3>Seguidores</h3>
-                    <p>Construa uma base sólida de seguidores reais e fortaleça sua marca online.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <div class="product">
-                    <a href="product-detail.html?id=5">
-                        <img src="images/product6.jpg" alt="Produto Misterioso">
-                    </a>
-                    <h3>Produto Misterioso</h3>
-                    <p>Descubra o que há de especial neste produto! Surpresas incríveis aguardam.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
+                <!-- Produtos aqui -->
             </div>
         </section>
+        <div class="tab-container">
+            <ul class="tab-links">
+                <li><a href="#home" class="tab-link active">Home</a></li>
+                <li><a href="#control-panel" class="tab-link">Painel de Controle</a></li>
+            </ul>
+            <div id="home" class="tab-pane active">
+                <section class="products">
+                    <!-- Conteúdo dos produtos -->
+                </section>
+            </div>
+            <div id="control-panel" class="tab-pane">
+                <div class="container">
+                    <div class="header">
+                        <h1>Painel de Controle - KN5 Seguidores</h1>
+                    </div>
+                    <div class="card form-background">
+                        <div class="card-header">
+                            Formulário de Pedido
+                        </div>
+                        <div class="card-body">
+                            <form id="orderForm">
+                                <div class="form-group">
+                                    <label for="client_name">Nome:</label>
+                                    <input type="text" id="client_name" name="client_name" class="form-control" placeholder="Digite seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">Categoria:</label>
+                                    <select id="category" name="category" class="form-control" required>
+                                        <option value="" disabled selected>Selecione uma categoria</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">Serviço:</label>
+                                    <select id="service" name="service" class="form-control" required>
+                                        <option value="" disabled selected>Selecione um serviço</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="package">Escolha seu pacote:</label>
+                                    <select id="package" name="package" class="form-control" required>
+                                        <option value="" disabled selected>Selecione um pacote</option>
+                                    </select>
+                                </div>
+                                <div id="feedback" class="feedback"></div>
+                                <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        &copy; 2024 KN5 Seguidores - <a href="https://api.whatsapp.com/send?phone=+5519995271979&text=Ol%C3%A1,%20preciso%20de%20ajuda" target="_blank">Suporte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
-    <!-- Adicionando o player de áudio com reprodução automática -->
     <audio autoplay loop>
         <source src="music/music1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Função para carregar o JSON e atualizar as opções
+            $.ajax({
+                url: 'data.json', // Caminho para o arquivo JSON
+                dataType: 'json',
+                success: function(data) {
+                    const categorySelect = $('#category');
+                    const serviceSelect = $('#service');
+                    const packageSelect = $('#package');
+
+                    // Adicionar categorias ao dropdown
+                    data.categories.forEach(function(category) {
+                        categorySelect.append(new Option(category.name, category.id));
+                    });
+
+                    // Adicionar serviços ao dropdown
+                    data.services.forEach(function(service) {
+                        serviceSelect.append(new Option(service.name, service.id));
+                    });
+
+                    // Adicionar pacotes ao dropdown
+                    data.packages.forEach(function(pkg) {
+                        packageSelect.append(new Option(pkg.name, pkg.id));
+                    });
+                },
+                error: function() {
+                    $('#feedback').text('Erro ao carregar dados.');
+                }
+            });
+
+            // Script para alternar entre abas
+            $('.tab-link').click(function(e) {
+                e.preventDefault();
+                const target = $(this).attr('href');
+                $('.tab-link').removeClass('active');
+                $('.tab-pane').removeClass('active');
+                $(this).addClass('active');
+                $(target).addClass('active');
+            });
+        });
+    </script>
 </body>
 </html>
