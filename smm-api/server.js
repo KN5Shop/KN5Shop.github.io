@@ -1,55 +1,51 @@
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
-const path = require('path');
 
-// Configurando o app express
 const app = express();
 const server = http.createServer(app);
-
-// Iniciando WebSocket
 const wss = new WebSocket.Server({ server });
 
-// Servir arquivos estáticos da pasta public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-// Clientes conectados
-let adminSocket = null;
-let clients = [];
-
-// Escutando conexões WebSocket
-wss.on('connection', (ws, req) => {
-    const url = req.url;
-
-    // Verificar se é a conexão do painel de admin
-    if (url === '/admin') {
-        adminSocket = ws;
-        ws.on('close', () => {
-            adminSocket = null;
-        });
-    } else {
-        clients.push(ws);
-        ws.on('message', (message) => {
-            console.log('Recebido:', message);
-            
-            // Enviar mensagens ao admin
-            if (adminSocket && adminSocket.readyState === WebSocket.OPEN) {
-                adminSocket.send(message);
-            }
-        });
-
-        ws.on('close', () => {
-            clients = clients.filter(client => client !== ws);
-        });
-    }
-});
-
-// Servir a página admin.html
+// Enviar arquivo HTML quando acessar a rota principal
 app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+    res.sendFile(__dirname + '/public/admin.html');
 });
 
-// Iniciar servidor na porta 10000
-server.listen(10000, () => {
-    console.log('Servidor rodando na porta 10000');
+// WebSocket connection
+wss.on('connection', function connection(ws) {
+    console.log('Cliente conectado ao WebSocket.');
+
+    // Enviar uma notificação a cada 10 segundos como teste
+    setInterval(() => {
+        const notification = {
+            type: 'notification',
+            message: 'Nova notificação recebida!'
+        };
+        ws.send(JSON.stringify(notification));
+    }, 10000);
+
+    // Enviar um novo pedido a cada 15 segundos como teste
+    setInterval(() => {
+        const order = {
+            type: 'order',
+            id: Math.floor(Math.random() * 1000),
+            date: new Date().toISOString().split('T')[0],
+            customer: 'Cliente Teste',
+            status: 'Pendente'
+        };
+        ws.send(JSON.stringify(order));
+    }, 15000);
+
+    // Ao desconectar
+    ws.on('close', () => {
+        console.log('Cliente desconectado do WebSocket.');
+    });
+});
+
+// Configurar a porta para o servidor
+const PORT = process.env.PORT || 10000;
+server.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
