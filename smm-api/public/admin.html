@@ -6,7 +6,6 @@
     <title>Painel de Administração - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Adicione seu CSS diretamente aqui ou em um arquivo externo */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -98,6 +97,7 @@
                         <th>ID</th>
                         <th>Data</th>
                         <th>Cliente</th>
+                        <th>Serviço</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -111,50 +111,44 @@
         &copy; 2024 KN5 Shop. Todos os direitos reservados.
     </footer>
 
-    <!-- WebSocket Script -->
     <script>
-        // Conectar ao WebSocket
-        const socket = new WebSocket('ws://localhost:10000'); // Substitua pela URL correta do WebSocket no seu servidor
+        document.addEventListener('DOMContentLoaded', function() {
+            // WebSocket para comunicação em tempo real
+            const socket = new WebSocket('ws://localhost:10000');
 
-        // Quando a conexão for estabelecida
-        socket.addEventListener('open', function (event) {
-            console.log('Conectado ao WebSocket.');
-        });
+            socket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
 
-        // Quando receber uma mensagem do WebSocket
-        socket.addEventListener('message', function (event) {
-            const data = JSON.parse(event.data);
+                if (data.type === 'notification') {
+                    // Mostrar notificação no painel
+                    const notificationList = document.getElementById('notification-list');
+                    const li = document.createElement('li');
+                    li.textContent = data.message;
+                    notificationList.appendChild(li);
+                }
 
-            if (data.type === 'notification') {
-                // Atualizar notificações em tempo real
-                const notificationList = document.getElementById('notification-list');
-                const li = document.createElement('li');
-                li.textContent = data.message;
-                notificationList.appendChild(li);
-            }
+                if (data.type === 'order') {
+                    // Mostrar novo pedido no painel
+                    const ordersTableBody = document.querySelector('#orders-table tbody');
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${data.id}</td>
+                        <td>${data.date}</td>
+                        <td>${data.customer}</td>
+                        <td>${data.service}</td>
+                        <td>${data.status}</td>
+                    `;
+                    ordersTableBody.appendChild(row);
+                }
+            };
 
-            if (data.type === 'order') {
-                // Atualizar pedidos em tempo real
-                const ordersTableBody = document.querySelector('#orders-table tbody');
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${data.id}</td>
-                    <td>${data.date}</td>
-                    <td>${data.customer}</td>
-                    <td>${data.status}</td>
-                `;
-                ordersTableBody.appendChild(row);
-            }
-        });
+            socket.onclose = function() {
+                console.log('Conexão com o WebSocket fechada.');
+            };
 
-        // Quando a conexão for fechada
-        socket.addEventListener('close', function (event) {
-            console.log('Desconectado do WebSocket.');
-        });
-
-        // Tratar erros de conexão
-        socket.addEventListener('error', function (event) {
-            console.error('Erro no WebSocket:', event);
+            socket.onerror = function(error) {
+                console.error('Erro no WebSocket:', error);
+            };
         });
     </script>
 </body>

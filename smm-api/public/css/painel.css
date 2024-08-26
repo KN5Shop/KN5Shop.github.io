@@ -1,35 +1,16 @@
+/* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-#produtos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+header {
+    font-size: 24px;
 }
 
-.produto {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    width: 100%;
-    max-width: 300px;
-    background-color: #f9f9f9;
+nav a {
+    font-size: 18px;
 }
 
-.emoji {
-    font-size: 1.5em;
-    margin-right: 10px;
-}
-
-.descricao {
-    flex: 1;
-    font-size: 1.2em;
-}
-
-.preco {
-    font-size: 1.2em;
-    font-weight: bold;
+.card h2 {
+    font-size: 22px;
 }
