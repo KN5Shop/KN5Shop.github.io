@@ -1,40 +1,55 @@
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
+const http = require('http');
 const WebSocket = require('ws');
+const path = require('path');
 
+// Configurando o app express
 const app = express();
-const port = 10000;
-const db = new sqlite3.Database('database.db');
+const server = http.createServer(app);
 
-app.use(express.json());
-app.use(express.static('public'));
+// Iniciando WebSocket
+const wss = new WebSocket.Server({ server });
 
-// WebSocket Server
-const wss = new WebSocket.Server({ port: 8080 });
+// Servir arquivos estáticos da pasta public
+app.use(express.static(path.join(__dirname, 'public')));
 
-wss.on('connection', ws => {
-    console.log('Novo cliente conectado');
+// Clientes conectados
+let adminSocket = null;
+let clients = [];
 
-    // Enviar dados para o cliente a cada 10 segundos
-    setInterval(() => {
-        db.all('SELECT * FROM notifications', [], (err, notifications) => {
-            if (err) {
-                console.error('Erro ao buscar notificações:', err.message);
-            } else {
-                ws.send(JSON.stringify({ type: 'notifications', data: notifications }));
+// Escutando conexões WebSocket
+wss.on('connection', (ws, req) => {
+    const url = req.url;
+
+    // Verificar se é a conexão do painel de admin
+    if (url === '/admin') {
+        adminSocket = ws;
+        ws.on('close', () => {
+            adminSocket = null;
+        });
+    } else {
+        clients.push(ws);
+        ws.on('message', (message) => {
+            console.log('Recebido:', message);
+            
+            // Enviar mensagens ao admin
+            if (adminSocket && adminSocket.readyState === WebSocket.OPEN) {
+                adminSocket.send(message);
             }
         });
 
-        db.all('SELECT * FROM orders', [], (err, orders) => {
-            if (err) {
-                console.error('Erro ao buscar pedidos:', err.message);
-            } else {
-                ws.send(JSON.stringify({ type: 'orders', data: orders }));
-            }
+        ws.on('close', () => {
+            clients = clients.filter(client => client !== ws);
         });
-    }, 10000); // 10 segundos
+    }
 });
 
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+// Servir a página admin.html
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
+// Iniciar servidor na porta 10000
+server.listen(10000, () => {
+    console.log('Servidor rodando na porta 10000');
 });
