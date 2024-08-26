@@ -1,16 +1,11 @@
 const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const db = new sqlite3.Database('database.db');
 
-// Caminho para o banco de dados SQLite
-const dbPath = path.resolve(__dirname, 'database.db');
-
-// Criação da conexão com o banco de dados
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('Erro ao conectar ao banco de dados:', err.message);
-  } else {
-    console.log('Conectado ao banco de dados SQLite.');
-  }
+db.serialize(() => {
+    db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, email TEXT, status TEXT)");
+    db.run("CREATE TABLE IF NOT EXISTS services (id INTEGER PRIMARY KEY, name TEXT, description TEXT, price TEXT)");
+    db.run("CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY, date TEXT, name TEXT, service TEXT, status TEXT)");
+    db.run("CREATE TABLE IF NOT EXISTS notifications (id INTEGER PRIMARY KEY, message TEXT)");
 });
 
 module.exports = db;

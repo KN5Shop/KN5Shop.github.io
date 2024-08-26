@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Usuários - KN5 Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Gerenciar Usuários</h1>
+        <h1>Gerenciar Usuários - KN5 Shop</h1>
     </header>
     <nav>
-        <a href="/admin">Dashboard</a>
-        <a href="/admin/users">Gerenciar Usuários</a>
-        <a href="/admin/services">Gerenciar Serviços</a>
-        <a href="/admin/orders">Gerenciar Pedidos</a>
-        <a href="/admin/notifications">Gerenciar Notificações</a>
+        <a href="/admin.html">Dashboard</a>
+        <a href="/users.html">Gerenciar Usuários</a>
+        <a href="/services.html">Gerenciar Serviços</a>
+        <a href="/orders.html">Gerenciar Pedidos</a>
+        <a href="/notifications.html">Gerenciar Notificações</a>
         <a href="/logout">Sair</a>
     </nav>
     <div class="main-content">
         <div class="card">
-            <h2>Usuários Cadastrados</h2>
-            <table id="users-table">
+            <h2>Usuários Registrados</h2>
+            <table id="users-table" border="1" width="100%">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Email</th>
-                        <th>Data de Cadastro</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Usuários serão carregados aqui -->
+                    <!-- Os usuários serão carregados aqui -->
                 </tbody>
             </table>
         </div>
@@ -39,27 +39,6 @@
     <footer>
         &copy; 2024 KN5 Shop. Todos os direitos reservados.
     </footer>
-
-    <script>
-        // Exemplo de carregamento de dados com JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('/api/users')
-                .then(response => response.json())
-                .then(users => {
-                    const usersTableBody = document.querySelector('#users-table tbody');
-                    users.forEach(user => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${user.id}</td>
-                            <td>${user.name}</td>
-                            <td>${user.email}</td>
-                            <td>${user.registrationDate}</td>
-                        `;
-                        usersTableBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Erro ao carregar usuários:', error));
-        });
-    </script>
+    <script src="js/admin.js"></script>
 </body>
 </html>
