@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchServices() {
     try {
-        const response = await fetch('/api/services');
+        const response = await fetch('/api/servicos'); // Corrigido para '/api/servicos'
         const services = await response.json();
         const serviceList = document.getElementById('service-list');
         serviceList.innerHTML = services.map(service => `
             <div class="service-item">
-                <h3>${service.name}</h3>
-                <p>${service.description}</p>
-                <p>Preço: R$${service.price}</p>
-                <button onclick="buyService(${service.id})">Comprar</button>
+                <h3>${service.nome}</h3> <!-- Corrigido para service.nome -->
+                <p>${service.descricao}</p> <!-- Corrigido para service.descricao -->
+                <p>Preço: R$${service.preco.toFixed(2)}</p> <!-- Corrigido para service.preco -->
+                <button onclick="buyService(${service.id})">Comprar</button> <!-- Corrigido para service.id -->
             </div>
         `).join('');
     } catch (error) {
