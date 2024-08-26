@@ -1,52 +1,29 @@
 const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
 const app = express();
 const port = 10000;
 
-// Middleware para analisar dados JSON
-app.use(bodyParser.json());
+// Configura o diretório público para servir arquivos estáticos
+app.use(express.static('public'));
 
-// Serve arquivos estáticos da pasta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Armazena pedidos em memória (pode ser substituído por um banco de dados)
-const orders = [];
-
-// Rota para receber pedidos
-app.post('/api/orders', (req, res) => {
-    const { name, service } = req.body;
-    if (name && service) {
-        const order = {
-            id: orders.length + 1,
-            date: new Date().toISOString(),
-            customer: name,
-            service: service,
-            status: 'Pendente'
-        };
-        orders.push(order);
-        res.status(200).json({ message: 'Pedido recebido com sucesso!' });
-    } else {
-        res.status(400).json({ message: 'Dados do pedido inválidos.' });
-    }
-});
-
-// Rota para enviar pedidos para a página de administração
+// Endpoint para retornar dados de pedidos
 app.get('/api/orders', (req, res) => {
-    res.json(orders);
+    // Retorna uma lista de pedidos (exemplo estático)
+    res.json([
+        { id: 1, date: '2024-08-25', customer: 'João', status: 'Novo' }
+        // Adicione mais pedidos conforme necessário
+    ]);
 });
 
-// Defina a rota para a página inicial
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'painel.html'));
-});
-
-// Defina a rota para a página de administração
-app.get('/admin.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+// Endpoint para retornar dados de notificações
+app.get('/api/notifications', (req, res) => {
+    // Retorna uma lista de notificações (exemplo estático)
+    res.json([
+        { message: 'Novo pedido recebido!' }
+        // Adicione mais notificações conforme necessário
+    ]);
 });
 
 // Inicia o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
+    console.log(`Servidor ouvindo na porta ${port}`);
 });
