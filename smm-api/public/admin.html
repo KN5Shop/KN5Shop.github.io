@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Administração - KN5 Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Adicione seu CSS diretamente aqui ou em um arquivo externo */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -72,8 +71,11 @@
         <h1>Painel de Administração - KN5 Shop</h1>
     </header>
     <nav>
-        <a href="/">Dashboard</a>
-        <a href="/admin.html">Pedidos</a>
+        <a href="/admin.html">Dashboard</a>
+        <a href="/users.html">Gerenciar Usuários</a>
+        <a href="/services.html">Gerenciar Serviços</a>
+        <a href="/orders.html">Gerenciar Pedidos</a>
+        <a href="/notifications.html">Gerenciar Notificações</a>
         <a href="/logout">Sair</a>
     </nav>
     <div class="main-content">
@@ -82,55 +84,4 @@
             <p>Aqui você pode gerenciar todos os aspectos do seu serviço.</p>
         </div>
         <div class="card">
-            <h2>Notificações Recentes</h2>
-            <ul id="notification-list">
-                <!-- As notificações serão carregadas aqui -->
-            </ul>
-        </div>
-        <div class="card">
-            <h2>Últimos Pedidos</h2>
-            <table id="orders-table" border="1" width="100%">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Data</th>
-                        <th>Cliente</th>
-                        <th>Serviço</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Os pedidos serão carregados aqui -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <footer>
-        &copy; 2024 KN5 Shop. Todos os direitos reservados.
-    </footer>
-
-    <!-- Adicione seus scripts aqui -->
-    <script>
-        // Exemplo de carregamento de dados com JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // Carregar pedidos
-            fetch('/api/orders')
-                .then(response => response.json())
-                .then(orders => {
-                    const ordersTableBody = document.querySelector('#orders-table tbody');
-                    orders.forEach(order => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${order.id}</td>
-                            <td>${order.date}</td>
-                            <td>${order.customer}</td>
-                            <td>${order.service}</td>
-                            <td>${order.status}</td>
-                        `;
-                        ordersTableBody.appendChild(row);
-                    });
-                });
-        });
-    </script>
-</body>
-</html>
+            <h
