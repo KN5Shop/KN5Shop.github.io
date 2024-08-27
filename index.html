@@ -73,26 +73,8 @@
             width: 100%;
         }
 
-        .notice {
-            background-color: #d4af37; /* Cor dourada para o aviso */
-            color: #000; /* Texto preto para contraste */
-            padding: 10px;
-            text-align: center;
-            font-size: 1em;
-            font-weight: bold;
-            position: relative;
-            margin: 60px 0 20px; /* Espaço suficiente para não sobrepor o cabeçalho */
-            z-index: 1001; /* Garante que o aviso fique acima de outros elementos */
-        }
-
-        @media (max-width: 768px) {
-            .notice {
-                margin: 50px 0 10px; /* Ajuste para dispositivos móveis */
-            }
-        }
-
         .hero {
-            margin-top: 0; /* Removido o espaço adicional para desktop */
+            margin-top: 100px;
             position: relative;
             background: url('images/banner.jpg') no-repeat center center;
             background-size: cover;
@@ -206,6 +188,31 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .alert {
+            background-color: #d4af37; /* Cor dourada para o aviso */
+            color: #000; /* Texto preto */
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 60px; /* Distância do topo (ajustar se necessário) */
+            width: 100%;
+            z-index: 999;
+            font-size: 1em;
+            display: none; /* Inicialmente escondido */
+        }
+
+        @media (min-width: 768px) {
+            .alert {
+                display: block; /* Mostrar o aviso em telas maiores */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .alert {
+                top: 90px; /* Ajuste para dispositivos móveis */
+            }
+        }
     </style>
 </head>
 <body>
@@ -216,13 +223,13 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
-                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a>
+                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a> <!-- Aba Painel atualizada -->
                 <a href="contact.html">Contato</a>
                 <a href="support.html">Suporte</a>
             </nav>
         </div>
     </header>
-    <div class="notice">
+    <div class="alert">
         🔔 Aviso Importante: Para um atendimento mais eficiente e acesso a pacotes exclusivos, compre pelo nosso painel localizado na aba do canto superior direito. É a maneira mais rápida de obter o que você precisa!
     </div>
     <main>
