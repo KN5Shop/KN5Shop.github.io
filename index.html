@@ -81,12 +81,18 @@
             font-size: 1em;
             font-weight: bold;
             position: relative;
-            margin: 60px 0 20px; /* Espaço suficiente para não sobrepor o cabeçalho fixo */
+            margin: 60px 0 20px; /* Espaço suficiente para não sobrepor o cabeçalho */
             z-index: 1001; /* Garante que o aviso fique acima de outros elementos */
         }
 
+        @media (max-width: 768px) {
+            .notice {
+                margin: 50px 0 10px; /* Ajuste para dispositivos móveis */
+            }
+        }
+
         .hero {
-            margin-top: 20px;
+            margin-top: 0; /* Removido o espaço adicional para desktop */
             position: relative;
             background: url('images/banner.jpg') no-repeat center center;
             background-size: cover;
