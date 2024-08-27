@@ -76,18 +76,20 @@
         .notice {
             background-color: #d4af37; /* Cor dourada para o aviso */
             color: #000; /* Texto preto para contraste */
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             font-size: 1em;
             font-weight: bold;
             position: relative;
-            margin: 70px 0 20px; /* Ajustado o espaço superior para 70px */
+            margin-top: 80px; /* Espaço suficiente para não sobrepor o cabeçalho */
             z-index: 1001; /* Garante que o aviso fique acima de outros elementos */
         }
 
         @media (max-width: 768px) {
             .notice {
-                margin: 50px 0 10px; /* Ajuste para dispositivos móveis */
+                margin-top: 70px; /* Ajuste para dispositivos móveis */
+                padding: 10px;
+                font-size: 0.9em;
             }
         }
 
