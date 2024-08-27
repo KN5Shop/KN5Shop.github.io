@@ -49,6 +49,12 @@
             text-decoration: none;
             margin: 0 10px;
             position: relative;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37; /* Cor dourada no hover */
         }
 
         nav a::after {
@@ -60,10 +66,6 @@
             left: 0;
             bottom: -5px;
             transition: width 0.3s ease; /* Transição suave para o sublinhado */
-        }
-
-        nav a:hover {
-            color: #d4af37; /* Cor dourada no hover */
         }
 
         nav a:hover::after {
@@ -149,6 +151,7 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
+                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a> <!-- Aba Painel adicionada aqui -->
                 <a href="contact.html">Contato</a>
                 <a href="support.html">Suporte</a>
             </nav>
