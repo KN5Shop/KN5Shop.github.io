@@ -28,23 +28,21 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1000;
+            z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 90%;
-            max-width: 1200px;
+            width: 80%;
             margin: auto;
         }
 
         h1 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             text-transform: uppercase;
             color: #fff;
-            margin: 0;
         }
 
         nav a {
@@ -75,8 +73,26 @@
             width: 100%;
         }
 
+        .notice {
+            background-color: #d4af37; /* Cor dourada para o aviso */
+            color: #000; /* Texto preto para contraste */
+            padding: 10px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            position: relative;
+            margin: 70px 0 20px; /* Ajustado o espaço superior para 70px */
+            z-index: 1001; /* Garante que o aviso fique acima de outros elementos */
+        }
+
+        @media (max-width: 768px) {
+            .notice {
+                margin: 50px 0 10px; /* Ajuste para dispositivos móveis */
+            }
+        }
+
         .hero {
-            margin-top: 70px; /* Ajuste para o cabeçalho fixo */
+            margin-top: 0; /* Removido o espaço adicional para desktop */
             position: relative;
             background: url('images/banner.jpg') no-repeat center center;
             background-size: cover;
@@ -92,7 +108,7 @@
 
         .hero h2 {
             margin: 0;
-            font-size: 1.5em;
+            font-size: 2em;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px;
             border-radius: 5px;
@@ -190,61 +206,9 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        .notification {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #d4af37;
-            color: #000;
-            padding: 15px;
-            text-align: center;
-            font-size: 1em;
-            font-weight: bold;
-            z-index: 1001; /* Garante que o aviso fique acima de outros conteúdos */
-        }
-
-        .notification a {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        .notification a:hover {
-            color: #000;
-        }
-
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            h1 {
-                font-size: 1.5em;
-                margin-bottom: 10px;
-            }
-
-            nav {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav a {
-                margin: 5px 0;
-            }
-
-            .hero h2 {
-                font-size: 1.2em;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="notification">
-        🔔 Aviso Importante: Para um atendimento mais eficiente e acesso a pacotes exclusivos, compre pelo nosso painel localizado na aba do canto superior direito. É a maneira mais rápida de obter o que você precisa!
-    </div>
     <header>
         <div class="container">
             <h1>KN5 SHOP</h1>
@@ -258,6 +222,9 @@
             </nav>
         </div>
     </header>
+    <div class="notice">
+        🔔 Aviso Importante: Para um atendimento mais eficiente e acesso a pacotes exclusivos, compre pelo nosso painel localizado na aba do canto superior direito. É a maneira mais rápida de obter o que você precisa!
+    </div>
     <main>
         <section class="hero">
             <h2>Bem-vindo à KN5 Shop</h2>
