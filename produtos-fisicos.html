@@ -70,59 +70,58 @@
         }
 
         .product-page {
-            padding: 20px 10px;
+            padding: 20px; /* Reduz o padding para uma área principal menor */
             background-color: #000; /* Fundo preto */
             margin-top: 80px; /* Espaço para o cabeçalho fixo */
-            max-width: 1200px;
+            max-width: 800px; /* Reduz a largura máxima da área principal */
             margin-left: auto;
             margin-right: auto;
         }
 
         .product-container {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             background-color: #333;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             margin-bottom: 30px;
-            width: 100%; /* Ajusta a largura para ocupar todo o container pai */
-            max-width: 800px; /* Limita a largura máxima do container */
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .product-images {
-            flex: 1;
-            margin-right: 20px;
+        .product-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #d4af37; /* Borda dourada abaixo do cabeçalho */
+            padding-bottom: 20px;
+            margin-bottom: 20px;
         }
 
-        .product-images img {
-            width: 100%;
-            height: auto;
-            max-width: 300px; /* Largura máxima da imagem */
-            border-bottom: 2px solid #d4af37; /* Borda dourada na imagem */
+        .product-header img {
+            width: 200px; /* Ajusta a largura da imagem do produto */
+            height: auto; /* Mantém a proporção da imagem */
             object-fit: cover; /* Mantém a qualidade da imagem */
+            border-radius: 5px; /* Borda arredondada na imagem */
         }
 
-        .product-info {
-            flex: 2;
+        .product-header .product-info {
+            margin-left: 20px;
+            flex: 1;
         }
 
-        .product-info h3 {
+        .product-header h3 {
             color: #fff; /* Cor branca para o nome do produto */
-            font-size: 1.5em; /* Tamanho da fonte */
+            font-size: 1.5em; /* Tamanho da fonte ajustado */
             margin: 0;
             margin-bottom: 10px;
         }
 
-        .product-info .price {
+        .product-header .price {
             color: #d4af37; /* Cor dourada para o preço */
-            font-size: 1.3em;
+            font-size: 1.2em;
             margin-bottom: 10px;
         }
 
-        .product-info .description {
+        .product-header .description {
             color: #fff; /* Cor branca para a descrição do produto */
             font-size: 1em;
             margin-bottom: 20px;
@@ -130,7 +129,7 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 20px; /* Ajusta o padding do botão */
+            padding: 10px 20px; /* Ajusta o padding para o botão */
             background-color: #d4af37; /* Fundo dourado para o botão */
             color: #000; /* Texto preto no botão */
             text-decoration: none;
@@ -141,6 +140,25 @@
         .btn:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
+        }
+
+        .additional-info {
+            margin-top: 30px; /* Ajuste do espaço superior */
+        }
+
+        .additional-info h4 {
+            color: #d4af37; /* Cor dourada para o título */
+            margin-bottom: 10px;
+        }
+
+        .additional-info div {
+            margin-bottom: 20px;
+        }
+
+        .additional-info .section {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         footer {
@@ -177,30 +195,47 @@
     </header>
     <main>
         <section class="product-page">
-            <h2>Produto em Destaque</h2>
             <div class="product-container">
-                <div class="product-images">
+                <div class="product-header">
                     <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
-                </div>
-                <div class="product-info">
-                    <h3>Serviços Extras</h3>
-                    <div class="price">R$ 299,00</div>
-                    <div class="description">
-                        Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.
+                    <div class="product-info">
+                        <h3>Serviços Extras</h3>
+                        <div class="price">R$ 299,00</div>
+                        <div class="description">
+                            Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.
+                        </div>
+                        <a href="contact.html" class="btn">Entre em contato</a>
                     </div>
-                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <div class="additional-info">
+                    <div class="section">
+                        <h4>Detalhes do Produto</h4>
+                        <p>Informações sobre o produto, incluindo características técnicas e benefícios.</p>
+                    </div>
+                    <div class="section">
+                        <h4>Avaliações e Comentários</h4>
+                        <p>Média de avaliações: ★★★★☆ (10 comentários)</p>
+                    </div>
+                    <div class="section">
+                        <h4>Frete e Disponibilidade</h4>
+                        <p>Frete grátis para todo o Brasil. Disponível em estoque.</p>
+                    </div>
+                    <div class="section">
+                        <h4>Informações do Vendedor</h4>
+                        <p>Vendedor: KN5 Shop | Localização: São Paulo, SP</p>
+                    </div>
+                    <div class="section">
+                        <h4>Perguntas e Respostas</h4>
+                        <p>Veja perguntas frequentes e respostas de outros compradores.</p>
+                    </div>
+                    <div class="section">
+                        <h4>Produtos Relacionados</h4>
+                        <p>Veja também nossos produtos semelhantes e complementares.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
     <footer>
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
-        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
-    </footer>
-    <!-- Adicionando o player de áudio com reprodução automática -->
-    <audio autoplay loop>
-        <source src="music/music1.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-</body>
-</html>
+        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a
