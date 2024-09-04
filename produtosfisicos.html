@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - KN5 Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #000; /* Fundo preto para a página */
+            color: #fff; /* Texto branco */
+        }
+
+        header {
+            background-color: #222; /* Cor de fundo escura para o cabeçalho */
+            padding: 15px 0; /* Padding ajustado */
+            color: #fff; /* Texto branco no cabeçalho */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+            position: fixed; /* Cabeçalho fixo no topo */
+            width: 100%; /* Largura completa */
+            top: 0; /* Fica no topo da página */
+            left: 0; /* Alinhado à esquerda */
+            z-index: 1000; /* Colocado acima do restante do conteúdo */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        header h1 {
+            color: #fff; /* Cor branca para o logo KN5 SHOP */
+            font-size: 1.8em; /* Tamanho da fonte aumentado */
+            text-transform: uppercase; /* Deixa o texto em maiúsculas */
+            letter-spacing: 2px; /* Espaçamento entre as letras */
+            margin: 0;
+        }
+
+        nav a {
+            color: #fff; /* Texto branco nos links */
+            text-decoration: none;
+            margin: 0 10px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37; /* Cor dourada no hover */
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37; /* Cor dourada para o sublinhado */
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease; /* Transição suave para o sublinhado */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Efeito de sublinhado dourado no hover */
+        }
+
+        .products {
+            padding: 40px 20px;
+            background-color: #000; /* Fundo preto */
+            margin-top: 80px; /* Espaço para o cabeçalho fixo */
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products h2 {
+            color: #d4af37; /* Cor dourada para o título */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05); /* Aumenta o produto suavemente ao passar o mouse */
+        }
+
+        .product img {
+            width: 100%;
+            border-bottom: 2px solid #d4af37; /* Borda dourada na imagem */
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            margin: 15px 0;
+            color: #fff; /* Cor branca para o nome do produto */
+        }
+
+        .product p {
+            color: #d4af37; /* Cor dourada para a descrição do produto */
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d4af37; /* Fundo dourado para o botão */
+            color: #000; /* Texto preto no botão */
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+        }
+
+        footer {
+            background-color: #333;
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37; /* Links dourados no rodapé */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>KN5 SHOP</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">Sobre Nós</a>
+                <a href="products.html">Produtos</a>
+                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a> <!-- Aba Painel adicionada aqui -->
+                <a href="contact.html">Contato</a>
+                <a href="support.html">Suporte</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="products">
+            <h2>Todos os Produtos</h2>
+            <div class="product-grid">
+                <!-- Produto 1 -->
+                <div class="product">
+                    <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
+                    <h3>Serviços Extras</h3>
+                    <p>Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <!-- Produto 2 -->
+                <div class="product">
+                    <img src="images/product2.jpg" alt="Curtidas para Postagens em Redes Sociais">
+                    <h3>Curtidas</h3>
+                    <p>Impulsione o alcance e engajamento das suas postagens com curtidas autênticas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <!-- Produto 3 -->
+                <div class="product">
+                    <img src="images/product3.jpg" alt="Visualizações para Vídeos">
+                    <h3>Visualizações</h3>
+                    <p>Aumente a visibilidade dos seus vídeos com nosso serviço de visualizações autênticas.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <!-- Produto 4 -->
+                <div class="product">
+                    <img src="images/product4.jpg" alt="Seguidores Reais para Redes Sociais">
+                    <h3>Seguidores</h3>
+                    <p>Construa uma base sólida de seguidores reais e fortaleça sua marca online.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+                <!-- Produto Misterioso -->
+                <div class="product">
+                    <img src="images/product6.jpg" alt="Produto Misterioso">
+                    <h3>Produto Misterioso</h3>
+                    <p>Descubra o que temos de especial reservado para você. Um produto exclusivo que pode atender suas necessidades de uma maneira única.</p>
+                    <a href="contact.html" class="btn">Entre em contato</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
+        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
+    </footer>
+    <!-- Adicionando o player de áudio com reprodução automática -->
+    <audio autoplay loop>
+        <source src="music/music1.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+</body>
+</html>
