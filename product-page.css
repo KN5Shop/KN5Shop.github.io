@@ -118,10 +118,11 @@ nav a:hover::after {
     margin-bottom: 20px;
 }
 
-.product-header video {
-    width: 100%; /* Ajusta a largura do vídeo principal */
-    height: auto; /* Mantém a proporção */
-    border-radius: 5px; /* Borda arredondada */
+.product-header img {
+    width: 200px; /* Ajusta a largura da imagem do produto */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Mantém a qualidade da imagem */
+    border-radius: 5px; /* Borda arredondada na imagem */
 }
 
 .product-header .product-info {
