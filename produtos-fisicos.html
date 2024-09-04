@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - KN5 Shop</title>
+    <title>Produto em Destaque - KN5 Shop</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -84,19 +84,15 @@
             margin-bottom: 30px;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
         .product {
             background-color: #333;
-            padding: 20px;
-            border-radius: 5px;
+            padding: 30px; /* Aumenta o padding para maior destaque */
+            border-radius: 10px; /* Borda mais arredondada */
             text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Sombra mais intensa */
             transition: transform 0.3s ease;
+            margin: 0 auto; /* Centraliza o produto */
+            max-width: 800px; /* Define uma largura máxima */
         }
 
         .product:hover {
@@ -106,34 +102,35 @@
         .product img {
             width: 100%;
             border-bottom: 2px solid #d4af37; /* Borda dourada na imagem */
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* Espaço maior abaixo da imagem */
         }
 
         .product h3 {
-            margin: 15px 0;
+            margin: 20px 0;
             color: #fff; /* Cor branca para o nome do produto */
+            font-size: 1.5em; /* Tamanho da fonte aumentado */
         }
 
         .product p {
             color: #d4af37; /* Cor dourada para a descrição do produto */
-            font-size: 1.1em;
+            font-size: 1.2em; /* Tamanho da fonte aumentado */
             margin-bottom: 20px;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 30px; /* Aumenta o padding para o botão */
             background-color: #d4af37; /* Fundo dourado para o botão */
             color: #000; /* Texto preto no botão */
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 20px;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn:hover {
             background-color: #b59427; /* Tom mais escuro de dourado no hover */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
         }
 
         footer {
@@ -162,7 +159,7 @@
                 <a href="about.html">Sobre Nós</a>
                 <a href="products.html">Produtos</a>
                 <a href="produtos-fisicos.html">Produtos Físicos</a>
-                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a> <!-- Aba Painel adicionada aqui -->
+                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a>
                 <a href="contact.html">Contato</a>
                 <a href="support.html">Suporte</a>
             </nav>
@@ -170,43 +167,12 @@
     </header>
     <main>
         <section class="products">
-            <h2>Todos os Produtos</h2>
-            <div class="product-grid">
-                <!-- Produto 1 -->
-                <div class="product">
-                    <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
-                    <h3>Serviços Extras</h3>
-                    <p>Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <!-- Produto 2 -->
-                <div class="product">
-                    <img src="images/product2.jpg" alt="Curtidas para Postagens em Redes Sociais">
-                    <h3>Curtidas</h3>
-                    <p>Impulsione o alcance e engajamento das suas postagens com curtidas autênticas.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <!-- Produto 3 -->
-                <div class="product">
-                    <img src="images/product3.jpg" alt="Visualizações para Vídeos">
-                    <h3>Visualizações</h3>
-                    <p>Aumente a visibilidade dos seus vídeos com nosso serviço de visualizações autênticas.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <!-- Produto 4 -->
-                <div class="product">
-                    <img src="images/product4.jpg" alt="Seguidores Reais para Redes Sociais">
-                    <h3>Seguidores</h3>
-                    <p>Construa uma base sólida de seguidores reais e fortaleça sua marca online.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-                <!-- Produto Misterioso -->
-                <div class="product">
-                    <img src="images/product6.jpg" alt="Produto Misterioso">
-                    <h3>Produto Misterioso</h3>
-                    <p>Descubra o que temos de especial reservado para você. Um produto exclusivo que pode atender suas necessidades de uma maneira única.</p>
-                    <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
+            <h2>Produto em Destaque</h2>
+            <div class="product">
+                <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
+                <h3>Serviços Extras</h3>
+                <p>Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.</p>
+                <a href="contact.html" class="btn">Entre em contato</a>
             </div>
         </section>
     </main>
