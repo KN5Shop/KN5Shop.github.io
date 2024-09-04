@@ -1,20 +1,20 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #000; /* Fundo preto para a página */
-    color: #fff; /* Texto branco */
+    background-color: #000;
+    color: #fff;
 }
 
 header {
-    background-color: #222; /* Cor de fundo escura para o cabeçalho */
-    padding: 15px 0; /* Padding ajustado */
-    color: #fff; /* Texto branco no cabeçalho */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
-    position: fixed; /* Cabeçalho fixo no topo */
-    width: 100%; /* Largura completa */
-    top: 0; /* Fica no topo da página */
-    left: 0; /* Alinhado à esquerda */
-    z-index: 1000; /* Colocado acima do restante do conteúdo */
+    background-color: #222;
+    padding: 15px 0;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 header .container {
@@ -26,15 +26,15 @@ header .container {
 }
 
 header h1 {
-    color: #fff; /* Cor branca para o logo KN5 SHOP */
-    font-size: 1.8em; /* Tamanho da fonte aumentado */
-    text-transform: uppercase; /* Deixa o texto em maiúsculas */
-    letter-spacing: 2px; /* Espaçamento entre as letras */
+    color: #fff;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin: 0;
 }
 
 nav a {
-    color: #fff; /* Texto branco nos links */
+    color: #fff;
     text-decoration: none;
     margin: 0 10px;
     position: relative;
@@ -43,7 +43,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #d4af37; /* Cor dourada no hover */
+    color: #d4af37;
 }
 
 nav a::after {
@@ -51,24 +51,24 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #d4af37; /* Cor dourada para o sublinhado */
+    background-color: #d4af37;
     left: 0;
     bottom: -5px;
-    transition: width 0.3s ease; /* Transição suave para o sublinhado */
+    transition: width 0.3s ease;
 }
 
 nav a:hover::after {
-    width: 100%; /* Efeito de sublinhado dourado no hover */
+    width: 100%;
 }
 
 .product-page {
-    padding: 20px; /* Reduz o padding para uma área principal menor */
-    background-color: #000; /* Fundo preto */
-    margin-top: 80px; /* Espaço para o cabeçalho fixo */
-    max-width: 800px; /* Reduz a largura máxima da área principal */
+    padding: 20px;
+    background-color: #000;
+    margin-top: 80px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    display: flex; /* Adiciona display flex para organizar as colunas */
+    display: flex;
 }
 
 .product-container {
@@ -86,7 +86,7 @@ nav a:hover::after {
     background-color: #444;
     border-radius: 10px;
     padding: 20px;
-    height: fit-content; /* Ajusta a altura conforme o conteúdo */
+    height: fit-content;
 }
 
 .interactive-column .item {
@@ -102,27 +102,28 @@ nav a:hover::after {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    display: none; /* Oculta todos por padrão */
-}
-
-.interactive-column .item.active img,
-.interactive-column .item.active video {
-    display: block; /* Exibe o ativo */
 }
 
 .product-header {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #d4af37; /* Borda dourada abaixo do cabeçalho */
+    border-bottom: 2px solid #d4af37;
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
+.product-header video {
+    width: 100%;
+    border-radius: 10px;
+    display: none;
+}
+
 .product-header img {
-    width: 200px; /* Ajusta a largura da imagem do produto */
-    height: auto; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Mantém a qualidade da imagem */
-    border-radius: 5px; /* Borda arredondada na imagem */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
 }
 
 .product-header .product-info {
@@ -131,45 +132,45 @@ nav a:hover::after {
 }
 
 .product-header h3 {
-    color: #fff; /* Cor branca para o nome do produto */
-    font-size: 1.5em; /* Tamanho da fonte ajustado */
+    color: #fff;
+    font-size: 1.5em;
     margin: 0;
     margin-bottom: 10px;
 }
 
 .product-header .price {
-    color: #d4af37; /* Cor dourada para o preço */
+    color: #d4af37;
     font-size: 1.2em;
     margin-bottom: 10px;
 }
 
 .product-header .description {
-    color: #fff; /* Cor branca para a descrição do produto */
+    color: #fff;
     font-size: 1em;
     margin-bottom: 20px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px; /* Ajusta o padding para o botão */
-    background-color: #d4af37; /* Fundo dourado para o botão */
-    color: #000; /* Texto preto no botão */
+    padding: 10px 20px;
+    background-color: #d4af37;
+    color: #000;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #b59427; /* Tom mais escuro de dourado no hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
+    background-color: #b59427;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .additional-info {
-    margin-top: 30px; /* Ajuste do espaço superior */
+    margin-top: 30px;
 }
 
 .additional-info h4 {
-    color: #d4af37; /* Cor dourada para o título */
+    color: #d4af37;
     margin-bottom: 10px;
 }
 
@@ -191,7 +192,7 @@ footer {
 }
 
 footer a {
-    color: #d4af37; /* Links dourados no rodapé */
+    color: #d4af37;
     text-decoration: none;
 }
 

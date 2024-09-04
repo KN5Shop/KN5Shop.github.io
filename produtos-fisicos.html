@@ -229,7 +229,7 @@
             <div class="product-container">
                 <div class="product-header">
                     <video src="images/relogio2.mp4" alt="Serviços Extras para Redes Sociais" controls autoplay id="mainMedia"></video>
-                    <img src="images/relogio.jpg" alt="Relógio Principal" id="mainImage">
+                    <img src="images/relogio.jpg" alt="Relógio Principal" id="mainImage" style="display: none;">
                     <div class="product-info">
                         <h3>Serviços Extras</h3>
                         <div class="price">R$ 299,00</div>
@@ -279,30 +279,25 @@
                 <div class="item" onclick="changeMedia('images/relogio5.jpg')">
                     <img src="images/relogio5.jpg" alt="Relógio 4">
                 </div>
-                <div class="item" onclick="changeMedia('images/relogio2.mp4', true)">
-                    <video src="images/relogio2.mp4" alt="Relógio 5"></video>
-                </div>
             </aside>
         </section>
     </main>
     <footer>
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
-        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
     <script>
-        function changeMedia(src, isVideo = false) {
+        function changeMedia(source) {
+            const mainMedia = document.getElementById('mainMedia');
             const mainImage = document.getElementById('mainImage');
-            const mainVideo = document.getElementById('mainMedia');
-            
-            if (isVideo) {
+
+            if (source.endsWith('.mp4')) {
+                mainMedia.src = source;
+                mainMedia.style.display = 'block';
                 mainImage.style.display = 'none';
-                mainVideo.style.display = 'block';
-                mainVideo.src = src;
-                mainVideo.play();
             } else {
-                mainVideo.style.display = 'none';
+                mainImage.src = source;
                 mainImage.style.display = 'block';
-                mainImage.src = src;
+                mainMedia.style.display = 'none';
             }
         }
     </script>
