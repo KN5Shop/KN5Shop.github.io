@@ -6,7 +6,206 @@
     <title>Produto em Destaque - KN5 Shop</title>
     <link rel="stylesheet" href="product-page.css">
     <style>
-        /* Inclua aqui o CSS que já foi fornecido anteriormente */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #000; /* Fundo preto para a página */
+            color: #fff; /* Texto branco */
+        }
+
+        header {
+            background-color: #222; /* Cor de fundo escura para o cabeçalho */
+            padding: 15px 0; /* Padding ajustado */
+            color: #fff; /* Texto branco no cabeçalho */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+            position: fixed; /* Cabeçalho fixo no topo */
+            width: 100%; /* Largura completa */
+            top: 0; /* Fica no topo da página */
+            left: 0; /* Alinhado à esquerda */
+            z-index: 1000; /* Colocado acima do restante do conteúdo */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        header h1 {
+            color: #fff; /* Cor branca para o logo KN5 SHOP */
+            font-size: 1.8em; /* Tamanho da fonte aumentado */
+            text-transform: uppercase; /* Deixa o texto em maiúsculas */
+            letter-spacing: 2px; /* Espaçamento entre as letras */
+            margin: 0;
+        }
+
+        nav a {
+            color: #fff; /* Texto branco nos links */
+            text-decoration: none;
+            margin: 0 10px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37; /* Cor dourada no hover */
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37; /* Cor dourada para o sublinhado */
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease; /* Transição suave para o sublinhado */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Efeito de sublinhado dourado no hover */
+        }
+
+        .product-page {
+            padding: 20px; /* Reduz o padding para uma área principal menor */
+            background-color: #000; /* Fundo preto */
+            margin-top: 80px; /* Espaço para o cabeçalho fixo */
+            max-width: 800px; /* Reduz a largura máxima da área principal */
+            margin-left: auto;
+            margin-right: auto;
+            display: flex; /* Adiciona display flex para organizar as colunas */
+        }
+
+        .product-container {
+            flex: 1;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .interactive-column {
+            flex: 0.4;
+            margin-left: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            padding: 20px;
+            height: fit-content; /* Ajusta a altura conforme o conteúdo */
+        }
+
+        .interactive-column .item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .interactive-column .item img,
+        .interactive-column .item video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: none; /* Oculta todos por padrão */
+        }
+
+        .interactive-column .item.active img,
+        .interactive-column .item.active video {
+            display: block; /* Exibe o ativo */
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #d4af37; /* Borda dourada abaixo do cabeçalho */
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product-header img {
+            width: 200px; /* Ajusta a largura da imagem do produto */
+            height: auto; /* Mantém a proporção da imagem */
+            object-fit: cover; /* Mantém a qualidade da imagem */
+            border-radius: 5px; /* Borda arredondada na imagem */
+        }
+
+        .product-header .product-info {
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .product-header h3 {
+            color: #fff; /* Cor branca para o nome do produto */
+            font-size: 1.5em; /* Tamanho da fonte ajustado */
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .product-header .price {
+            color: #d4af37; /* Cor dourada para o preço */
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .product-header .description {
+            color: #fff; /* Cor branca para a descrição do produto */
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px; /* Ajusta o padding para o botão */
+            background-color: #d4af37; /* Fundo dourado para o botão */
+            color: #000; /* Texto preto no botão */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #b59427; /* Tom mais escuro de dourado no hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
+        }
+
+        .additional-info {
+            margin-top: 30px; /* Ajuste do espaço superior */
+        }
+
+        .additional-info h4 {
+            color: #d4af37; /* Cor dourada para o título */
+            margin-bottom: 10px;
+        }
+
+        .additional-info div {
+            margin-bottom: 20px;
+        }
+
+        .additional-info .section {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37; /* Links dourados no rodapé */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -28,8 +227,7 @@
         <section class="product-page">
             <div class="product-container">
                 <div class="product-header">
-                    <!-- Vídeo principal substituído por um vídeo -->
-                    <video src="images/product1.mp4" controls></video>
+                    <video src="images/relogio2.mp4" id="main-video" controls autoplay></video>
                     <div class="product-info">
                         <h3>Serviços Extras</h3>
                         <div class="price">R$ 299,00</div>
@@ -53,52 +251,58 @@
                         <p>Frete grátis para todo o Brasil. Disponível em estoque.</p>
                     </div>
                     <div class="section">
-                        <h4>Informações do Vendedor</h4>
-                        <p>Vendedor: KN5 Shop | Localização: São Paulo, SP</p>
-                    </div>
-                    <div class="section">
-                        <h4>Perguntas e Respostas</h4>
-                        <p>Veja perguntas frequentes e respostas de outros compradores.</p>
-                    </div>
-                    <div class="section">
-                        <h4>Produtos Relacionados</h4>
-                        <p>Veja também nossos produtos semelhantes e complementares.</p>
+                        <h4>Garantia</h4>
+                        <p>Garantia de 1 ano contra defeitos de fabricação.</p>
                     </div>
                 </div>
             </div>
             <aside class="interactive-column">
-                <div class="item" onmouseover="showMedia('media1')" onclick="showMedia('media1')">
-                    <img src="images/relogio.jpg" alt="Relógio 1" id="media1">
+                <div class="item active">
+                    <video src="images/relogio2.mp4" controls></video>
                 </div>
-                <div class="item" onmouseover="showMedia('media2')" onclick="showMedia('media2')">
-                    <img src="images/relogio3.jpg" alt="Relógio 2" id="media2">
+                <div class="item">
+                    <img src="images/relogio.jpg" alt="Relógio 1" onclick="changeProduct('relogio.jpg', 'images/relogio2.mp4')">
                 </div>
-                <div class="item" onmouseover="showMedia('media3')" onclick="showMedia('media3')">
-                    <img src="images/relogio4.jpg" alt="Relógio 3" id="media3">
+                <div class="item">
+                    <img src="images/relogio3.jpg" alt="Relógio 2" onclick="changeProduct('relogio3.jpg', 'images/relogio2.mp4')">
                 </div>
-                <div class="item" onmouseover="showMedia('media4')" onclick="showMedia('media4')">
-                    <img src="images/relogio5.jpg" alt="Relógio 4" id="media4">
+                <div class="item">
+                    <img src="images/relogio4.jpg" alt="Relógio 3" onclick="changeProduct('relogio4.jpg', 'images/relogio2.mp4')">
                 </div>
-                <div class="item" onmouseover="showMedia('media5')" onclick="showMedia('media5')">
-                    <video src="images/relogio2.mp4" id="media5" controls></video>
+                <div class="item">
+                    <img src="images/relogio5.jpg" alt="Relógio 4" onclick="changeProduct('relogio5.jpg', 'images/relogio2.mp4')">
                 </div>
             </aside>
         </section>
     </main>
     <footer>
-        <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
-        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
+        <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
+        <a href="privacy.html">Política de Privacidade</a> | 
+        <a href="terms.html">Termos de Serviço</a>
     </footer>
     <script>
-        function showMedia(id) {
-            // Esconde todas as mídias
-            var medias = document.querySelectorAll('.interactive-column .item img, .interactive-column .item video');
-            medias.forEach(media => media.style.display = 'none');
+        function changeProduct(imageSrc, videoSrc) {
+            // Muda a imagem principal
+            var productImage = document.querySelector('.product-header img');
+            if (productImage) {
+                productImage.src = 'images/' + imageSrc;
+            }
+            
+            // Muda o vídeo principal
+            var mainVideo = document.getElementById('main-video');
+            mainVideo.src = 'images/' + videoSrc;
+            
+            // Atualiza a visualização ativa na coluna interativa
+            var items = document.querySelectorAll('.interactive-column .item');
+            items.forEach(function(item) {
+                item.classList.remove('active');
+            });
 
-            // Exibe o media correspondente
-            var media = document.getElementById(id);
-            if (media) {
-                media.style.display = 'block';
+            var activeItem = Array.from(items).find(function(item) {
+                return item.querySelector('img') && item.querySelector('img').src.endsWith(imageSrc);
+            });
+            if (activeItem) {
+                activeItem.classList.add('active');
             }
         }
     </script>
