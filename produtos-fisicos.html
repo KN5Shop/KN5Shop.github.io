@@ -73,47 +73,33 @@
             padding: 40px 20px;
             background-color: #000; /* Fundo preto */
             margin-top: 80px; /* Espaço para o cabeçalho fixo */
-            max-width: 1200px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .product-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            margin-bottom: 30px;
-            width: 100%; /* Ajusta a largura para ocupar todo o container pai */
-            max-width: 1000px; /* Limita a largura máxima do container */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            max-width: 100%;
+            margin: 0 auto;
         }
 
-        .product-images {
-            flex: 1;
-            margin-right: 20px;
-            max-width: 50%; /* Limita a largura das imagens para metade do container */
-        }
-
-        .product-images img {
-            width: 100%; /* Ajusta a imagem para ocupar toda a largura disponível */
-            height: auto; /* Mantém a proporção da imagem */
-            max-height: 600px; /* Ajusta a altura máxima da imagem */
+        .product-image img {
+            width: 100%;
+            max-width: 500px; /* Largura máxima da imagem */
+            height: auto;
             border-bottom: 2px solid #d4af37; /* Borda dourada na imagem */
             margin-bottom: 20px;
-            object-fit: cover; /* Mantém a qualidade da imagem */
         }
 
         .product-info {
-            flex: 1.5;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            max-width: 50%; /* Limita a largura das informações para metade do container */
+            text-align: center;
         }
 
         .product-info h3 {
@@ -150,26 +136,6 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
         }
 
-        .additional-info {
-            margin-top: 30px; /* Ajuste do espaço superior */
-            width: 100%;
-        }
-
-        .additional-info h4 {
-            color: #d4af37; /* Cor dourada para o título */
-            margin-bottom: 10px;
-        }
-
-        .additional-info div {
-            margin-bottom: 20px;
-        }
-
-        .additional-info .section {
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
         footer {
             background-color: #333;
             padding: 10px 0;
@@ -204,11 +170,9 @@
     </header>
     <main>
         <section class="product-page">
-            <h2>Produto em Destaque</h2>
             <div class="product-container">
-                <div class="product-images">
+                <div class="product-image">
                     <img src="images/product1.jpg" alt="Serviços Extras para Redes Sociais">
-                    <!-- Adicionar mais imagens se necessário -->
                 </div>
                 <div class="product-info">
                     <h3>Serviços Extras</h3>
@@ -217,32 +181,6 @@
                         Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.
                     </div>
                     <a href="contact.html" class="btn">Entre em contato</a>
-                </div>
-            </div>
-            <div class="additional-info">
-                <div class="section">
-                    <h4>Detalhes do Produto</h4>
-                    <p>Informações sobre o produto, incluindo características técnicas e benefícios.</p>
-                </div>
-                <div class="section">
-                    <h4>Avaliações e Comentários</h4>
-                    <p>Média de avaliações: ★★★★☆ (10 comentários)</p>
-                </div>
-                <div class="section">
-                    <h4>Frete e Disponibilidade</h4>
-                    <p>Frete grátis para todo o Brasil. Disponível em estoque.</p>
-                </div>
-                <div class="section">
-                    <h4>Informações do Vendedor</h4>
-                    <p>Vendedor: KN5 Shop | Localização: São Paulo, SP</p>
-                </div>
-                <div class="section">
-                    <h4>Perguntas e Respostas</h4>
-                    <p>Veja perguntas frequentes e respostas de outros compradores.</p>
-                </div>
-                <div class="section">
-                    <h4>Produtos Relacionados</h4>
-                    <p>Veja também nossos produtos semelhantes e complementares.</p>
                 </div>
             </div>
         </section>
