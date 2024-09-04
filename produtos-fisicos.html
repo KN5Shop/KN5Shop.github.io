@@ -86,7 +86,6 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             margin-bottom: 30px;
-            max-width: 60%; /* Limita a largura da área principal */
         }
 
         .interactive-column {
@@ -95,6 +94,7 @@
             background-color: #444;
             border-radius: 10px;
             padding: 20px;
+            height: fit-content; /* Ajusta a altura conforme o conteúdo */
         }
 
         .interactive-column .item {
@@ -110,12 +110,12 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            transition: opacity 0.3s ease;
+            display: none; /* Oculta todos por padrão */
         }
 
-        .interactive-column .item:hover img,
-        .interactive-column .item:hover video {
-            opacity: 0.7;
+        .interactive-column .item.active img,
+        .interactive-column .item.active video {
+            display: block; /* Exibe o ativo */
         }
 
         .product-header {
@@ -266,19 +266,19 @@
             </div>
             <aside class="interactive-column">
                 <div class="item" onmouseover="showMedia('media1')" onclick="showMedia('media1')">
-                    <img src="images/relogio.jpg" alt="Relógio 1" id="media1">
+                    <img src="images/relogio.jpg" alt="Relógio 1" id="media1" style="display: block;">
                 </div>
                 <div class="item" onmouseover="showMedia('media2')" onclick="showMedia('media2')">
-                    <img src="images/relogio3.jpg" alt="Relógio 2" id="media2" style="display: none;">
+                    <img src="images/relogio3.jpg" alt="Relógio 2" id="media2">
                 </div>
                 <div class="item" onmouseover="showMedia('media3')" onclick="showMedia('media3')">
-                    <img src="images/relogio4.jpg" alt="Relógio 3" id="media3" style="display: none;">
+                    <img src="images/relogio4.jpg" alt="Relógio 3" id="media3">
                 </div>
                 <div class="item" onmouseover="showMedia('media4')" onclick="showMedia('media4')">
-                    <img src="images/relogio5.jpg" alt="Relógio 4" id="media4" style="display: none;">
+                    <img src="images/relogio5.jpg" alt="Relógio 4" id="media4">
                 </div>
                 <div class="item" onmouseover="showMedia('media5')" onclick="showMedia('media5')">
-                    <video src="images/relogio2.mp4" id="media5" style="display: none;" controls></video>
+                    <video src="images/relogio2.mp4" id="media5" controls></video>
                 </div>
             </aside>
         </section>
