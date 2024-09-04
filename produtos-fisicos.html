@@ -76,16 +76,46 @@
             max-width: 800px; /* Reduz a largura máxima da área principal */
             margin-left: auto;
             margin-right: auto;
+            display: flex; /* Adiciona display flex para organizar as colunas */
         }
 
         .product-container {
-            display: flex;
-            flex-direction: column;
+            flex: 1;
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             margin-bottom: 30px;
+            max-width: 60%; /* Limita a largura da área principal */
+        }
+
+        .interactive-column {
+            flex: 0.4;
+            margin-left: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .interactive-column .item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .interactive-column .item img,
+        .interactive-column .item video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .interactive-column .item:hover img,
+        .interactive-column .item:hover video {
+            opacity: 0.7;
         }
 
         .product-header {
@@ -234,8 +264,38 @@
                     </div>
                 </div>
             </div>
+            <aside class="interactive-column">
+                <div class="item" onmouseover="showMedia('media1')" onclick="showMedia('media1')">
+                    <img src="images/thumbnail1.jpg" alt="Imagem 1" id="media1">
+                </div>
+                <div class="item" onmouseover="showMedia('media2')" onclick="showMedia('media2')">
+                    <img src="images/thumbnail2.jpg" alt="Imagem 2" id="media2" style="display: none;">
+                </div>
+                <div class="item" onmouseover="showMedia('media3')" onclick="showMedia('media3')">
+                    <img src="images/thumbnail3.jpg" alt="Imagem 3" id="media3" style="display: none;">
+                </div>
+                <div class="item" onmouseover="showMedia('media4')" onclick="showMedia('media4')">
+                    <video src="videos/video1.mp4" id="media4" style="display: none;" controls></video>
+                </div>
+            </aside>
         </section>
     </main>
     <footer>
         <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
-        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a
+        <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
+    </footer>
+    <script>
+        function showMedia(id) {
+            // Esconde todas as mídias
+            var medias = document.querySelectorAll('.interactive-column .item img, .interactive-column .item video');
+            medias.forEach(media => media.style.display = 'none');
+
+            // Exibe o media correspondente
+            var media = document.getElementById(id);
+            if (media) {
+                media.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
