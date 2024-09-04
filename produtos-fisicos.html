@@ -83,7 +83,7 @@
 
         .product-container {
             display: flex;
-            max-width: 1000px;
+            max-width: calc(100% - 8cm); /* Reduz a largura em 4 cm de cada lado */
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
@@ -97,7 +97,7 @@
         }
 
         .product-images img {
-            width: calc(100% - 1cm); /* Diminui a largura da imagem em 1cm */
+            width: calc(100% - 4cm); /* Reduz a largura da imagem em 4 cm */
             border-bottom: 2px solid #d4af37; /* Borda dourada na imagem */
             margin-bottom: 20px;
         }
@@ -144,7 +144,7 @@
         }
 
         .additional-info {
-            margin-top: 30px;
+            margin-top: 0; /* Remove o espaço superior para subir o conteúdo */
             width: 100%;
         }
 
