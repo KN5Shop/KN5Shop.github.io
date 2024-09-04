@@ -73,7 +73,7 @@
             padding: 20px;
             background-color: #000;
             margin-top: 80px;
-            max-width: 800px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
             display: flex;
@@ -110,12 +110,6 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            display: none;
-        }
-
-        .interactive-column .item.active img,
-        .interactive-column .item.active video {
-            display: block;
         }
 
         .product-header {
@@ -129,13 +123,15 @@
         .product-header video {
             width: 100%;
             border-radius: 10px;
+            display: none;
         }
 
         .product-header img {
-            width: 200px;
+            width: 100%;
             height: auto;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 10px;
+            display: block;
         }
 
         .product-header .product-info {
@@ -232,7 +228,8 @@
         <section class="product-page">
             <div class="product-container">
                 <div class="product-header">
-                    <video src="images/relogio2.mp4" alt="Serviços Extras para Redes Sociais" controls autoplay></video>
+                    <video src="images/relogio2.mp4" alt="Serviços Extras para Redes Sociais" controls autoplay id="mainMedia"></video>
+                    <img src="images/relogio.jpg" alt="Relógio Principal" id="mainImage">
                     <div class="product-info">
                         <h3>Serviços Extras</h3>
                         <div class="price">R$ 299,00</div>
@@ -270,17 +267,20 @@
                 </div>
             </div>
             <aside class="interactive-column">
-                <div class="item" onmouseover="showMedia('media1')" onclick="showMedia('media1')">
-                    <img src="images/relogio.jpg" alt="Relógio 1" id="media1">
+                <div class="item" onclick="changeMedia('images/relogio.jpg')">
+                    <img src="images/relogio.jpg" alt="Relógio 1">
                 </div>
-                <div class="item" onmouseover="showMedia('media2')" onclick="showMedia('media2')">
-                    <img src="images/relogio3.jpg" alt="Relógio 2" id="media2">
+                <div class="item" onclick="changeMedia('images/relogio3.jpg')">
+                    <img src="images/relogio3.jpg" alt="Relógio 2">
                 </div>
-                <div class="item" onmouseover="showMedia('media3')" onclick="showMedia('media3')">
-                    <img src="images/relogio4.jpg" alt="Relógio 3" id="media3">
+                <div class="item" onclick="changeMedia('images/relogio4.jpg')">
+                    <img src="images/relogio4.jpg" alt="Relógio 3">
                 </div>
-                <div class="item" onmouseover="showMedia('media4')" onclick="showMedia('media4')">
-                    <img src="images/relogio5.jpg" alt="Relógio 4" id="media4">
+                <div class="item" onclick="changeMedia('images/relogio5.jpg')">
+                    <img src="images/relogio5.jpg" alt="Relógio 4">
+                </div>
+                <div class="item" onclick="changeMedia('images/relogio2.mp4', true)">
+                    <video src="images/relogio2.mp4" alt="Relógio 5"></video>
                 </div>
             </aside>
         </section>
@@ -290,13 +290,19 @@
         <p><a href="privacy-policy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
     </footer>
     <script>
-        function showMedia(id) {
-            var medias = document.querySelectorAll('.interactive-column .item img, .interactive-column .item video');
-            medias.forEach(media => media.style.display = 'none');
-
-            var media = document.getElementById(id);
-            if (media) {
-                media.style.display = 'block';
+        function changeMedia(src, isVideo = false) {
+            const mainImage = document.getElementById('mainImage');
+            const mainVideo = document.getElementById('mainMedia');
+            
+            if (isVideo) {
+                mainImage.style.display = 'none';
+                mainVideo.style.display = 'block';
+                mainVideo.src = src;
+                mainVideo.play();
+            } else {
+                mainVideo.style.display = 'none';
+                mainImage.style.display = 'block';
+                mainImage.src = src;
             }
         }
     </script>
