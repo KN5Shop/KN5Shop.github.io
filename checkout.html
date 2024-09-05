@@ -145,6 +145,7 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             display: block;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -177,15 +178,6 @@
             border-radius: 5px;
         }
     </style>
-    <script>
-        // Redireciona automaticamente após um pequeno atraso
-        window.onload = function() {
-            // Exibe a mensagem de notificação por 5 segundos antes de redirecionar
-            setTimeout(function() {
-                window.location.href = "https://mpago.la/2C7k5LD";
-            }, 5000); // 5000 milissegundos = 5 segundos
-        };
-    </script>
 </head>
 <body>
     <header>
@@ -210,9 +202,41 @@
                 </div>
                 <div class="checkout-info">
                     <div class="notification">
-                        Você será redirecionado para a página de pagamento em breve. Caso o redirecionamento não ocorra automaticamente, <a href="https://mpago.la/2C7k5LD" class="btn">clique aqui</a>.
+                        Preencha o formulário abaixo para finalizar sua compra. Após o envio, você será redirecionado para a página de pagamento.
                     </div>
-                    <!-- O formulário de checkout pode ser removido ou mantido conforme necessário -->
+                    <form id="checkoutForm" onsubmit="handleFormSubmit(event)">
+                        <div class="section">
+                            <label for="name">Nome Completo:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="section">
+                            <label for="address">Endereço:</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="section">
+                            <label for="city">Cidade:</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="section">
+                            <label for="state">Estado:</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                        <div class="section">
+                            <label for="zip">CEP:</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                        <div class="section">
+                            <label for="phone">Telefone:</label>
+                            <input type="text" id="phone" name="phone" required>
+                        </div>
+                        <div class="section">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="section">
+                            <button type="submit" class="btn">Finalizar Compra</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -221,5 +245,32 @@
         <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
         <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            // Coleta os dados do formulário
+            const formData = new FormData(document.getElementById('checkoutForm'));
+            const name = formData.get('name');
+            const address = formData.get('address');
+            const city = formData.get('city');
+            const state = formData.get('state');
+            const zip = formData.get('zip');
+            const phone = formData.get('phone');
+            const email = formData.get('email');
+
+            // Construa a URL do WhatsApp com os dados do formulário
+            const whatsappMessage = `Nome: ${name}%0AEndereço: ${address}%0ACidade: ${city}%0AEstado: ${state}%0ACEP: ${zip}%0ATelefone: ${phone}%0AE-mail: ${email}`;
+            const whatsappURL = `https://wa.me/5519995271979?text=${whatsappMessage}`;
+
+            // Redireciona para o WhatsApp e depois para a página de pagamento
+            window.location.href = whatsappURL;
+
+            // Redireciona após 2 segundos para dar tempo do WhatsApp abrir
+            setTimeout(function() {
+                window.location.href = 'https://mpago.la/2C7k5LD';
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
