@@ -230,7 +230,7 @@
             <div class="product-container">
                 <div class="product-header">
                     <!-- Vídeo principal -->
-                    <video id="main-video" controls autoplay>
+                    <video id="main-video" controls autoplay muted preload="auto">
                         <source src="images/relogio2.mp4" type="video/mp4">
                         Seu navegador não suporta o formato de vídeo MP4.
                     </video>
@@ -284,7 +284,7 @@
                     <img src="images/relogio5.jpg" alt="Relógio 4">
                 </div>
                 <div class="item" onclick="changeMedia('images/relogio2.mp4')">
-                    <video src="images/relogio2.mp4"></video>
+                    <video src="images/relogio2.mp4" muted></video>
                 </div>
             </aside>
         </section>
@@ -293,22 +293,5 @@
         <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
         <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
-    <script>
-        function changeMedia(src) {
-            var mainVideo = document.getElementById('main-video');
-            var mainImage = document.getElementById('main-image');
-
-            if (src.endsWith('.mp4')) {
-                mainImage.style.display = 'none';
-                mainVideo.style.display = 'block';
-                mainVideo.src = src;
-                mainVideo.play();
-            } else {
-                mainVideo.style.display = 'none';
-                mainImage.style.display = 'block';
-                mainImage.src = src;
-            }
-        }
-    </script>
 </body>
 </html>
