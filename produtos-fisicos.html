@@ -11,8 +11,8 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #000;
+            color: #fff;
         }
 
         header {
@@ -73,7 +73,7 @@
 
         .checkout-page {
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #000;
             margin-top: 80px;
             max-width: 1200px;
             margin-left: auto;
@@ -81,13 +81,10 @@
         }
 
         .checkout-container {
-            background-color: #fff;
+            background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
         }
 
         .checkout-header {
@@ -98,13 +95,14 @@
         }
 
         .checkout-info {
-            width: 100%;
+            margin-top: 20px;
         }
 
         .checkout-info h3 {
-            color: #333;
+            color: #fff;
             font-size: 1.5em;
             margin: 0;
+            margin-bottom: 10px;
         }
 
         .checkout-info .section {
@@ -114,35 +112,27 @@
         .checkout-info .section label {
             display: block;
             margin-bottom: 5px;
-            color: #333;
+            color: #d4af37;
         }
 
-        .checkout-info .section input {
+        .checkout-info .section input,
+        .checkout-info .section select {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
             border-radius: 5px;
-            background-color: #fff;
-            color: #333;
+            background-color: #555;
+            color: #fff;
         }
 
-        .form-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .checkout-info .section textarea {
             width: 100%;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .form-column-left,
-        .form-column-right {
-            flex: 1;
-            min-width: 300px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            min-height: 100px;
         }
 
         .btn {
@@ -155,7 +145,6 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             display: block;
-            width: 100%;
         }
 
         .btn:hover {
@@ -164,7 +153,7 @@
         }
 
         footer {
-            background-color: #222;
+            background-color: #333;
             padding: 10px 0;
             color: #fff;
             text-align: center;
@@ -177,6 +166,15 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        .notification {
+            background-color: #d4af37;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -202,39 +200,10 @@
                     <h3>Finalizar Compra</h3>
                 </div>
                 <div class="checkout-info">
-                    <form id="checkoutForm" action="/submit-form" method="POST">
-                        <div class="form-row">
-                            <div class="form-column-left">
-                                <div class="section">
-                                    <label for="name">Nome Completo:</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="section">
-                                    <label for="address">Endereço:</label>
-                                    <input type="text" id="address" name="address" required>
-                                </div>
-                                <div class="section">
-                                    <label for="city">Cidade:</label>
-                                    <input type="text" id="city" name="city" required>
-                                </div>
-                                <div class="section">
-                                    <label for="phone">Telefone:</label>
-                                    <input type="text" id="phone" name="phone" required>
-                                </div>
-                            </div>
-                            <div class="form-column-right">
-                                <div class="section">
-                                    <label for="state">Estado:</label>
-                                    <input type="text" id="state" name="state" required>
-                                </div>
-                                <div class="section">
-                                    <label for="zip">CEP:</label>
-                                    <input type="text" id="zip" name="zip" required>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn">Finalizar Compra</button>
-                    </form>
+                    <div class="notification">
+                        Você será redirecionado para a página de pagamento em breve. Caso o redirecionamento não ocorra automaticamente, <a href="https://mpago.la/2C7k5LD" class="btn">clique aqui</a>.
+                    </div>
+                    <!-- O formulário de checkout pode ser removido ou mantido conforme necessário -->
                 </div>
             </div>
         </section>
