@@ -85,6 +85,9 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .checkout-header {
@@ -96,13 +99,13 @@
 
         .checkout-info {
             margin-top: 20px;
+            width: 100%;
         }
 
         .checkout-info h3 {
             color: #fff;
             font-size: 1.5em;
             margin: 0;
-            margin-bottom: 10px;
         }
 
         .checkout-info .section {
@@ -115,8 +118,7 @@
             color: #d4af37;
         }
 
-        .checkout-info .section input,
-        .checkout-info .section select {
+        .checkout-info .section input {
             width: 100%;
             padding: 10px;
             border: 1px solid #444;
@@ -125,14 +127,9 @@
             color: #fff;
         }
 
-        .checkout-info .section textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #444;
-            border-radius: 5px;
-            background-color: #555;
-            color: #fff;
-            min-height: 100px;
+        .form-column {
+            flex: 1;
+            min-width: 300px;
         }
 
         .btn {
@@ -145,7 +142,7 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             display: block;
-            cursor: pointer;
+            width: 100%;
         }
 
         .btn:hover {
@@ -201,40 +198,37 @@
                     <h3>Finalizar Compra</h3>
                 </div>
                 <div class="checkout-info">
-                    <div class="notification">
-                        Preencha o formulário abaixo para finalizar sua compra. Após o envio, você será redirecionado para a página de pagamento.
-                    </div>
-                    <form id="checkoutForm" onsubmit="handleFormSubmit(event)">
-                        <div class="section">
-                            <label for="name">Nome Completo:</label>
-                            <input type="text" id="name" name="name" required>
+                    <form id="checkoutForm">
+                        <div class="form-column">
+                            <div class="section">
+                                <label for="name">Nome Completo:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="section">
+                                <label for="address">Endereço:</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="section">
+                                <label for="city">Cidade:</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="section">
+                                <label for="state">Estado:</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                            <div class="section">
+                                <label for="zip">CEP:</label>
+                                <input type="text" id="zip" name="zip" required>
+                            </div>
+                            <div class="section">
+                                <label for="phone">Telefone:</label>
+                                <input type="text" id="phone" name="phone" required>
+                            </div>
                         </div>
                         <div class="section">
-                            <label for="address">Endereço:</label>
-                            <input type="text" id="address" name="address" required>
-                        </div>
-                        <div class="section">
-                            <label for="city">Cidade:</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                        <div class="section">
-                            <label for="state">Estado:</label>
-                            <input type="text" id="state" name="state" required>
-                        </div>
-                        <div class="section">
-                            <label for="zip">CEP:</label>
-                            <input type="text" id="zip" name="zip" required>
-                        </div>
-                        <div class="section">
-                            <label for="phone">Telefone:</label>
-                            <input type="text" id="phone" name="phone" required>
-                        </div>
-                        <div class="section">
-                            <label for="email">E-mail:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="section">
-                            <button type="submit" class="btn">Finalizar Compra</button>
+                            <button type="button" onclick="handleFormSubmit()" class="btn">Finalizar Compra</button>
                         </div>
                     </form>
                 </div>
@@ -246,30 +240,25 @@
         <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
     <script>
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Previne o envio padrão do formulário
+        function handleFormSubmit() {
+            const name = encodeURIComponent(document.getElementById('name').value);
+            const address = encodeURIComponent(document.getElementById('address').value);
+            const city = encodeURIComponent(document.getElementById('city').value);
+            const state = encodeURIComponent(document.getElementById('state').value);
+            const zip = encodeURIComponent(document.getElementById('zip').value);
+            const phone = encodeURIComponent(document.getElementById('phone').value);
 
-            // Coleta os dados do formulário
-            const formData = new FormData(document.getElementById('checkoutForm'));
-            const name = formData.get('name');
-            const address = formData.get('address');
-            const city = formData.get('city');
-            const state = formData.get('state');
-            const zip = formData.get('zip');
-            const phone = formData.get('phone');
-            const email = formData.get('email');
+            const message = `Novo pedido:\nNome: ${name}\nEndereço: ${address}\nCidade: ${city}\nEstado: ${state}\nCEP: ${zip}\nTelefone: ${phone}`;
 
-            // Construa a URL do WhatsApp com os dados do formulário
-            const whatsappMessage = `Nome: ${name}%0AEndereço: ${address}%0ACidade: ${city}%0AEstado: ${state}%0ACEP: ${zip}%0ATelefone: ${phone}%0AE-mail: ${email}`;
-            const whatsappURL = `https://wa.me/5519995271979?text=${whatsappMessage}`;
+            const whatsappURL = `https://api.whatsapp.com/send/?phone=5519995271979&text=${message}&type=phone_number&app_absent=0`;
 
-            // Redireciona para o WhatsApp e depois para a página de pagamento
+            // Redireciona para o WhatsApp
             window.location.href = whatsappURL;
-
-            // Redireciona após 2 segundos para dar tempo do WhatsApp abrir
+            
+            // Após o redirecionamento para o WhatsApp, redireciona para a página de pagamento
             setTimeout(function() {
                 window.location.href = 'https://mpago.la/2C7k5LD';
-            }, 2000);
+            }, 2000); // Aguarda 2 segundos
         }
     </script>
 </body>
