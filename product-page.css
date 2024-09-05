@@ -14,7 +14,7 @@
     }
 
     .product-info .contact-btn {
-        margin-bottom: 30px; /* Ajuste a distância entre os botões para dispositivos móveis */
+        margin-bottom: 40px; /* Ajuste a distância entre os botões para dispositivos móveis */
     }
 }
 
@@ -26,6 +26,6 @@
     }
 
     .product-info .contact-btn {
-        margin-bottom: 20px; /* Ajuste a distância entre os botões para dispositivos menores */
+        margin-bottom: 40px; /* Ajuste a distância entre os botões para dispositivos menores */
     }
 }
