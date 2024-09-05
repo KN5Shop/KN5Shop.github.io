@@ -12,6 +12,10 @@
         padding: 10px;
         margin-top: 90px; /* Ajuste o espaço superior para evitar sobreposição com o cabeçalho */
     }
+
+    .product-info .contact-btn {
+        margin-bottom: 30px; /* Ajuste a distância entre os botões para dispositivos móveis */
+    }
 }
 
 /* Estilos para dispositivos menores, como smartphones */
@@ -19,5 +23,9 @@
     .product-page {
         padding: 5px;
         margin-top: 100px; /* Ajuste o espaço superior para evitar sobreposição com o cabeçalho */
+    }
+
+    .product-info .contact-btn {
+        margin-bottom: 20px; /* Ajuste a distância entre os botões para dispositivos menores */
     }
 }
