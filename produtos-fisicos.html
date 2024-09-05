@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto em Destaque - KN5 Shop</title>
+    <title>Smartwatch Huami Amazfit Bip U Pro - KN5 Shop</title>
+    <meta name="description" content="Compre o Smartwatch Huami Amazfit Bip U Pro com tela de 1.43\", GPS, monitor cardíaco, e resistência IP68. Avaliação 4.8 de 5. Aproveite o preço especial de R$519!">
+    <meta name="keywords" content="Smartwatch, Huami, Amazfit, Bip U Pro, GPS, Monitor Cardíaco, IP68, R$519, Avaliação, KN5 Shop">
     <link rel="stylesheet" href="product-page.css">
     <style>
         body {
@@ -95,27 +97,15 @@
             border-bottom: 2px solid #d4af37;
             padding-bottom: 20px;
             margin-bottom: 20px;
-            position: relative; /* Adicionado para o iframe */
-            overflow: hidden; /* Para evitar o vídeo transbordar */
         }
 
-        .product-header .video-container {
+        .product-header iframe,
+        .product-header video,
+        .product-header img {
             width: 100%;
-            height: 0;
-            padding-top: 56.25%; /* Aspect ratio 16:9 */
-            position: relative;
-            overflow: hidden;
+            height: auto;
             border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .product-header iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+            background-color: #000;
         }
 
         .product-info {
@@ -242,15 +232,26 @@
         <section class="product-page">
             <div class="product-container">
                 <div class="product-header">
-                    <!-- Vídeo principal do Vimeo -->
-                    <div class="video-container">
-                        <iframe src="https://player.vimeo.com/video/1006429895?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="relogio2"></iframe>
+                    <!-- Vídeo principal -->
+                    <div style="padding:177.78% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1006429895?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                                title="Smartwatch Huami Amazfit Bip U Pro">
+                        </iframe>
                     </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
                     <div class="product-info">
-                        <h3>Serviços Extras</h3>
-                        <div class="price">R$ 299,00</div>
+                        <h3>Smartwatch Huami Amazfit Bip U Pro</h3>
+                        <div class="price">R$ 519,00</div>
                         <div class="description">
-                            Melhore sua presença nas redes sociais com análise de perfil e estratégias personalizadas.
+                            🕒 <strong>Smartwatch Huami Amazfit Bip U Pro</strong> com tela de 1.43" <br>
+                            📍 GPS integrado e monitor cardíaco para acompanhar sua saúde <br>
+                            💧 Resistência IP68: resistente à água e poeira <br>
+                            ⭐ Avaliado em <strong>4.8</strong> de 5 por 2,474 opiniões <br>
+                            🚀 Garanta o seu por apenas <strong>R$ 519,00</strong> <br>
+                            💬 Melhore sua vida com tecnologia de ponta e design sofisticado!
                         </div>
                         <a href="contact.html" class="btn">Entre em contato</a>
                     </div>
@@ -258,11 +259,17 @@
                 <div class="additional-info">
                     <div class="section">
                         <h4>Detalhes do Produto</h4>
-                        <p>Informações sobre o produto, incluindo características técnicas e benefícios.</p>
+                        <p><strong>Modelo:</strong> Huami Amazfit Bip U Pro<br>
+                           <strong>Tela:</strong> 1.43"<br>
+                           <strong>GPS:</strong> Integrado<br>
+                           <strong>Monitor Cardíaco:</strong> Sim<br>
+                           <strong>Resistência:</strong> IP68<br>
+                           <strong>Cor:</strong> Preto<br>
+                           <strong>Modelo:</strong> A2008</p>
                     </div>
                     <div class="section">
                         <h4>Avaliações e Comentários</h4>
-                        <p>Média de avaliações: ★★★★☆ (10 comentários)</p>
+                        <p>Média de avaliações: ⭐⭐⭐⭐⭐ (4.8/5) - 2,474 opiniões</p>
                     </div>
                     <div class="section">
                         <h4>Frete e Disponibilidade</h4>
@@ -295,17 +302,16 @@
                 <div class="item" onclick="changeMedia('images/relogio5.jpg')">
                     <img src="images/relogio5.jpg" alt="Relógio 4">
                 </div>
-                <div class="item">
-                    <div style="padding:177.78% 0 0 0;position:relative;">
-                        <iframe src="https://player.vimeo.com/video/1006429895?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="relogio2"></iframe>
-                    </div>
+                <div class="item" onclick="changeMedia('images/relogio2.mp4')">
+                    <video src="images/relogio2.mp4" muted></video>
                 </div>
             </aside>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
-        <p><a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a></p>
+        <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
 </body>
 </html>
+
