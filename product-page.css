@@ -13,8 +13,16 @@
         margin-top: 90px; /* Ajuste o espaço superior para evitar sobreposição com o cabeçalho */
     }
 
-    .product-info .contact-btn {
-        margin-bottom: 40px; /* Ajuste a distância entre os botões para dispositivos móveis */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os botões */
+    }
+
+    .product-info .btn {
+        margin-bottom: 20px; /* Adiciona distância entre os botões */
+        width: 100%; /* Garante que os botões ocupem toda a largura disponível */
+        max-width: 300px; /* Define uma largura máxima para os botões */
     }
 }
 
@@ -25,7 +33,13 @@
         margin-top: 100px; /* Ajuste o espaço superior para evitar sobreposição com o cabeçalho */
     }
 
-    .product-info .contact-btn {
-        margin-bottom: 40px; /* Ajuste a distância entre os botões para dispositivos menores */
+    .product-info {
+        padding: 0 10px; /* Adiciona algum preenchimento lateral */
+    }
+
+    .product-info .btn {
+        margin-bottom: 15px; /* Ajusta a distância entre os botões para dispositivos menores */
+        width: 100%; /* Garante que os botões ocupem toda a largura disponível */
+        max-width: 280px; /* Ajusta a largura máxima para dispositivos menores */
     }
 }
