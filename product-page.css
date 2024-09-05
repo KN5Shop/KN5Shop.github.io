@@ -1,10 +1,3 @@
-/* Reset básico para garantir consistência entre navegadores */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -76,7 +69,6 @@ nav a:hover::after {
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    flex-direction: row;
 }
 
 .product-container {
@@ -100,8 +92,8 @@ nav a:hover::after {
 .product-header .video-wrapper {
     position: relative;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    margin-bottom: 20px;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .product-header .video-wrapper iframe {
@@ -111,6 +103,15 @@ nav a:hover::after {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+.product-header iframe,
+.product-header video,
+.product-header img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #000;
 }
 
 .product-info {

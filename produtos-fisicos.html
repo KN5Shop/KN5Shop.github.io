@@ -99,6 +99,22 @@
             margin-bottom: 20px;
         }
 
+        .product-header .video-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .product-header .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .product-header iframe,
         .product-header video,
         .product-header img {
@@ -233,15 +249,13 @@
             <div class="product-container">
                 <div class="product-header">
                     <!-- Vídeo principal -->
-                    <div style="padding:177.78% 0 0 0;position:relative;">
+                    <div class="video-wrapper">
                         <iframe src="https://player.vimeo.com/video/1006429895?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                                 frameborder="0" 
                                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
                                 title="Smartwatch Huami Amazfit Bip U Pro">
                         </iframe>
                     </div>
-                    <script src="https://player.vimeo.com/api/player.js"></script>
                     <div class="product-info">
                         <h3>Smartwatch Huami Amazfit Bip U Pro</h3>
                         <div class="price">R$ 519,00</div>
@@ -314,4 +328,3 @@
     </footer>
 </body>
 </html>
-
