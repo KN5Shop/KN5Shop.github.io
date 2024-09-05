@@ -1,13 +1,11 @@
-@ -3,16 +3,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smartwatch Huami Amazfit Bip U Pro - KN5 Shop</title>
     <meta name="description" content="Compre o Smartwatch Huami Amazfit Bip U Pro com tela de 1.43\", GPS, monitor cardíaco, e resistência IP68. Avaliação 4.8 de 5. Aproveite o preço especial de R$700!">
     <meta name="keywords" content="Smartwatch, Huami, Amazfit, Bip U Pro, GPS, Monitor Cardíaco, IP68, R$700, Avaliação, KN5 Shop">
-    <title>Checkout - KN5 Shop</title>
-    <meta name="description" content="Página de checkout da KN5 Shop. Finalize sua compra de forma rápida e segura.">
-    <meta name="keywords" content="Checkout, KN5 Shop, Compra, Finalizar Compra">
     <link rel="stylesheet" href="product-page.css">
     <style>
         body {
@@ -15,20 +13,67 @@
             margin: 0;
             background-color: #000;
             color: #fff;
-            background-color: #f4f4f4;
-            color: #333;
         }
 
         header {
-@ -71,81 +71,78 @@
+            background-color: #222;
+            padding: 15px 0;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
             width: 100%;
         }
 
         .product-page {
-        .checkout-page {
             padding: 20px;
             background-color: #000;
-            background-color: #f4f4f4;
             margin-top: 80px;
             max-width: 1200px;
             margin-left: auto;
@@ -39,8 +84,6 @@
         .product-container {
             flex: 1;
             background-color: #333;
-        .checkout-container {
-            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
@@ -48,24 +91,17 @@
         }
 
         .product-header {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-        }
-
-        .checkout-header {
             border-bottom: 2px solid #d4af37;
             padding-bottom: 20px;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .product-header .video-wrapper {
             position: relative;
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        .checkout-info {
             width: 100%;
             margin-bottom: 20px;
         }
@@ -77,10 +113,6 @@
             width: 100%;
             height: 100%;
             border: 0;
-        .checkout-info h3 {
-            color: #333;
-            font-size: 1.5em;
-            margin: 0;
         }
 
         .product-header iframe,
@@ -90,17 +122,11 @@
             height: auto;
             border-radius: 10px;
             background-color: #000;
-        .checkout-info .section {
-            margin-bottom: 20px;
         }
 
         .product-info {
             margin-top: 20px;
             text-align: center;
-        .checkout-info .section label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
         }
 
         .product-info h3 {
@@ -108,54 +134,32 @@
             font-size: 1.5em;
             margin: 0;
             margin-bottom: 10px;
-        .checkout-info .section input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-            color: #333;
         }
 
         .product-info .price {
             color: #d4af37;
             font-size: 1.2em;
             margin-bottom: 10px;
-        .form-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
         }
 
         .product-info .description {
             color: #fff;
             font-size: 1em;
             margin-bottom: 20px;
-        .form-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .form-column-left,
-        .form-column-right {
-            flex: 1;
-            min-width: 300px;
         }
 
         .btn {
-@ -156,6 +153,9 @@
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d4af37;
+            color: #000;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-            display: block;
-            width: 100%;
         }
 
         .btn:hover {
-@ -163,27 +163,8 @@
+            background-color: #b59427;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
@@ -180,11 +184,16 @@
 
         footer {
             background-color: #333;
-            background-color: #222;
             padding: 10px 0;
             color: #fff;
             text-align: center;
-@ -197,36 +178,6 @@
+        }
+
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
         footer a:hover {
             text-decoration: underline;
         }
@@ -221,7 +230,18 @@
     </style>
 </head>
 <body>
-@ -245,117 +196,47 @@
+    <header>
+        <div class="container">
+            <h1>KN5 SHOP</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">Sobre Nós</a>
+                <a href="products.html">Produtos</a>
+                <a href="produtos-fisicos.html">Produtos Físicos</a>
+                <a href="https://kn5shop.github.io/KN5SeguidoresPainel/" target="_blank">Painel</a>
+                <a href="contact.html">Contato</a>
+                <a href="support.html">Suporte</a>
+            </nav>
         </div>
     </header>
     <main>
@@ -250,10 +270,6 @@
                           <a href="contact.html" class="btn">Entre em contato</a>
                         <a href="checkout.html" class="btn">Comprar Agora</a>
                     </div>
-        <section class="checkout-page">
-            <div class="checkout-container">
-                <div class="checkout-header">
-                    <h3>Finalizar Compra</h3>
                 </div>
                 <div class="additional-info">
     <div class="section">
@@ -321,40 +337,6 @@
                         <h4>Produtos Relacionados</h4>
                         <p>Veja também nossos produtos semelhantes e complementares.</p>
                     </div>
-                <div class="checkout-info">
-                    <form id="checkoutForm" action="/submit-form" method="POST">
-                        <div class="form-row">
-                            <div class="form-column-left">
-                                <div class="section">
-                                    <label for="name">Nome Completo:</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="section">
-                                    <label for="address">Endereço:</label>
-                                    <input type="text" id="address" name="address" required>
-                                </div>
-                                <div class="section">
-                                    <label for="city">Cidade:</label>
-                                    <input type="text" id="city" name="city" required>
-                                </div>
-                                <div class="section">
-                                    <label for="phone">Telefone:</label>
-                                    <input type="text" id="phone" name="phone" required>
-                                </div>
-                            </div>
-                            <div class="form-column-right">
-                                <div class="section">
-                                    <label for="state">Estado:</label>
-                                    <input type="text" id="state" name="state" required>
-                                </div>
-                                <div class="section">
-                                    <label for="zip">CEP:</label>
-                                    <input type="text" id="zip" name="zip" required>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn">Finalizar Compra</button>
-                    </form>
                 </div>
             </div>
             <aside class="interactive-column">
@@ -377,9 +359,8 @@
         </section>
     </main>
     <footer>
-@ -363,4 +244,4 @@
+        <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
         <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
 </body>
-</html>
 </html>
