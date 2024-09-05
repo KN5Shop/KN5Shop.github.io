@@ -167,7 +167,25 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .notification {
+            background-color: #d4af37;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
     </style>
+    <script>
+        // Redireciona automaticamente após um pequeno atraso
+        window.onload = function() {
+            // Exibe a mensagem de notificação por 5 segundos antes de redirecionar
+            setTimeout(function() {
+                window.location.href = "https://mpago.la/2C7k5LD";
+            }, 5000); // 5000 milissegundos = 5 segundos
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -191,29 +209,10 @@
                     <h3>Finalizar Compra</h3>
                 </div>
                 <div class="checkout-info">
-                    <div class="section">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="notification">
+                        Você será redirecionado para a página de pagamento em breve. Caso o redirecionamento não ocorra automaticamente, <a href="https://mpago.la/2C7k5LD" class="btn">clique aqui</a>.
                     </div>
-                    <div class="section">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="section">
-                        <label for="address">Endereço de Entrega</label>
-                        <textarea id="address" name="address" required></textarea>
-                    </div>
-                    <div class="section">
-                        <label for="payment-method">Método de Pagamento</label>
-                        <select id="payment-method" name="payment-method" required>
-                            <option value="credit-card">Cartão de Crédito</option>
-                            <option value="debit-card">Cartão de Débito</option>
-                            <option value="paypal">PayPal</option>
-                        </select>
-                    </div>
-                    <div class="section">
-                        <a href="confirmation.html" class="btn">Confirmar Compra</a>
-                    </div>
+                    <!-- O formulário de checkout pode ser removido ou mantido conforme necessário -->
                 </div>
             </div>
         </section>
