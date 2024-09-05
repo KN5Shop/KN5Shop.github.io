@@ -102,6 +102,7 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
+            background-color: #000; /* Adiciona um fundo preto para vídeos */
         }
 
         .product-info {
@@ -203,12 +204,13 @@
             display: block;
         }
 
-        .interactive-column .item img {
+        .interactive-column .item video {
             display: block;
         }
 
-        .interactive-column .item video {
-            display: block;
+        video {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -286,7 +288,7 @@
                     <img src="images/relogio5.jpg" alt="Relógio 4">
                 </div>
                 <div class="item" onclick="changeMedia('images/relogio2.mp4')">
-                    <video src="images/relogio2.mp4" muted></video>
+                    <video src="images/relogio2.mp4"></video>
                 </div>
             </aside>
         </section>
