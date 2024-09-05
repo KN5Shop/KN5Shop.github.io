@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smartwatch Huami Amazfit Bip U Pro - KN5 Shop</title>
-    <meta name="description" content="Compre o Smartwatch Huami Amazfit Bip U Pro com tela de 1.43\", GPS, monitor cardíaco, e resistência IP68. Avaliação 4.8 de 5. Aproveite o preço especial de R$700!">
-    <meta name="keywords" content="Smartwatch, Huami, Amazfit, Bip U Pro, GPS, Monitor Cardíaco, IP68, R$700, Avaliação, KN5 Shop">
+    <title>Checkout - KN5 Shop</title>
+    <meta name="description" content="Página de checkout da KN5 Shop. Finalize sua compra de forma rápida e segura.">
+    <meta name="keywords" content="Checkout, KN5 Shop, Compra, Finalizar Compra">
     <link rel="stylesheet" href="product-page.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #000;
-            color: #fff;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
         header {
@@ -71,81 +71,78 @@
             width: 100%;
         }
 
-        .product-page {
+        .checkout-page {
             padding: 20px;
-            background-color: #000;
+            background-color: #f4f4f4;
             margin-top: 80px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
-            display: flex;
         }
 
-        .product-container {
-            flex: 1;
-            background-color: #333;
+        .checkout-container {
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            margin-bottom: 30px;
-        }
-
-        .product-header {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 20px;
+        }
+
+        .checkout-header {
             border-bottom: 2px solid #d4af37;
             padding-bottom: 20px;
             margin-bottom: 20px;
-        }
-
-        .product-header .video-wrapper {
-            position: relative;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .product-header .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .product-header iframe,
-        .product-header video,
-        .product-header img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            background-color: #000;
-        }
-
-        .product-info {
-            margin-top: 20px;
             text-align: center;
         }
 
-        .product-info h3 {
-            color: #fff;
+        .checkout-info {
+            width: 100%;
+        }
+
+        .checkout-info h3 {
+            color: #333;
             font-size: 1.5em;
             margin: 0;
-            margin-bottom: 10px;
         }
 
-        .product-info .price {
-            color: #d4af37;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        .product-info .description {
-            color: #fff;
-            font-size: 1em;
+        .checkout-info .section {
             margin-bottom: 20px;
+        }
+
+        .checkout-info .section label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .checkout-info .section input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .form-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-column-left,
+        .form-column-right {
+            flex: 1;
+            min-width: 300px;
         }
 
         .btn {
@@ -156,6 +153,9 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: block;
+            width: 100%;
         }
 
         .btn:hover {
@@ -163,27 +163,8 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
-        .additional-info {
-            margin-top: 30px;
-        }
-
-        .additional-info h4 {
-            color: #d4af37;
-            margin-bottom: 10px;
-        }
-
-        .additional-info div {
-            margin-bottom: 20px;
-        }
-
-        .additional-info .section {
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
         footer {
-            background-color: #333;
+            background-color: #222;
             padding: 10px 0;
             color: #fff;
             text-align: center;
@@ -196,36 +177,6 @@
 
         footer a:hover {
             text-decoration: underline;
-        }
-
-        .interactive-column {
-            flex: 0.4;
-            margin-left: 20px;
-            background-color: #444;
-            border-radius: 10px;
-            padding: 20px;
-            height: fit-content;
-        }
-
-        .interactive-column .item {
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .interactive-column .item img,
-        .interactive-column .item video {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-        }
-
-        video {
-            max-width: 100%;
-            height: auto;
         }
     </style>
 </head>
@@ -245,117 +196,47 @@
         </div>
     </header>
     <main>
-        <section class="product-page">
-            <div class="product-container">
-                <div class="product-header">
-                    <!-- Vídeo principal -->
-                    <div class="video-wrapper">
-                        <iframe src="https://player.vimeo.com/video/1006429895?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                                frameborder="0" 
-                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                title="Smartwatch Huami Amazfit Bip U Pro">
-                        </iframe>
-                    </div>
-                    <div class="product-info">
-                        <h3>Smartwatch Huami Amazfit Bip U Pro</h3>
-                        <div class="price">R$ 700,00</div>
-                        <div class="description">
-                            🕒 <strong>Smartwatch Huami Amazfit Bip U Pro</strong> com tela de 1.43" <br>
-                            📍 GPS integrado e monitor cardíaco para acompanhar sua saúde <br>
-                            💧 Resistência IP68: resistente à água e poeira <br>
-                            ⭐ Avaliado em <strong>4.8</strong> de 5 por 2,474 opiniões <br>
-                            🚀 Garanta o seu por apenas <strong>R$ 700,00</strong> <br>
-                            💬 Melhore sua vida com tecnologia de ponta e design sofisticado!
-                        </div>
-                          <a href="contact.html" class="btn">Entre em contato</a>
-                        <a href="checkout.html" class="btn">Comprar Agora</a>
-                    </div>
+        <section class="checkout-page">
+            <div class="checkout-container">
+                <div class="checkout-header">
+                    <h3>Finalizar Compra</h3>
                 </div>
-                <div class="additional-info">
-    <div class="section">
-        <h4>Detalhes do Produto</h4>
-        <p><strong>Modelo:</strong> Huami Amazfit Bip U Pro<br>
-           <strong>Tela:</strong> 1.43"<br>
-           <strong>GPS:</strong> Integrado<br>
-           <strong>Monitor Cardíaco:</strong> Sim<br>
-           <strong>Resistência:</strong> IP68<br>
-           <strong>Cor:</strong> Preto<br>
-           <strong>Modelo:</strong> A2008</p>
-        <p><strong>✨ Funções:</strong><br>
-           ⏰ Alarme<br>
-           📳 Alerta de vibração<br>
-           🏃 Aplicação esportiva<br>
-           🗣️ Assistente virtual<br>
-           🧭 Bússola<br>
-           📅 Calendário<br>
-           📸 Captura remota de fotos<br>
-           🌤️ Clima<br>
-           🔢 Ingestão de calorias<br>
-           🌸 Controle do ciclo menstrual<br>
-           🎵 Controle de música<br>
-           ⏱️ Cronômetro<br>
-           👣 Contador de passos<br>
-           📏 Distância percorrida<br>
-           📞 Encontrar meu telefone<br>
-           ❤️ Medidor de frequência cardíaca<br>
-           💧 Medidor de oxigênio<br>
-           💤 Monitor de sono<br>
-           📲 Notificações<br>
-           💬 Receber mensagens<br>
-           🚶 Lembrete anti-sedentário<br>
-           📋 Lembretes<br>
-           📱 Redes sociais<br>
-           🧘 Relaxamento<br>
-           ⏲️ Temporizador<br>
-           ⚡ Velocidade<br>
-           📞 Visualização de chamadas<br>
-        </p>
-        <p><strong>🔍 Sensores:</strong><br>
-           📈 Acelerômetro<br>
-           🌀 Giroscópio<br>
-           🧲 Sensor geomagnético<br>
-           ❤️ Sensor ótico de frequência cardíaca PPG<br>
-        </p>
-                    </div>
-                    <div class="section">
-                        <h4>Avaliações e Comentários</h4>
-                        <p>Média de avaliações: ⭐⭐⭐⭐⭐ (4.8/5) - 2,474 opiniões</p>
-                    </div>
-                    <div class="section">
-                        <h4>Frete e Disponibilidade</h4>
-                        <p>Frete grátis para todo o Brasil. Disponível em estoque.</p>
-                    </div>
-                    <div class="section">
-                        <h4>Informações do Vendedor</h4>
-                        <p>Vendedor: KN5 Shop | Localização: São Paulo, SP</p>
-                    </div>
-                    <div class="section">
-                        <h4>Perguntas e Respostas</h4>
-                        <p>Veja perguntas frequentes e respostas de outros compradores.</p>
-                    </div>
-                    <div class="section">
-                        <h4>Produtos Relacionados</h4>
-                        <p>Veja também nossos produtos semelhantes e complementares.</p>
-                    </div>
+                <div class="checkout-info">
+                    <form id="checkoutForm" action="/submit-form" method="POST">
+                        <div class="form-row">
+                            <div class="form-column-left">
+                                <div class="section">
+                                    <label for="name">Nome Completo:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="section">
+                                    <label for="address">Endereço:</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                <div class="section">
+                                    <label for="city">Cidade:</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="section">
+                                    <label for="phone">Telefone:</label>
+                                    <input type="text" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-column-right">
+                                <div class="section">
+                                    <label for="state">Estado:</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="section">
+                                    <label for="zip">CEP:</label>
+                                    <input type="text" id="zip" name="zip" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Finalizar Compra</button>
+                    </form>
                 </div>
             </div>
-            <aside class="interactive-column">
-                <div class="item" onclick="changeMedia('images/relogio.jpg')">
-                    <img src="images/relogio.jpg" alt="Relógio 1">
-                </div>
-                <div class="item" onclick="changeMedia('images/relogio3.jpg')">
-                    <img src="images/relogio3.jpg" alt="Relógio 2">
-                </div>
-                <div class="item" onclick="changeMedia('images/relogio4.jpg')">
-                    <img src="images/relogio4.jpg" alt="Relógio 3">
-                </div>
-                <div class="item" onclick="changeMedia('images/relogio5.jpg')">
-                    <img src="images/relogio5.jpg" alt="Relógio 4">
-                </div>
-                <div class="item" onclick="changeMedia('images/relogio2.mp4')">
-                    <video src="images/relogio2.mp4" muted></video>
-                </div>
-            </aside>
         </section>
     </main>
     <footer>
