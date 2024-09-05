@@ -89,11 +89,11 @@ nav a:hover::after {
     margin-bottom: 20px;
 }
 
-.product-header video,
-.product-header img {
+.product-header video {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    background-color: #000; /* Adiciona um fundo preto para vídeos */
 }
 
 .product-info {
@@ -192,10 +192,6 @@ footer a:hover {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    display: block;
-}
-
-.interactive-column .item video {
     display: block;
 }
 
