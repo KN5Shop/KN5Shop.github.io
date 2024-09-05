@@ -11,8 +11,8 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #000;
-            color: #fff;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
         header {
@@ -73,7 +73,7 @@
 
         .checkout-page {
             padding: 20px;
-            background-color: #000;
+            background-color: #f4f4f4;
             margin-top: 80px;
             max-width: 1200px;
             margin-left: auto;
@@ -81,12 +81,12 @@
         }
 
         .checkout-container {
-            background-color: #333;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
         }
 
@@ -98,12 +98,11 @@
         }
 
         .checkout-info {
-            margin-top: 20px;
             width: 100%;
         }
 
         .checkout-info h3 {
-            color: #fff;
+            color: #333;
             font-size: 1.5em;
             margin: 0;
         }
@@ -115,19 +114,33 @@
         .checkout-info .section label {
             display: block;
             margin-bottom: 5px;
-            color: #d4af37;
+            color: #333;
         }
 
         .checkout-info .section input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #444;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: #555;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
         }
 
         .form-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-column-left,
+        .form-column-right {
             flex: 1;
             min-width: 300px;
         }
@@ -151,7 +164,7 @@
         }
 
         footer {
-            background-color: #333;
+            background-color: #222;
             padding: 10px 0;
             color: #fff;
             text-align: center;
@@ -199,32 +212,34 @@
                 </div>
                 <div class="checkout-info">
                     <form id="checkoutForm">
-                        <div class="form-column">
-                            <div class="section">
-                                <label for="name">Nome Completo:</label>
-                                <input type="text" id="name" name="name" required>
+                        <div class="form-row">
+                            <div class="form-column-left">
+                                <div class="section">
+                                    <label for="name">Nome Completo:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="section">
+                                    <label for="address">Endereço:</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                <div class="section">
+                                    <label for="city">Cidade:</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="section">
+                                    <label for="phone">Telefone:</label>
+                                    <input type="text" id="phone" name="phone" required>
+                                </div>
                             </div>
-                            <div class="section">
-                                <label for="address">Endereço:</label>
-                                <input type="text" id="address" name="address" required>
-                            </div>
-                            <div class="section">
-                                <label for="city">Cidade:</label>
-                                <input type="text" id="city" name="city" required>
-                            </div>
-                        </div>
-                        <div class="form-column">
-                            <div class="section">
-                                <label for="state">Estado:</label>
-                                <input type="text" id="state" name="state" required>
-                            </div>
-                            <div class="section">
-                                <label for="zip">CEP:</label>
-                                <input type="text" id="zip" name="zip" required>
-                            </div>
-                            <div class="section">
-                                <label for="phone">Telefone:</label>
-                                <input type="text" id="phone" name="phone" required>
+                            <div class="form-column-right">
+                                <div class="section">
+                                    <label for="state">Estado:</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="section">
+                                    <label for="zip">CEP:</label>
+                                    <input type="text" id="zip" name="zip" required>
+                                </div>
                             </div>
                         </div>
                         <div class="section">
