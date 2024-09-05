@@ -110,33 +110,34 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
+            display: none;
+        }
+
+        .interactive-column .item.active img,
+        .interactive-column .item.active video {
+            display: block;
         }
 
         .product-header {
             display: flex;
+            flex-direction: column;
             align-items: center;
             border-bottom: 2px solid #d4af37;
             padding-bottom: 20px;
             margin-bottom: 20px;
         }
 
-        .product-header video {
-            width: 100%;
-            border-radius: 10px;
-            display: none;
-        }
-
+        .product-header video,
         .product-header img {
             width: 100%;
             height: auto;
-            object-fit: cover;
             border-radius: 10px;
             display: block;
         }
 
         .product-header .product-info {
-            margin-left: 20px;
-            flex: 1;
+            margin-top: 20px;
+            text-align: center;
         }
 
         .product-header h3 {
@@ -228,8 +229,8 @@
         <section class="product-page">
             <div class="product-container">
                 <div class="product-header">
-                    <video src="images/relogio2.mp4" alt="Serviços Extras para Redes Sociais" controls autoplay id="mainMedia"></video>
-                    <img src="images/relogio.jpg" alt="Relógio Principal" id="mainImage" style="display: none;">
+                    <!-- Vídeo principal -->
+                    <video id="main-video" src="images/relogio2.mp4" controls autoplay></video>
                     <div class="product-info">
                         <h3>Serviços Extras</h3>
                         <div class="price">R$ 299,00</div>
@@ -267,37 +268,42 @@
                 </div>
             </div>
             <aside class="interactive-column">
-                <div class="item" onclick="changeMedia('images/relogio.jpg')">
+                <div class="item" onclick="changeMedia('relogio.jpg')">
                     <img src="images/relogio.jpg" alt="Relógio 1">
                 </div>
-                <div class="item" onclick="changeMedia('images/relogio3.jpg')">
+                <div class="item" onclick="changeMedia('relogio3.jpg')">
                     <img src="images/relogio3.jpg" alt="Relógio 2">
                 </div>
-                <div class="item" onclick="changeMedia('images/relogio4.jpg')">
+                <div class="item" onclick="changeMedia('relogio4.jpg')">
                     <img src="images/relogio4.jpg" alt="Relógio 3">
                 </div>
-                <div class="item" onclick="changeMedia('images/relogio5.jpg')">
+                <div class="item" onclick="changeMedia('relogio5.jpg')">
                     <img src="images/relogio5.jpg" alt="Relógio 4">
+                </div>
+                <div class="item" onclick="changeMedia('relogio2.mp4')">
+                    <video src="images/relogio2.mp4"></video>
                 </div>
             </aside>
         </section>
     </main>
     <footer>
-        <p>© 2024 KN5 Shop | Todos os direitos reservados.</p>
+        <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
+        <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
     <script>
-        function changeMedia(source) {
-            const mainMedia = document.getElementById('mainMedia');
-            const mainImage = document.getElementById('mainImage');
+        function changeMedia(src) {
+            var mainVideo = document.getElementById('main-video');
+            var mainImage = document.getElementById('main-image');
 
-            if (source.endsWith('.mp4')) {
-                mainMedia.src = source;
-                mainMedia.style.display = 'block';
+            if (src.endsWith('.mp4')) {
                 mainImage.style.display = 'none';
+                mainVideo.style.display = 'block';
+                mainVideo.src = src;
+                mainVideo.play();
             } else {
-                mainImage.src = source;
+                mainVideo.style.display = 'none';
                 mainImage.style.display = 'block';
-                mainMedia.style.display = 'none';
+                mainImage.src = src;
             }
         }
     </script>
