@@ -155,7 +155,10 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             display: block;
+<<<<<<< HEAD
             width: 100%;
+=======
+>>>>>>> parent of a1ff92f (Update checkout.html)
         }
 
         .btn:hover {
@@ -188,6 +191,15 @@
             border-radius: 5px;
         }
     </style>
+    <script>
+        // Redireciona automaticamente após um pequeno atraso
+        window.onload = function() {
+            // Exibe a mensagem de notificação por 5 segundos antes de redirecionar
+            setTimeout(function() {
+                window.location.href = "https://mpago.la/2C7k5LD";
+            }, 5000); // 5000 milissegundos = 5 segundos
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -211,6 +223,7 @@
                     <h3>Finalizar Compra</h3>
                 </div>
                 <div class="checkout-info">
+<<<<<<< HEAD
                     <form id="checkoutForm">
                         <div class="form-row">
                             <div class="form-column-left">
@@ -246,6 +259,12 @@
                             <button type="button" onclick="handleFormSubmit()" class="btn">Finalizar Compra</button>
                         </div>
                     </form>
+=======
+                    <div class="notification">
+                        Você será redirecionado para a página de pagamento em breve. Caso o redirecionamento não ocorra automaticamente, <a href="https://mpago.la/2C7k5LD" class="btn">clique aqui</a>.
+                    </div>
+                    <!-- O formulário de checkout pode ser removido ou mantido conforme necessário -->
+>>>>>>> parent of a1ff92f (Update checkout.html)
                 </div>
             </div>
         </section>
@@ -254,6 +273,7 @@
         <p>&copy; 2024 KN5 Shop. Todos os direitos reservados.</p>
         <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
+<<<<<<< HEAD
     <script>
         function handleFormSubmit() {
             const name = encodeURIComponent(document.getElementById('name').value);
@@ -276,5 +296,7 @@
             }, 2000); // Aguarda 2 segundos
         }
     </script>
+=======
+>>>>>>> parent of a1ff92f (Update checkout.html)
 </body>
 </html>
