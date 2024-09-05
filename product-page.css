@@ -193,10 +193,12 @@ footer a:hover {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    display: none;
 }
 
-.interactive-column .item.active img,
-.interactive-column .item.active video {
+.interactive-column .item img {
+    display: block;
+}
+
+.interactive-column .item video {
     display: block;
 }

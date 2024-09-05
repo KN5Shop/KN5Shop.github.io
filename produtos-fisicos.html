@@ -88,36 +88,6 @@
             margin-bottom: 30px;
         }
 
-        .interactive-column {
-            flex: 0.4;
-            margin-left: 20px;
-            background-color: #444;
-            border-radius: 10px;
-            padding: 20px;
-            height: fit-content;
-        }
-
-        .interactive-column .item {
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .interactive-column .item img,
-        .interactive-column .item video {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: none;
-        }
-
-        .interactive-column .item.active img,
-        .interactive-column .item.active video {
-            display: block;
-        }
-
         .product-header {
             display: flex;
             flex-direction: column;
@@ -132,28 +102,27 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            display: block;
         }
 
-        .product-header .product-info {
+        .product-info {
             margin-top: 20px;
             text-align: center;
         }
 
-        .product-header h3 {
+        .product-info h3 {
             color: #fff;
             font-size: 1.5em;
             margin: 0;
             margin-bottom: 10px;
         }
 
-        .product-header .price {
+        .product-info .price {
             color: #d4af37;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
 
-        .product-header .description {
+        .product-info .description {
             color: #fff;
             font-size: 1em;
             margin-bottom: 20px;
@@ -208,6 +177,39 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .interactive-column {
+            flex: 0.4;
+            margin-left: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .interactive-column .item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .interactive-column .item img,
+        .interactive-column .item video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .interactive-column .item img {
+            display: block;
+        }
+
+        .interactive-column .item video {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -230,7 +232,10 @@
             <div class="product-container">
                 <div class="product-header">
                     <!-- Vídeo principal -->
-                    <video id="main-video" src="images/relogio2.mp4" controls autoplay></video>
+                    <video id="main-video" controls autoplay>
+                        <source src="images/relogio2.mp4" type="video/mp4">
+                        Seu navegador não suporta o formato de vídeo MP4.
+                    </video>
                     <div class="product-info">
                         <h3>Serviços Extras</h3>
                         <div class="price">R$ 299,00</div>
