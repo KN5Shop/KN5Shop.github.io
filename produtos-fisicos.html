@@ -76,9 +76,10 @@
             background-color: #000;
             margin-top: 80px;
             max-width: 1200px;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .product-container {
@@ -87,6 +88,8 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            position: relative;
         }
 
         .product-header {
@@ -99,7 +102,8 @@
         }
 
         .product-header .image-wrapper {
-            width: 60%;
+            width: 80%;
+            max-width: 600px;
             margin-bottom: 20px;
         }
 
@@ -111,38 +115,43 @@
         }
 
         .product-info {
+            margin-top: 20px;
             text-align: center;
         }
 
         .product-info h3 {
             color: #fff;
-            font-size: 1.5em;
+            font-size: 2em;
+            font-weight: bold;
             margin: 0;
             margin-bottom: 10px;
         }
 
         .product-info .price {
             color: #d4af37;
-            font-size: 1.2em;
+            font-size: 1.5em;
             margin-bottom: 10px;
+            font-weight: bold;
         }
 
         .product-info .description {
             color: #fff;
-            font-size: 1em;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
             margin-bottom: 20px;
-            text-align: justify;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: #d4af37;
             color: #000;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            margin: 10px;
+            margin: 5px;
         }
 
         .btn:hover {
@@ -157,6 +166,8 @@
         .additional-info h4 {
             color: #d4af37;
             margin-bottom: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
         }
 
         .additional-info div {
@@ -167,6 +178,7 @@
             background-color: #444;
             padding: 15px;
             border-radius: 5px;
+            text-align: center;
         }
 
         footer {
@@ -174,26 +186,32 @@
             padding: 10px 0;
             color: #fff;
             text-align: center;
-            border-top: 2px solid #d4af37;
         }
 
-        footer p {
-            margin: 0;
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         .interactive-column {
             flex: 1;
+            margin-left: 20px;
             background-color: #444;
             border-radius: 10px;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            height: fit-content;
         }
 
         .interactive-column .item {
+            margin-bottom: 20px;
             border-radius: 10px;
             overflow: hidden;
+            position: relative;
+            cursor: pointer;
         }
 
         .interactive-column .item img {
@@ -228,18 +246,17 @@
                         <img src="images/tosa.jpg" alt="Kit Máquina Para Tosar Pet">
                     </div>
                     <div class="product-info">
-                        <h3>Kit Máquina Para Tosar Pet + Tesoura + Pente + Lixa</h3>
+                        <h3>Transforme o Cuidado do Seu Pet com o Kit Completo de Tosa!</h3>
                         <div class="price">R$ 70,00</div>
                         <div class="description">
-                            <strong>Kit Máquina Para Tosar Pet + Tesoura + Pente + Lixa Máquina Profissional Para Cachorro & Gato</strong> é a solução completa para manter seu pet sempre bonito e bem cuidado.<br>
-                            <strong>Características:</strong><br>
-                            - Máquina de tosa com material resistente e extremamente silencioso<br>
-                            - Lâminas de inox e cabo anatômico para fácil manuseio<br>
-                            - Motor potente e design ergonômico<br>
-                            - Simples de usar e limpar, ideal para cães e gatos de pequeno e médio porte<br>
-                            - Voltagem: 110v-220v (bivolt)<br>
-                            - Parâmetros técnicos: Entrada: 110-240v - 50-60Hz; Saída: DC 5v - 1200mAh; Tensão nominal: 3.7v; Tensão de trabalho: 3.0v; Tempo de carregamento: 2-4 horas<br>
-                            Com este kit completo, você garante o melhor cuidado para o seu pet com um preço especial de <strong>R$ 70,00</strong>!
+                            Conheça o nosso <strong>Kit Máquina Para Tosar Pet</strong>, que inclui uma máquina de tosa, tesoura, pente e lixa – tudo o que você precisa para deixar seu pet com o visual impecável! Ideal para cães e gatos, este kit foi desenvolvido com materiais de alta qualidade para proporcionar conforto e eficácia durante o uso. 
+                            <br><br>
+                            <strong>Benefícios:</strong><br>
+                            - Máquina silenciosa para evitar estresse no seu pet.<br>
+                            - Design ergonômico e lâminas de inox para um corte preciso.<br>
+                            - Ideal para tosas de cães e gatos de pequeno e médio porte.<br>
+                            - Fácil de usar e limpar, perfeito para uso doméstico.<br>
+                            - Voltagem bivolt para maior comodidade.<br>
                         </div>
                         <a href="contact.html" class="btn">Entre em contato</a>
                         <a href="checkout.html" class="btn">Comprar Agora</a>
@@ -258,24 +275,18 @@
                             <li>1 x Pente</li>
                             <li>1 x Lixa de unha</li>
                             <li>1 x Cortador de unhas</li>
+                            <li>Cor: Rosa</li>
                         </ul>
-                        <p><strong>Cor:</strong> Rosa</p>
-                    </div>
-                    <div class="section">
-                        <h4>Detalhes do Produto</h4>
-                        <p><strong>Cores disponíveis:</strong> Rosa<br>
-                           <strong>Modelos:</strong> Universal para todos os tipos de pelagem<br>
-                           <strong>Tamanhos:</strong> Ajustável<br>
-                           <strong>Entrega:</strong> Envio rápido e seguro para todo o Brasil.</p>
                     </div>
                 </div>
             </div>
+
             <div class="interactive-column">
                 <div class="item">
-                    <img src="images/tosa1.jpg" alt="Imagem adicional 1">
+                    <img src="images/tosa1.jpg" alt="Imagem 1">
                 </div>
                 <div class="item">
-                    <img src="images/tosa2.jpg" alt="Imagem adicional 2">
+                    <img src="images/tosa2.jpg" alt="Imagem 2">
                 </div>
             </div>
         </section>
