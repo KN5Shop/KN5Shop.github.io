@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="product-page.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #000;
+            color: #fff;
         }
 
         header {
-            background-color: #333;
+            background-color: #222;
             padding: 15px 0;
             color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -46,7 +46,7 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             position: relative;
             padding: 5px 0;
             transition: color 0.3s, border-bottom 0.3s;
@@ -73,24 +73,22 @@
 
         .product-page {
             padding: 20px;
-            background-color: #fff;
+            background-color: #000;
             margin-top: 80px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
             display: flex;
             justify-content: space-between;
-            gap: 20px;
         }
 
         .product-container {
-            flex: 0.6;
-            background-color: #fff;
+            flex: 1;
+            background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             margin-bottom: 30px;
-            position: relative;
         }
 
         .product-header {
@@ -111,7 +109,7 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            background-color: #f5f5f5;
+            background-color: #000;
         }
 
         .product-info {
@@ -120,8 +118,8 @@
         }
 
         .product-info h3 {
-            color: #333;
-            font-size: 2em;
+            color: #fff;
+            font-size: 1.8em;
             margin: 0;
             margin-bottom: 10px;
         }
@@ -130,31 +128,30 @@
             color: #d4af37;
             font-size: 1.5em;
             margin-bottom: 10px;
-            font-weight: bold;
         }
 
         .product-info .description {
-            color: #333;
-            font-size: 1.1em;
+            color: #fff;
+            font-size: 1.2em;
             margin-bottom: 20px;
+            text-align: center;
             line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 15px 25px;
             background-color: #d4af37;
             color: #000;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: bold;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.2em;
         }
 
         .btn:hover {
             background-color: #b59427;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         .additional-info {
@@ -164,7 +161,7 @@
         .additional-info h4 {
             color: #d4af37;
             margin-bottom: 10px;
-            font-size: 1.2em;
+            font-size: 1.4em;
         }
 
         .additional-info div {
@@ -172,15 +169,28 @@
         }
 
         .additional-info .section {
-            background-color: #f9f9f9;
+            background-color: #444;
             padding: 15px;
             border-radius: 5px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .additional-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .additional-info ul li {
+            background-color: #555;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
         }
 
         footer {
             background-color: #333;
-            padding: 15px 0;
+            padding: 10px 0;
             color: #fff;
             text-align: center;
         }
@@ -195,12 +205,12 @@
         }
 
         .interactive-column {
-            flex: 0.4;
-            background-color: #f9f9f9;
+            flex: 0.3;
+            margin-left: 20px;
+            background-color: #444;
             border-radius: 10px;
             padding: 20px;
             height: fit-content;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .interactive-column .item {
@@ -216,13 +226,6 @@
             height: auto;
             border-radius: 10px;
             display: block;
-        }
-
-        .product-container .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -247,99 +250,80 @@
                 <div class="product-header">
                     <!-- Imagem principal -->
                     <div class="image-wrapper">
-                        <img src="images/tosa.jpg" alt="Kit Máquina Para Tosar Pet">
+                        <img src="images/tosa1.jpg" alt="Kit Máquina Para Tosar Pet">
                     </div>
                     <div class="product-info">
                         <h3>Kit Máquina Para Tosar Pet + Tesoura + Pente + Lixa</h3>
                         <div class="price">R$ 70,00</div>
+                        <a href="contact.html" class="btn">Entre em contato</a>
+                        <a href="checkout.html" class="btn">Comprar Agora</a>
                         <div class="description">
-                            <strong>🐾 Mantenha seu pet sempre bonito e bem cuidado com o nosso kit completo!</strong><br>
-                            <strong>✂️ Máquina de Tosa:</strong> Ideal para retoques e acabamentos. Feita com material resistente e silencioso. Lâminas de inox, cabo anatômico e resistente.<br>
-                            <strong>🌟 Características:</strong><br>
-                            - Motor potente para serviço rápido e eficiente.<br>
-                            - Design ergonômico para evitar fadiga.<br>
-                            - Simples de usar e limpar.<br>
-                            - Adequado para cães e gatos de pequeno e médio porte.<br>
-                            - Voltagem: 110v-220v (bivolt).<br>
-                            <strong>⚙️ Parâmetros técnicos:</strong><br>
-                            - Entrada: 110-240v - 50-60Hz<br>
-                            - Saída: DC 5v - 1200mAh<br>
-                            - Tensão nominal: 3.7v<br>
-                            - Tensão de trabalho: 3.0v<br>
-                            - Tempo de carregamento: 2-4 horas<br>
-                            <strong>🚀 Aproveite o preço especial de R$ 70,00!</strong>
+                            🐾 <strong>Kit Máquina Para Tosar Pet + Tesoura + Pente + Lixa Máquina Profissional Para Cachorro & Gato</strong> é a solução completa para manter seu pet sempre bonito e bem cuidado. O kit inclui uma máquina de tosa desenvolvida para retoques e acabamentos, ideal para cães e gatos de pequeno e médio porte. <br><br>
+                            ✂️ A <strong>máquina de tosa</strong> é feita com material resistente e extremamente silencioso, garantindo tranquilidade para o seu animal durante o processo. Equipado com lâminas de inox, cabo anatômico e resistente, o aparelho facilita o manuseio e proporciona a segurança necessária. <br><br>
+                            🌟 <strong>Características:</strong> <br>
+                            - Motor potente para serviço rápido e eficiente. <br>
+                            - Design ergonômico, evitando fadiga ou lesões musculares. <br>
+                            - Simples de usar e limpar, ideal para uso doméstico. <br>
+                            - Adequado para tosar cães e gatos de pequeno e médio porte. <br>
+                            - Voltagem: 110v-220v (bivolt). <br><br>
+                            ⚙️ <strong>Parâmetros técnicos:</strong> <br>
+                            - Entrada: 110-240v - 50-60Hz <br>
+                            - Saída: DC 5v - 1200mAh <br>
+                            - Tensão nominal: 3.7v <br>
+                            - Potência: 5W <br><br>
+                            📦 O kit inclui: <br>
+                            <ul>
+                                <li>1 x Barbeador (bateria embutida)</li>
+                                <li>1 x Cabo de carregamento USB</li>
+                                <li>1 x Escova de limpeza</li>
+                                <li>4 x Pentes de nível</li>
+                                <li>1 x Manual do usuário</li>
+                                <li>1 x Óleo lubrificante</li>
+                                <li>1 x Pente</li>
+                                <li>1 x Lixa de unha</li>
+                                <li>1 x Cortador de unhas</li>
+                            </ul>
+                            <strong>Cor:</strong> Rosa <br><br>
+                            ✨ <strong>Benefícios:</strong> Este kit é perfeito para quem deseja um corte preciso e de qualidade para seu pet. Com a máquina silenciosa e acessórios de alta qualidade, você poderá realizar a tosa de forma rápida e segura. <br><br>
+                            🎥 <strong>Vídeo do Produto:</strong> <br>
+                            <video controls width="100%">
+                                <source src="videos/kit-tosa.mp4" type="video/mp4">
+                                Seu navegador não suporta a tag de vídeo.
+                            </video>
                         </div>
-                        <div class="btn-container">
-                            <a href="contact.html" class="btn">Entre em contato</a>
-                            <a href="checkout.html" class="btn">Comprar Agora</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="additional-info">
-                    <div class="section">
-                        <h4>O Kit Inclui:</h4>
-                        <ul>
-                            <li>1 x Barbeador (bateria embutida)</li>
-                            <li>1 x Cabo de carregamento USB</li>
-                            <li>1 x Escova de limpeza</li>
-                            <li>4 x Pentes de nível</li>
-                            <li>1 x Manual do usuário</li>
-                            <li>1 x Óleo lubrificante</li>
-                            <li>1 x Pente</li>
-                            <li>1 x Lixa de unha</li>
-                            <li>1 x Cortador de unhas</li>
-                        </ul>
-                        <p><strong>Cor:</strong> Rosa</p>
-                    </div>
-                    <div class="section">
-                        <h4>Detalhes do Produto</h4>
-                        <p><strong>Inclui:</strong> Máquina para tosar, tesoura, pente, lixa<br>
-                           <strong>Ideal para:</strong> Cachorros e gatos<br>
-                           <strong>Cor:</strong> Preto<br></p>
-                    </div>
-                    <div class="section">
-                        <h4>Avaliações e Comentários</h4>
-                        <p>Média de avaliações: ⭐⭐⭐⭐⭐ (4.9/5)</p>
-                    </div>
-                    <div class="section">
-                        <h4>Frete e Disponibilidade</h4>
-                        <p>Frete grátis para todo o Brasil. Disponível em estoque.</p>
-                    </div>
-                    <div class="section">
-                        <h4>Informações do Vendedor</h4>
-                        <p>Vendedor: KN5 Shop | Localização: São Paulo, SP</p>
-                    </div>
-                    <div class="section">
-                        <h4>Perguntas e Respostas</h4>
-                        <p>Veja perguntas frequentes e respostas de outros compradores.</p>
-                    </div>
-                    <div class="section">
-                        <h4>Produtos Relacionados</h4>
-                        <p>Veja também nossos produtos semelhantes e complementares.</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Coluna Interativa -->
             <aside class="interactive-column">
-                <div class="item" onclick="changeMedia('images/tosa.jpg')">
-                    <img src="images/tosa.jpg" alt="Kit Máquina Para Tosar Pet">
+                <div class="item">
+                    <img src="images/tosa1.jpg" alt="Imagem do Kit 1">
                 </div>
-                <div class="item" onclick="changeMedia('images/tosa1.jpg')">
-                    <img src="images/tosa1.jpg" alt="Kit Máquina Para Tosar Pet">
-                </div>
-                <div class="item" onclick="changeMedia('images/tosa2.jpg')">
-                    <img src="images/tosa2.jpg" alt="Kit Máquina Para Tosar Pet">
+                <div class="item">
+                    <img src="images/tosa2.jpg" alt="Imagem do Kit 2">
                 </div>
             </aside>
         </section>
+
+        <!-- Depoimentos -->
+        <section class="testimonials">
+            <h4>O que nossos clientes dizem</h4>
+            <div class="testimonial">
+                <p>"Excelente kit! A máquina de tosa é silenciosa e muito eficiente. A qualidade dos acessórios é impecável. Recomendo a todos que querem cuidar bem do seu pet!"</p>
+                <strong>Joana M.</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Ótimo custo-benefício. A tosa ficou perfeita e o pet ficou super tranquilo. O vídeo explicativo ajudou muito a usar o produto corretamente."</p>
+                <strong>Lucas R.</strong>
+            </div>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 KN5 Shop | Todos os direitos reservados.</p>
+        <p>&copy; 2024 KN5 Shop - Todos os direitos reservados.</p>
+        <a href="privacy.html">Política de Privacidade</a> | <a href="terms.html">Termos de Serviço</a>
     </footer>
 </body>
-<script>
-    function changeMedia(imageSrc) {
-        document.querySelector('.product-header img').src = imageSrc;
-    }
-</script>
 </html>
 
