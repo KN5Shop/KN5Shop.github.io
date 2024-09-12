@@ -71,18 +71,17 @@ nav a:hover::after {
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 .product-container {
+    flex: 2;
     background-color: #333;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     margin-bottom: 30px;
-    width: 100%;
-    max-width: 900px;
+    position: relative;
 }
 
 .product-header {
@@ -96,7 +95,7 @@ nav a:hover::after {
 
 .product-header .image-wrapper {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin-bottom: 20px;
 }
 
@@ -198,15 +197,11 @@ footer a:hover {
 }
 
 .interactive-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    flex: 1;
+    margin-left: 20px;
     background-color: #444;
     border-radius: 10px;
     padding: 20px;
-    width: 100%;
-    max-width: 300px;
 }
 
 .interactive-column .item {
@@ -231,29 +226,28 @@ footer a:hover {
         width: 100%;
         top: 0;
         left: 0;
-        z-index: 1000; /* Garante que o cabeçalho esteja acima do conteúdo */
+        z-index: 1000;
     }
 
     .product-page {
         padding: 10px;
-        margin-top: 90px; /* Ajuste o espaço superior para evitar sobreposição com o cabeçalho */
+        margin-top: 90px;
+        display: block;
     }
 
-    .product-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza os botões */
+    .product-container {
+        width: 100%;
     }
 
     .product-info .btn {
-        margin-bottom: 20px; /* Adiciona distância entre os botões */
-        width: 100%; /* Garante que os botões ocupem toda a largura disponível */
-        max-width: 300px; /* Define uma largura máxima para os botões */
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 300px;
     }
 
     .interactive-column {
-        flex-direction: column;
-        max-width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
     }
 
     .interactive-column .item {
@@ -264,21 +258,6 @@ footer a:hover {
 
 /* Estilos para dispositivos menores, como smartphones */
 @media (max-width: 480px) {
-    .product-page {
-        padding: 5px;
-        margin-top: 100px; /* Ajuste o espaço superior para evitar sobreposição com o cabeçalho */
-    }
-
-    .product-info {
-        padding: 0 10px; /* Adiciona algum preenchimento lateral */
-    }
-
-    .product-info .btn {
-        margin-bottom: 15px; /* Ajusta a distância entre os botões para dispositivos menores */
-        width: 100%; /* Garante que os botões ocupem toda a largura disponível */
-        max-width: 280px; /* Ajusta a largura máxima para dispositivos menores */
-    }
-
     .product-info h3 {
         font-size: 1.1em;
     }
@@ -288,7 +267,7 @@ footer a:hover {
     }
 
     .product-info .description {
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
 
     .additional-info h4 {
@@ -297,6 +276,16 @@ footer a:hover {
 
     .interactive-column .item {
         margin-bottom: 10px;
+    }
+
+    .product-page {
+        padding: 5px;
+        margin-top: 100px;
+    }
+
+    .product-info .btn {
+        margin-bottom: 15px;
         width: 100%;
+        max-width: 280px;
     }
 }
